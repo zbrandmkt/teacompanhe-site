@@ -1,0 +1,10 @@
+# Configurações locais do Claude Code (não faz parte do site)
+.claude/
+
+# Documento interno de planejamento (dados da Zbrand/contrato) — não publicar
+briefing_teacompanhe.md
+
+# Pastas de fotos originais (nomes/exportação do WhatsApp) — já usamos as
+# cópias com nomes limpos em images/passeio-18-06/ e images/galeria-mosaico/
+images/Passeio 18_06/
+images/Passeios antigos sem datas definidas/

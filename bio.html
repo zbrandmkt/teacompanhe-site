@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEAcompanhe — Links</title>
+  <meta name="description" content="TEAcompanhe — passeios inclusivos em São Paulo. Confira o próximo passeio, fale no WhatsApp e siga a gente no Instagram."/>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:  #ff9800;
+      --orange2: #e68900;
+      --orange-lt: #ffb84d;
+      --navy:    #211774;
+      --navy2:   #2d2199;
+      --navy-lt: #4a3fb8;
+      --ink:     #1a1225;
+      --gray:    #6c7b92;
+      --white:   #ffffff;
+      --bg:      #f1edfa;
+      --clay-card:
+        18px 18px 38px rgba(120,110,165,0.26),
+        -10px -10px 28px rgba(255,255,255,0.9),
+        inset 4px 4px 9px rgba(255,255,255,0.75),
+        inset -7px -7px 16px rgba(120,110,165,0.12);
+      --clay-card-hover:
+        24px 24px 48px rgba(120,110,165,0.30),
+        -12px -12px 32px rgba(255,255,255,0.94),
+        inset 4px 4px 9px rgba(255,255,255,0.85),
+        inset -7px -7px 16px rgba(120,110,165,0.14);
+      --clay-orange:
+        10px 12px 24px rgba(230,137,0,0.42),
+        -6px -6px 16px rgba(255,214,150,0.35),
+        inset 4px 4px 9px rgba(255,206,130,0.85),
+        inset -7px -7px 14px rgba(188,102,0,0.45);
+      --clay-orange-hover:
+        14px 16px 32px rgba(230,137,0,0.5),
+        -6px -6px 16px rgba(255,214,150,0.42),
+        inset 4px 4px 9px rgba(255,206,130,0.92),
+        inset -7px -7px 14px rgba(188,102,0,0.5);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 15% 8%, #fff0dd 0%, transparent 42%),
+        radial-gradient(circle at 85% 14%, #e9e3ff 0%, transparent 46%),
+        radial-gradient(circle at 50% 95%, #ffe6cf 0%, transparent 42%),
+        var(--bg);
+      background-attachment: fixed;
+      color: var(--ink);
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    .heart-deco { position: absolute; pointer-events: none; z-index: 0; filter: blur(3px); }
+    .heart-1 { width: 260px; top: -50px; left: -70px; opacity: 0.14; transform: rotate(-14deg); }
+    .heart-2 { width: 220px; bottom: -30px; right: -70px; opacity: 0.12; transform: rotate(16deg); }
+
+    .bio-wrap { position: relative; z-index: 1; max-width: 440px; margin: 0 auto; padding: 52px 22px 60px; }
+
+    /* ── HEADER ── */
+    .bio-header { text-align: center; margin-bottom: 30px; }
+    .bio-logo-wrap {
+      position: relative; display: inline-flex; align-items: center; justify-content: center;
+      margin-bottom: 20px; padding: 0 18px 16px 0;
+      animation: floaty 6s ease-in-out infinite;
+    }
+    .bio-logo-wrap img {
+      width: 168px; height: auto; display: block;
+      filter: drop-shadow(0 16px 22px rgba(120,110,165,0.35));
+    }
+    .verified-badge {
+      position: absolute; bottom: 0; right: 0; width: 34px; height: 34px;
+      border-radius: 50%; background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-size: 1rem; font-weight: 900;
+      border: 3px solid var(--bg);
+      box-shadow: 5px 5px 12px rgba(230,137,0,0.4);
+    }
+    @keyframes floaty { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .bio-tagline { color: var(--gray); font-size: 0.94rem; line-height: 1.5; max-width: 320px; margin: 0 auto 18px; }
+    .bio-stats { display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .bio-stat-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: linear-gradient(145deg, #ffffff, #f4f0fc); color: var(--navy);
+      font-size: 0.76rem; font-weight: 800; padding: 8px 14px; border-radius: 100px;
+      box-shadow: 6px 6px 14px rgba(120,110,165,0.16), -4px -4px 10px rgba(255,255,255,0.9);
+    }
+
+    /* ── BOARDING PASS (próximo passeio) ── */
+    .boarding-pass {
+      display: block; text-decoration: none; color: inherit;
+      background: linear-gradient(145deg, #ffffff, #f4f0fc);
+      border-radius: 28px; overflow: hidden; margin: 30px 0 18px;
+      box-shadow: var(--clay-card);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .boarding-pass:hover { transform: translateY(-5px); box-shadow: var(--clay-card-hover); }
+    .boarding-pass:active { transform: translateY(-1px); }
+    .bp-top {
+      padding: 24px 26px 20px;
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange)); color: #fff;
+    }
+    .bp-eyebrow {
+      font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.09em;
+      opacity: 0.92; margin-bottom: 8px; display: flex; align-items: center; gap: 6px;
+    }
+    .bp-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; font-size: 1.5rem; line-height: 1.15; }
+    .bp-desc { font-size: 0.86rem; opacity: 0.92; margin-top: 8px; line-height: 1.5; }
+
+    .bp-seam { display: flex; align-items: center; padding: 0 8px; }
+    .bp-seam::before, .bp-seam::after {
+      content: ''; width: 22px; height: 22px; border-radius: 50%;
+      background: var(--bg); flex-shrink: 0; margin-top: -11px;
+    }
+    .bp-perf { flex: 1; border-top: 2px dashed rgba(120,110,165,0.35); margin-top: -1px; }
+
+    .bp-bottom {
+      padding: 18px 26px 24px; display: flex; align-items: center; justify-content: space-between; gap: 14px;
+    }
+    .bp-label { font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--gray); }
+    .bp-value { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.02rem; color: var(--ink); margin-top: 2px; }
+    .bp-cta { display: inline-flex; align-items: center; gap: 6px; font-weight: 800; color: var(--orange2); font-size: 0.92rem; white-space: nowrap; }
+    .bp-cta svg { transition: transform 0.25s; }
+    .boarding-pass:hover .bp-cta svg { transform: translateX(4px); }
+
+    /* ── WHATSAPP CTA ── */
+    .btn-wpp-bio {
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      background: linear-gradient(145deg, #2eea72, #25D366); color: #fff;
+      text-decoration: none; font-weight: 800; font-size: 1.02rem;
+      padding: 18px; border-radius: 20px; margin-bottom: 18px;
+      box-shadow:
+        10px 12px 24px rgba(29,168,81,0.4),
+        inset 4px 4px 9px rgba(120,230,160,0.6),
+        inset -6px -6px 12px rgba(20,120,58,0.5);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
+    }
+    .btn-wpp-bio:hover { transform: translateY(-3px) scale(1.015); }
+    .btn-wpp-bio:active { transform: translateY(0) scale(0.99); }
+
+    /* ── GRID DE LINKS ── */
+    .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 4px; }
+    .bio-tile {
+      display: flex; flex-direction: column; align-items: center; gap: 10px;
+      text-decoration: none; color: var(--ink);
+      background: linear-gradient(145deg, #ffffff, #f4f0fc);
+      border-radius: 22px; padding: 22px 12px; text-align: center;
+      font-weight: 800; font-size: 0.85rem; line-height: 1.3;
+      box-shadow: var(--clay-card);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .bio-tile:hover { transform: translateY(-4px); box-shadow: var(--clay-card-hover); }
+    .tile-icon {
+      width: 50px; height: 50px; border-radius: 16px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.3rem; color: #fff;
+    }
+    .tile-icon.ig    { background: linear-gradient(145deg, #ffb84d, #ff6f5e 50%, #b23bd1); }
+    .tile-icon.site  { background: linear-gradient(145deg, var(--navy-lt), var(--navy)); }
+    .tile-icon.album { background: linear-gradient(145deg, var(--orange-lt), var(--orange)); }
+    .tile-icon.priv  { background: linear-gradient(145deg, #8b93a8, #626c82); }
+
+    footer { text-align: center; margin-top: 34px; }
+    footer p { color: var(--gray); font-size: 0.78rem; }
+    footer .foot-heart { font-size: 0.9rem; }
+
+    @media (max-width: 380px) {
+      .bio-wrap { padding: 40px 16px 48px; }
+      .bp-title { font-size: 1.3rem; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; animation: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+<img class="heart-deco heart-1" src="images/Icone Coração laranja.png" alt=""/>
+<img class="heart-deco heart-2" src="images/Icone Coração laranja.png" alt=""/>
+
+<div class="bio-wrap">
+
+  <header class="bio-header">
+    <div class="bio-logo-wrap">
+      <img src="images/logo principal.png" alt="TEAcompanhe"/>
+      <span class="verified-badge">✓</span>
+    </div>
+    <p class="bio-tagline">Passeios inclusivos em São Paulo para jovens neurodivergentes 🧡</p>
+    <div class="bio-stats">
+      <span class="bio-stat-pill">👥 Grupos de até 10</span>
+      <span class="bio-stat-pill">🧠 Equipe especializada</span>
+    </div>
+  </header>
+
+  <!-- CARTÃO "PRÓXIMO PASSEIO" (estilo passagem de embarque) -->
+  <a class="boarding-pass" id="bio-boarding" href="proximo-passeio.html">
+    <div class="bp-top">
+      <div class="bp-eyebrow">🗓️ <span id="bio-eyebrow">Próximo passeio</span></div>
+      <div class="bp-title" id="bio-titulo">Passeio</div>
+      <div class="bp-desc" id="bio-teaser"></div>
+    </div>
+    <div class="bp-seam"><div class="bp-perf"></div></div>
+    <div class="bp-bottom">
+      <div>
+        <div class="bp-label">Data</div>
+        <div class="bp-value" id="bio-data">—</div>
+      </div>
+      <span class="bp-cta">
+        Ver detalhes
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <!-- WHATSAPP -->
+  <a class="btn-wpp-bio" id="bio-wpp" href="#" target="_blank" rel="noopener">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+    Falar no WhatsApp
+  </a>
+
+  <!-- GRADE DE LINKS -->
+  <div class="bio-grid">
+    <a class="bio-tile" href="https://instagram.com/tea.companhe" target="_blank" rel="noopener">
+      <span class="tile-icon ig">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </span>
+      Instagram
+    </a>
+    <a class="bio-tile" href="teacompanhe.html">
+      <span class="tile-icon site">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 3.8 5.7 3.8 9s-1.3 6.5-3.8 9c-2.5-2.5-3.8-5.7-3.8-9s1.3-6.5 3.8-9z"/></svg>
+      </span>
+      Site oficial
+    </a>
+    <a class="bio-tile" href="teacompanhe.html#passados">
+      <span class="tile-icon album">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="9.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 16l-5.5-5.5a2 2 0 0 0-2.8 0L3 20"/></svg>
+      </span>
+      Álbum de passeios
+    </a>
+    <a class="bio-tile" href="privacidade.html">
+      <span class="tile-icon priv">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6l7-3z"/></svg>
+      </span>
+      Privacidade
+    </a>
+  </div>
+
+  <footer>
+    <p>© <span id="bio-ano">2026</span> TEAcompanhe · São Paulo, SP <span class="foot-heart">🧡</span></p>
+  </footer>
+
+</div>
+
+<!-- ==========================================================================
+     ⬇️ EDITE AQUI TODO MÊS: dados do card "Próximo passeio" e do WhatsApp ⬇️
+========================================================================== -->
+<script>
+  const BIO = {
+    mes:    "Julho",
+    data:   "18 de Julho",
+    teaser: "McDonald's, Parque Villa-Lobos e teatro — um dia completo pela cidade.",
+    link:   "proximo-passeio.html",
+    whatsapp: "5511962544967"
+  };
+
+  (function () {
+    const $ = (id) => document.getElementById(id);
+    $('bio-titulo').textContent = 'Passeio de ' + BIO.mes;
+    $('bio-teaser').textContent = BIO.teaser;
+    $('bio-data').textContent = BIO.data;
+    $('bio-boarding').href = BIO.link;
+    $('bio-ano').textContent = new Date().getFullYear();
+
+    const msg = encodeURIComponent('Olá! Vim pelo Instagram e quero saber mais sobre o TEAcompanhe!');
+    $('bio-wpp').href = 'https://wa.me/' + BIO.whatsapp + '?text=' + msg;
+  })();
+</script>
+
+</body>
+</html>
