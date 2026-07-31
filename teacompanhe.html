@@ -1136,17 +1136,19 @@
       return;
     }
 
+    const whatsappLimpo = whatsapp.replace(/\D/g, '');
+
     const btn = document.getElementById('btnSubmit');
     btn.disabled = true;
     btn.textContent = 'Enviando...';
 
-    const WEBHOOK_URL = 'PLACEHOLDER_MAKE_WEBHOOK_URL';
+    const WEBHOOK_URL = 'https://hook.us2.make.com/3u4ldj9haa7e1x79vz9sdoi5fl86inwu';
 
     try {
       await fetch(WEBHOOK_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ nome, whatsapp, email, filho, origem: 'site_teacompanhe', data: new Date().toISOString() })
+        body: JSON.stringify({ nome, whatsapp, whatsappLimpo, email, filho, origem: 'site_teacompanhe', data: new Date().toISOString() })
       });
       document.getElementById('formContent').style.display = 'none';
       document.getElementById('formSuccess').style.display = 'block';
