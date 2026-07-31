@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Próximo passeio — TEAcompanhe</title>
+  <title>Próximo Passeio — TEAcompanhe</title>
   <meta name="description" content="Detalhes completos do próximo passeio inclusivo do TEAcompanhe: roteiro, horários, ponto de encontro e como confirmar a participação."/>
+  <link rel="canonical" href="https://www.teacompanhe.com.br/proximo-passeio/"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="TEAcompanhe"/>
+  <meta property="og:url" content="https://www.teacompanhe.com.br/proximo-passeio/"/>
+  <meta property="og:title" content="Próximo Passeio — TEAcompanhe"/>
+  <meta property="og:description" content="Detalhes completos do próximo passeio inclusivo do TEAcompanhe: roteiro, horários, ponto de encontro e como confirmar a participação."/>
+  <meta property="og:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="Próximo Passeio — TEAcompanhe"/>
+  <meta name="twitter:description" content="Roteiro, horários e como confirmar participação no próximo passeio inclusivo do TEAcompanhe."/>
+  <meta name="twitter:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
+
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -356,9 +370,9 @@
 <body>
 
 <nav>
-  <a href="teacompanhe.html" class="logo" aria-label="TEAcompanhe"><img src="images/logo principal.png" alt="TEAcompanhe"/></a>
+  <a href="/" class="logo" aria-label="TEAcompanhe"><img src="/images/logo principal.png" alt="TEAcompanhe"/></a>
   <div class="nav-actions">
-    <a href="teacompanhe.html" class="btn-ghost">← Voltar ao site</a>
+    <a href="/" class="btn-ghost">← Voltar ao site</a>
     <a href="#confirmar" class="btn-orange">Quero uma vaga</a>
   </div>
 </nav>
@@ -437,7 +451,7 @@
     </div>
     <div class="founders-block">
       <div class="founders-photo">
-        <img src="images/fernanda e juliana.png" alt="Fernanda, psicopedagoga, e Juliana, psicóloga — fundadoras do TEAcompanhe"/>
+        <img src="/images/fernanda e juliana.png" alt="Fernanda, psicopedagoga, e Juliana, psicóloga — fundadoras do TEAcompanhe"/>
       </div>
       <div>
         <div class="founder-item">
@@ -486,8 +500,8 @@
 
 <footer>
   © <span id="p-ano-footer">2026</span> TEAcompanhe · São Paulo, SP ·
-  <a href="teacompanhe.html">Voltar ao site</a> ·
-  <a href="privacidade.html">Privacidade</a> ·
+  <a href="/">Voltar ao site</a> ·
+  <a href="/privacidade/">Privacidade</a> ·
   <a href="https://instagram.com/tea.companhe" target="_blank">@tea.companhe</a>
 </footer>
 
@@ -558,7 +572,7 @@
   /* --------------------------------------------------------------------------
      PERGUNTAS FREQUENTES (conteúdo estável — edite só quando precisar).
      Para adicionar uma pergunta, copie um bloco { q: "...", a: "..." }.
-     A resposta ("a") aceita links em HTML, ex.: <a href='privacidade.html'>...</a>
+     A resposta ("a") aceita links em HTML, ex.: <a href='/privacidade/'>...</a>
   -------------------------------------------------------------------------- */
   const FAQ = [
     { q: "Para quem são os passeios?",
@@ -566,7 +580,7 @@
     { q: "Como é a segurança durante o dia?",
       a: "O grupo tem até 10 participantes e é acompanhado por uma equipe de 5 a 8 profissionais especializados o dia inteiro, além do mesmo motorista de confiança de sempre. O roteiro é planejado nos mínimos detalhes." },
     { q: "Preciso assinar algum termo?",
-      a: "Sim. Antes do passeio, o responsável assina um termo de responsabilidade e de autorização de uso de imagem. Quem não autoriza a imagem participa normalmente, apenas não tem fotos publicadas. Saiba mais na nossa <a href='privacidade.html'>Política de Privacidade</a>." },
+      a: "Sim. Antes do passeio, o responsável assina um termo de responsabilidade e de autorização de uso de imagem. Quem não autoriza a imagem participa normalmente, apenas não tem fotos publicadas. Saiba mais na nossa <a href='/privacidade/'>Política de Privacidade</a>." },
     { q: "Como confirmo a participação?",
       a: "Pelo WhatsApp. As vagas são limitadas, então confirme até a data indicada no topo desta página — é só tocar em “Confirmar no WhatsApp”." },
     { q: "Meu filho tem necessidades específicas (alimentação, medicação, apoio individual). Como vocês lidam?",
@@ -580,8 +594,8 @@
 
   /* --------------------------------------------------------------------------
      GALERIA DO ÚLTIMO PASSEIO — adicione as fotos aqui.
-     1) Coloque os arquivos das fotos na pasta "images/".
-     2) Liste cada foto em "fotos" como { src: "images/nome-do-arquivo.jpg", alt: "descrição" }.
+     1) Coloque os arquivos das fotos na pasta "images/" (raiz do site).
+     2) Liste cada foto em "fotos" como { src: "/images/nome-do-arquivo.jpg", alt: "descrição" }.
      Enquanto a lista estiver vazia, a seção mostra molduras de exemplo.
   -------------------------------------------------------------------------- */
   const GALERIA = {
@@ -590,7 +604,7 @@
 
     // MODO FÁCIL: aponte a pasta e diga QUANTAS fotos tem (nomeadas foto-01.jpg, foto-02.jpg, ...).
     // Para atualizar todo mês: troque as fotos na pasta e ajuste "quantidade".
-    pasta: "images/passeio-18-06/",
+    pasta: "/images/passeio-18-06/",
     quantidade: 15,
 
     // (opcional) OU liste manualmente aqui, se quiser caminhos/legendas específicos.
@@ -701,6 +715,36 @@
     const msg = encodeURIComponent(`Olá! Quero confirmar a participação no passeio de ${P.mes} (${P.data}).`);
     const href = `https://wa.me/${P.whatsapp}?text=${msg}`;
     document.querySelectorAll('.js-wpp').forEach(a => { a.href = href; a.target = '_blank'; a.rel = 'noopener'; });
+
+    // Dados estruturados (SEO/GEO) — gerados a partir de PASSEIO e FAQ, sempre em dia com a edição mensal
+    const ldScripts = [];
+    if (typeof FAQ !== 'undefined' && FAQ.length) {
+      ldScripts.push({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: FAQ.map(f => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: { '@type': 'Answer', text: f.a.replace(/<[^>]+>/g, '') }
+        }))
+      });
+    }
+    ldScripts.push({
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      name: (P.titulo && P.titulo.trim()) ? P.titulo : ('Passeio de ' + P.mes),
+      description: P.chamada,
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      eventStatus: 'https://schema.org/EventScheduled',
+      location: { '@type': 'Place', name: 'Ponto de encontro (São Paulo, SP)', address: { '@type': 'PostalAddress', addressLocality: 'São Paulo', addressRegion: 'SP', addressCountry: 'BR' } },
+      organizer: { '@type': 'Organization', name: 'TEAcompanhe', url: 'https://www.teacompanhe.com.br/' }
+    });
+    ldScripts.forEach(obj => {
+      const s = document.createElement('script');
+      s.type = 'application/ld+json';
+      s.textContent = JSON.stringify(obj);
+      document.head.appendChild(s);
+    });
   })();
 </script>
 

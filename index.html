@@ -2,11 +2,1199 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8"/>
-  <meta http-equiv="refresh" content="0; url=teacompanhe.html"/>
-  <link rel="canonical" href="teacompanhe.html"/>
-  <title>TEAcompanhe</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TEAcompanhe — Passeios Inclusivos em São Paulo para Jovens Neurodivergentes</title>
+  <meta name="description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim. Grupos pequenos, equipe técnica dedicada e roteiro pensado nos mínimos detalhes."/>
+  <link rel="canonical" href="https://www.teacompanhe.com.br/"/>
+
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="TEAcompanhe"/>
+  <meta property="og:url" content="https://www.teacompanhe.com.br/"/>
+  <meta property="og:title" content="TEAcompanhe — Passeios Inclusivos em São Paulo para Jovens Neurodivergentes"/>
+  <meta property="og:description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim. Grupos pequenos, equipe técnica dedicada e roteiro pensado nos mínimos detalhes."/>
+  <meta property="og:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
+  <meta property="og:locale" content="pt_BR"/>
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="TEAcompanhe — Passeios Inclusivos em São Paulo"/>
+  <meta name="twitter:description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim."/>
+  <meta name="twitter:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "TEAcompanhe",
+    "url": "https://www.teacompanhe.com.br/",
+    "logo": "https://www.teacompanhe.com.br/images/logo%20principal.png",
+    "image": "https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png",
+    "description": "Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado de psicóloga e psicopedagoga.",
+    "areaServed": { "@type": "City", "name": "São Paulo" },
+    "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+55-11-96254-4967",
+      "contactType": "customer service",
+      "areaServed": "BR",
+      "availableLanguage": "Portuguese"
+    },
+    "sameAs": ["https://instagram.com/tea.companhe"]
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --orange:  #ff9800;
+      --orange2: #e68900;
+      --orange-lt: #ffb84d;
+      --orange3: #fff3e0;
+      --navy:    #211774;
+      --navy2:   #2d2199;
+      --navy-lt: #4a3fb8;
+      --ink:     #1a1225;
+      --gray:    #6c7b92;
+      --gray2:   #f0f2f5;
+      --white:   #ffffff;
+      --bg:      #f1edfa;
+
+      /* ── CLAYMORPHISM SHADOW SYSTEM ──
+         cada sombra = drop suave externo + brilho externo claro
+         + realce interno (topo) + sombra interna (base) = aspecto "argila inflada" */
+      --clay-card:
+        20px 20px 44px rgba(120,110,165,0.26),
+        -12px -12px 32px rgba(255,255,255,0.92),
+        inset 4px 4px 9px rgba(255,255,255,0.75),
+        inset -7px -7px 16px rgba(120,110,165,0.12);
+      --clay-card-hover:
+        28px 28px 58px rgba(120,110,165,0.30),
+        -14px -14px 36px rgba(255,255,255,0.96),
+        inset 4px 4px 9px rgba(255,255,255,0.85),
+        inset -7px -7px 16px rgba(120,110,165,0.14);
+      --clay-orange:
+        12px 14px 28px rgba(230,137,0,0.42),
+        -7px -7px 18px rgba(255,214,150,0.35),
+        inset 4px 4px 9px rgba(255,206,130,0.85),
+        inset -7px -7px 14px rgba(188,102,0,0.45);
+      --clay-orange-hover:
+        16px 18px 38px rgba(230,137,0,0.5),
+        -7px -7px 18px rgba(255,214,150,0.42),
+        inset 4px 4px 9px rgba(255,206,130,0.92),
+        inset -7px -7px 14px rgba(188,102,0,0.5);
+      --clay-navy:
+        12px 14px 28px rgba(33,23,116,0.4),
+        -7px -7px 18px rgba(122,112,220,0.22),
+        inset 4px 4px 9px rgba(122,112,220,0.45),
+        inset -7px -7px 14px rgba(14,9,66,0.55);
+      --clay-navy-hover:
+        16px 18px 38px rgba(33,23,116,0.46),
+        -7px -7px 18px rgba(122,112,220,0.28),
+        inset 4px 4px 9px rgba(122,112,220,0.5),
+        inset -7px -7px 14px rgba(14,9,66,0.6);
+      --clay-inset:
+        inset 7px 7px 14px rgba(120,110,165,0.18),
+        inset -7px -7px 14px rgba(255,255,255,0.9);
+      /* sombra suave para fotos (arredondamento + sombra direto na imagem, sem moldura) */
+      --clay-photo:
+        16px 16px 34px rgba(120,110,165,0.28),
+        -8px -8px 22px rgba(255,255,255,0.65);
+      --clay-photo-hover:
+        22px 22px 46px rgba(120,110,165,0.34),
+        -9px -9px 26px rgba(255,255,255,0.7);
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background:
+        radial-gradient(circle at 12% 12%, #fff0dd 0%, transparent 42%),
+        radial-gradient(circle at 88% 16%, #e9e3ff 0%, transparent 44%),
+        radial-gradient(circle at 55% 92%, #ffe6cf 0%, transparent 40%),
+        var(--bg);
+      background-attachment: fixed;
+      color: var(--ink);
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+      z-index: 100; width: calc(100% - 40px); max-width: 1240px;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px 16px 12px 24px;
+      background: rgba(255,255,255,0.72);
+      backdrop-filter: blur(20px) saturate(140%);
+      border-radius: 24px;
+      box-shadow:
+        14px 14px 34px rgba(120,110,165,0.20),
+        -8px -8px 22px rgba(255,255,255,0.85),
+        inset 2px 2px 5px rgba(255,255,255,0.7);
+    }
+    .nav-logo img { height: 56px; width: auto; display: block; }
+    .nav-links { display: flex; gap: 26px; align-items: center; }
+    .nav-links a {
+      text-decoration: none; font-size: 0.88rem; font-weight: 600;
+      color: var(--gray); transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--navy); }
+    .btn-nav {
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange)) !important;
+      color: var(--white) !important;
+      padding: 11px 22px; border-radius: 16px;
+      font-weight: 800 !important; font-size: 0.86rem !important;
+      box-shadow: var(--clay-orange);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s !important;
+      border: none !important;
+    }
+    .btn-nav:hover {
+      transform: translateY(-3px) scale(1.02) !important;
+      box-shadow: var(--clay-orange-hover) !important;
+      color: var(--white) !important;
+    }
+    .btn-nav:active { transform: translateY(0) scale(0.98) !important; box-shadow: var(--clay-inset) !important; }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      background: transparent;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 140px 64px 80px;
+      gap: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-deco {
+      position: absolute; border-radius: 50%;
+      pointer-events: none; filter: blur(20px);
+    }
+    .hero-deco.d1 {
+      width: 460px; height: 460px;
+      background: radial-gradient(circle at 30% 30%, #ffd9a3, #ffb84d55);
+      top: -120px; right: -100px; opacity: 0.55;
+    }
+    .hero-deco.d2 {
+      width: 240px; height: 240px;
+      background: radial-gradient(circle at 30% 30%, #cdc4ff, #a99bff44);
+      bottom: 40px; left: 38%; opacity: 0.5;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(145deg, #fff, #fdeede);
+      color: var(--orange2); font-size: 0.78rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 9px 20px; border-radius: 100px;
+      margin-bottom: 24px;
+      box-shadow:
+        7px 7px 16px rgba(230,137,0,0.16),
+        -5px -5px 14px rgba(255,255,255,0.9),
+        inset 2px 2px 4px rgba(255,255,255,0.8),
+        inset -3px -3px 7px rgba(230,137,0,0.10);
+    }
+
+    h1 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(2.6rem, 4.5vw, 3.8rem);
+      font-weight: 900; line-height: 1.08;
+      letter-spacing: -2px; color: var(--ink);
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: normal; color: var(--orange); }
+
+    .hero-sub {
+      font-size: 1.05rem; line-height: 1.75;
+      color: var(--gray); max-width: 460px; margin-bottom: 40px;
+    }
+
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      color: var(--white);
+      text-decoration: none; font-weight: 800; font-size: 1rem;
+      padding: 17px 34px; border-radius: 20px;
+      border: none;
+      box-shadow: var(--clay-orange);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--clay-orange-hover);
+    }
+    .btn-primary:active { transform: translateY(0) scale(0.98); box-shadow: var(--clay-inset); }
+
+    .btn-secondary {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(145deg, #ffffff, #eee9fb);
+      color: var(--navy);
+      text-decoration: none; font-weight: 700; font-size: 1rem;
+      padding: 17px 30px; border-radius: 20px;
+      border: none;
+      box-shadow: var(--clay-card);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-secondary:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: var(--clay-card-hover);
+    }
+    .btn-secondary:active { transform: translateY(0) scale(0.98); box-shadow: var(--clay-inset); }
+
+    /* Hero visual side */
+    .hero-visual {
+      display: flex; justify-content: center; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-logo-wrap {
+      background: linear-gradient(145deg, #ffffff, #f3eeff);
+      border: none;
+      border-radius: 40px;
+      padding: 52px;
+      box-shadow: var(--clay-card);
+      animation: floaty 6s ease-in-out infinite;
+    }
+    .hero-logo-wrap img { width: 300px; height: auto; display: block; }
+
+    @keyframes floaty {
+      0%,100% { transform: translateY(0); }
+      50%     { transform: translateY(-14px); }
+    }
+
+    .hero-float-card {
+      position: absolute;
+      background: linear-gradient(145deg, #ffffff, #f4f0fc);
+      border-radius: 20px;
+      padding: 13px 18px;
+      font-size: 0.82rem; font-weight: 700;
+      display: flex; align-items: center; gap: 8px;
+      border: none;
+    }
+    .hero-float-card.c1 {
+      top: 6px; left: -20px; color: var(--orange2);
+      box-shadow:
+        10px 10px 22px rgba(230,137,0,0.18),
+        -6px -6px 16px rgba(255,255,255,0.9),
+        inset 2px 2px 4px rgba(255,255,255,0.8);
+      animation: floaty 5s ease-in-out infinite;
+    }
+    .hero-float-card.c2 {
+      bottom: 14px; right: -10px; color: var(--navy);
+      box-shadow:
+        10px 10px 22px rgba(33,23,116,0.16),
+        -6px -6px 16px rgba(255,255,255,0.9),
+        inset 2px 2px 4px rgba(255,255,255,0.8);
+      animation: floaty 6.5s ease-in-out infinite;
+    }
+    .hero-float-card.c3 {
+      bottom: 100px; left: -30px; color: #4a5568;
+      box-shadow:
+        10px 10px 22px rgba(74,85,104,0.16),
+        -6px -6px 16px rgba(255,255,255,0.9),
+        inset 2px 2px 4px rgba(255,255,255,0.8);
+      animation: floaty 5.8s ease-in-out infinite;
+    }
+
+    /* ── STATS ── */
+    .stats {
+      max-width: 1100px; margin: 8px auto; border-radius: 32px;
+      background: linear-gradient(145deg, #2a1f8a, var(--navy));
+      padding: 40px 48px;
+      display: flex; justify-content: center; gap: 64px; flex-wrap: wrap;
+      box-shadow:
+        18px 18px 40px rgba(33,23,116,0.32),
+        -10px -10px 28px rgba(255,255,255,0.55),
+        inset 5px 5px 12px rgba(122,112,220,0.4),
+        inset -8px -8px 18px rgba(12,7,58,0.55);
+    }
+    .stat { text-align: center; }
+    .stat-num {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 2.3rem; font-weight: 900; color: var(--orange-lt);
+      text-shadow: 0 2px 8px rgba(255,152,0,0.35);
+    }
+    .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.65); margin-top: 4px; }
+
+    /* ── GENERIC SECTION ── */
+    section { padding: 96px 48px; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .eyebrow {
+      display: inline-block; font-size: 0.75rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--orange); margin-bottom: 12px;
+    }
+    h2 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: clamp(1.9rem, 3vw, 2.8rem);
+      font-weight: 900; letter-spacing: -1px; line-height: 1.12;
+      color: var(--ink); margin-bottom: 16px;
+    }
+    .section-lead {
+      font-size: 1rem; line-height: 1.75; color: var(--gray);
+    }
+
+    /* ── SOBRE ── */
+    .sobre { background: transparent; }
+    .sobre-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: start;
+    }
+    .sobre-quote {
+      background: linear-gradient(145deg, #2a1f8a, var(--navy));
+      border: none;
+      border-radius: 32px; padding: 40px;
+      box-shadow:
+        18px 18px 40px rgba(33,23,116,0.30),
+        -10px -10px 28px rgba(255,255,255,0.5),
+        inset 5px 5px 12px rgba(122,112,220,0.4),
+        inset -8px -8px 18px rgba(12,7,58,0.5);
+      position: relative;
+    }
+    .sobre-quote::before {
+      content: '❝';
+      position: absolute; top: 14px; right: 22px;
+      font-size: 3.5rem; color: var(--orange); opacity: 0.3; font-family: serif;
+    }
+    .sobre-quote p {
+      font-size: 1.05rem; line-height: 1.75;
+      color: rgba(255,255,255,0.9); font-style: italic; margin-bottom: 20px;
+    }
+    .founders { display: flex; gap: 10px; flex-wrap: wrap; }
+    .founder-chip {
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      color: var(--white);
+      font-size: 0.8rem; font-weight: 800;
+      padding: 8px 18px; border-radius: 100px;
+      border: none;
+      box-shadow:
+        6px 6px 14px rgba(230,137,0,0.4),
+        inset 2px 2px 4px rgba(255,206,130,0.8),
+        inset -3px -3px 6px rgba(188,102,0,0.4);
+    }
+
+    .valores-grid {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 16px; margin-top: 36px;
+    }
+    .valor-card {
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      border: none;
+      border-radius: 22px; padding: 22px 12px;
+      text-align: center;
+      box-shadow: var(--clay-card);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .valor-card:hover {
+      box-shadow: var(--clay-card-hover);
+      transform: translateY(-5px);
+    }
+    .valor-icon {
+      font-size: 1.6rem; margin-bottom: 10px;
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 52px; height: 52px; border-radius: 16px;
+      background: linear-gradient(145deg, #fff5e8, #ffe8cc);
+      box-shadow:
+        inset 3px 3px 6px rgba(230,137,0,0.12),
+        inset -3px -3px 6px rgba(255,255,255,0.9);
+    }
+    .valor-name { font-size: 0.82rem; font-weight: 800; color: var(--ink); }
+
+    /* ── COMO FUNCIONA ── */
+    .como { background: transparent; }
+    .steps {
+      display: grid; grid-template-columns: repeat(4,1fr);
+      gap: 24px; margin-top: 56px;
+    }
+    .step {
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      border: none;
+      border-radius: 26px; padding: 30px 22px;
+      position: relative;
+      box-shadow: var(--clay-card);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .step:hover { transform: translateY(-6px); box-shadow: var(--clay-card-hover); }
+    .step-num {
+      width: 56px; height: 56px; border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.35rem; font-weight: 900; color: var(--white);
+      margin-bottom: 18px;
+    }
+    .step:nth-child(odd) .step-num {
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      box-shadow:
+        7px 7px 16px rgba(230,137,0,0.4),
+        inset 2px 2px 5px rgba(255,206,130,0.85),
+        inset -4px -4px 8px rgba(188,102,0,0.45);
+    }
+    .step:nth-child(even) .step-num {
+      background: linear-gradient(145deg, var(--navy-lt), var(--navy));
+      box-shadow:
+        7px 7px 16px rgba(33,23,116,0.4),
+        inset 2px 2px 5px rgba(122,112,220,0.5),
+        inset -4px -4px 8px rgba(14,9,66,0.5);
+    }
+    .step-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; font-weight: 800; color: var(--ink); margin-bottom: 8px;
+    }
+    .step-text { font-size: 0.86rem; line-height: 1.65; color: var(--gray); }
+    .step-num.emoji { font-size: 1.7rem; }
+    .como-lead { max-width: 760px; margin-top: 16px; }
+    .como-note {
+      margin-top: 34px; text-align: center;
+      font-size: 1.02rem; font-weight: 700; color: var(--navy);
+    }
+
+    /* ── TICKETS ── */
+    .roteiro { background: transparent; }
+    .tickets-header {
+      display: flex; justify-content: space-between; align-items: flex-end;
+      margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
+    }
+    .mes-badge {
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      color: var(--white);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 800;
+      padding: 10px 24px; border-radius: 100px;
+      border: none;
+      box-shadow:
+        8px 8px 18px rgba(230,137,0,0.4),
+        inset 2px 2px 5px rgba(255,206,130,0.85),
+        inset -4px -4px 8px rgba(188,102,0,0.45);
+    }
+    .roteiro-intro { max-width: 780px; margin-bottom: 22px; }
+    .roteiro-intro strong { color: var(--navy); font-weight: 800; }
+    .roteiro-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 42px; }
+    .rchip {
+      display: inline-flex; align-items: center; gap: 7px;
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      color: var(--navy); font-size: 0.85rem; font-weight: 800;
+      padding: 11px 20px; border-radius: 100px;
+      box-shadow:
+        7px 7px 16px rgba(120,110,165,0.18),
+        -5px -5px 14px rgba(255,255,255,0.9),
+        inset 2px 2px 4px rgba(255,255,255,0.8),
+        inset -3px -3px 7px rgba(120,110,165,0.10);
+    }
+    .tickets-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+      gap: 28px;
+    }
+    .ticket {
+      background: linear-gradient(145deg, #ffffff, #f2edfb);
+      border-radius: 28px; overflow: hidden;
+      border: none;
+      box-shadow: var(--clay-card);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .ticket:hover { transform: translateY(-6px); box-shadow: var(--clay-card-hover); }
+
+    .ticket-head {
+      padding: 12px 22px; font-size: 0.7rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
+      box-shadow: inset 0 -6px 12px rgba(0,0,0,0.10);
+    }
+    .ticket.t-orange .ticket-head { background: linear-gradient(145deg, var(--orange-lt), var(--orange)); }
+    .ticket.t-navy   .ticket-head { background: linear-gradient(145deg, var(--navy-lt), var(--navy)); }
+    .ticket.t-gray   .ticket-head { background: linear-gradient(145deg, #8593a8, #6c7b92); }
+    .ticket-body { padding: 20px 20px 0; }
+    .ticket-name {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.25rem; font-weight: 900; color: var(--ink); margin-bottom: 8px;
+    }
+    .ticket-desc { font-size: 0.875rem; line-height: 1.6; color: var(--gray); }
+    .ticket-divider {
+      display: flex; align-items: center; padding: 12px 8px; margin-top: 14px;
+    }
+    .ticket-divider::before, .ticket-divider::after {
+      content: ''; width: 20px; height: 20px; border-radius: 50%;
+      background: var(--bg); border: none; flex-shrink: 0;
+      box-shadow: inset 3px 3px 6px rgba(120,110,165,0.28), inset -2px -2px 4px rgba(255,255,255,0.9);
+    }
+    .ticket-perf { flex: 1; border-top: 2px dashed #d9d2ec; }
+    .ticket-foot {
+      padding: 0 20px 20px; display: flex; gap: 20px; flex-wrap: wrap;
+    }
+    .ti-label {
+      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--gray); margin-bottom: 2px;
+    }
+    .ti-val { font-size: 0.88rem; font-weight: 800; color: var(--ink); }
+
+    /* ── LINHA DO TEMPO (próximo passeio) ── */
+    .timeline { position: relative; max-width: 680px; margin: 12px auto 0; }
+    .timeline::before {
+      content: ''; position: absolute; left: 31px; top: 26px; bottom: 26px;
+      width: 5px; border-radius: 5px;
+      background: linear-gradient(var(--orange), var(--navy)); opacity: 0.35;
+    }
+    .tl-item { position: relative; display: flex; gap: 22px; align-items: flex-start; padding: 12px 0; }
+    .tl-node {
+      width: 64px; height: 64px; flex-shrink: 0; border-radius: 20px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      box-shadow: var(--clay-card);
+      position: relative; z-index: 1;
+    }
+    .tl-item:first-child .tl-node { background: linear-gradient(145deg, #fff6ea, #ffe6c9); }
+    .tl-item:last-child  .tl-node { background: linear-gradient(145deg, #eae6fb, #ded7f6); }
+    .tl-content { padding-top: 7px; }
+    .tl-time {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900;
+      font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--orange2);
+    }
+    .tl-title {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+      font-size: 1.15rem; color: var(--ink); margin: 3px 0 4px;
+    }
+    .tl-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.55; }
+    .tl-cta { text-align: center; margin-top: 40px; }
+
+    /* ── PASSEIOS PASSADOS ── */
+    .passados { background: transparent; }
+    .passados-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+      gap: 28px; margin-top: 48px;
+    }
+    .passado-card {
+      background: linear-gradient(145deg, #ffffff, #f2edfb);
+      border: none;
+      border-radius: 28px; overflow: hidden;
+      box-shadow: var(--clay-card);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .passado-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--clay-card-hover);
+    }
+    .passado-embed {
+      position: relative; padding-bottom: 110%;
+      background: #ece7f7; overflow: hidden;
+    }
+    .passado-embed:not(.ig) iframe {
+      position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;
+    }
+    /* embed real do Instagram: deixa o widget definir a própria altura */
+    .passado-embed.ig {
+      position: static; padding-bottom: 0; background: transparent;
+      overflow: visible; display: flex; justify-content: center;
+    }
+    .passado-embed.ig .instagram-media {
+      margin: 0 !important; min-width: 0 !important; width: 100% !important;
+    }
+    .passado-embed .ph {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 12px; color: var(--gray); font-size: 0.82rem; text-align: center; padding: 20px;
+    }
+    .ph-icon {
+      width: 60px; height: 60px; border-radius: 20px;
+      background: linear-gradient(145deg, #fff5e8, #ffe1bd); border: none;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--orange2);
+      box-shadow:
+        8px 8px 18px rgba(230,137,0,0.18),
+        -5px -5px 12px rgba(255,255,255,0.9),
+        inset 2px 2px 4px rgba(255,255,255,0.8);
+    }
+    .passado-info { padding: 16px 18px; }
+    .passado-data {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--orange); margin-bottom: 4px;
+    }
+    .passado-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem; font-weight: 800; color: var(--ink); margin-bottom: 4px;
+    }
+    .passado-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+    .passado-tipo {
+      display: inline-block; font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.04em; padding: 4px 12px; border-radius: 100px;
+      margin-bottom: 8px;
+      box-shadow: inset 2px 2px 4px rgba(255,255,255,0.7), 4px 4px 10px rgba(120,110,165,0.14);
+    }
+    .tipo-video { background: linear-gradient(145deg, #fff2e2, #ffe0bf); color: var(--orange2); }
+
+    /* ── MOSAICO ── */
+    .mosaico-sec { background: transparent; }
+    .mosaico { column-count: 4; column-gap: 16px; margin-top: 44px; }
+    .m-item {
+      display: block; width: 100%; margin: 0 0 16px; padding: 0; border: none; background: none;
+      border-radius: 18px; overflow: hidden; cursor: pointer; break-inside: avoid;
+      box-shadow: var(--clay-photo);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .m-item:hover { transform: translateY(-4px); box-shadow: var(--clay-photo-hover); }
+    .m-item img { width: 100%; height: auto; display: block; border-radius: 18px; }
+    @media (max-width: 900px) { .mosaico { column-count: 3; } }
+    @media (max-width: 600px) { .mosaico { column-count: 2; column-gap: 12px; } .m-item { margin-bottom: 12px; } }
+
+    /* ── LIGHTBOX ── */
+    .lightbox {
+      position: fixed; inset: 0; z-index: 1000; display: none;
+      align-items: center; justify-content: center; padding: 24px;
+      background: rgba(26,18,37,0.82); backdrop-filter: blur(6px);
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img { max-width: min(92vw, 900px); max-height: 88vh; border-radius: 20px; box-shadow: 0 30px 80px rgba(0,0,0,0.5); }
+    .lightbox-close {
+      position: absolute; top: 22px; right: 26px; width: 48px; height: 48px; border-radius: 16px;
+      border: none; cursor: pointer; background: rgba(255,255,255,0.16); color: #fff; font-size: 1.7rem; line-height: 1;
+    }
+    .lightbox-close:hover { background: rgba(255,255,255,0.28); }
+
+    /* ── FORMULÁRIO ── */
+    .form-sec { background: transparent; }
+    .form-inner { max-width: 640px; margin: 0 auto; text-align: center; }
+    .form-card {
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      border: none;
+      border-radius: 36px; padding: 48px 40px;
+      margin-top: 48px;
+      box-shadow: var(--clay-card);
+      text-align: left;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-label {
+      display: block; font-size: 0.82rem; font-weight: 700;
+      color: var(--ink); margin-bottom: 8px;
+    }
+    .form-input {
+      width: 100%; padding: 15px 18px;
+      background: #f3eff9;
+      border: none;
+      border-radius: 16px; color: var(--ink);
+      font-size: 0.95rem; font-family: 'Inter', sans-serif;
+      outline: none; transition: box-shadow 0.2s;
+      box-shadow:
+        inset 5px 5px 10px rgba(120,110,165,0.20),
+        inset -5px -5px 10px rgba(255,255,255,0.9);
+    }
+    .form-input::placeholder { color: var(--gray); }
+    .form-input:focus {
+      box-shadow:
+        inset 5px 5px 10px rgba(120,110,165,0.20),
+        inset -5px -5px 10px rgba(255,255,255,0.9),
+        0 0 0 3px rgba(255,152,0,0.35);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-form {
+      width: 100%; padding: 18px;
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      color: var(--white);
+      border: none; border-radius: 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1rem; font-weight: 800;
+      cursor: pointer; margin-top: 8px;
+      box-shadow: var(--clay-orange);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-form:hover {
+      transform: translateY(-3px) scale(1.01);
+      box-shadow: var(--clay-orange-hover);
+    }
+    .btn-form:active { transform: translateY(0) scale(0.99); box-shadow: var(--clay-inset); }
+    .btn-form:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: var(--clay-orange); }
+    .form-fine {
+      font-size: 0.76rem; color: var(--gray);
+      margin-top: 14px; text-align: center;
+    }
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success .check { font-size: 3rem; margin-bottom: 14px; }
+    .form-success h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.3rem; font-weight: 800; color: var(--ink); margin-bottom: 8px;
+    }
+    .form-success p { color: var(--gray); font-size: 0.9rem; }
+
+    /* ── CTA ── */
+    .cta-sec {
+      background: linear-gradient(145deg, #2a1f8a, var(--navy));
+      max-width: 1100px; margin: 0 auto 96px; border-radius: 40px;
+      text-align: center; padding: 88px 48px;
+      position: relative; overflow: hidden;
+      box-shadow:
+        22px 22px 50px rgba(33,23,116,0.32),
+        -12px -12px 32px rgba(255,255,255,0.5),
+        inset 5px 5px 14px rgba(122,112,220,0.35),
+        inset -8px -8px 20px rgba(12,7,58,0.5);
+    }
+    .cta-deco {
+      position: absolute; border-radius: 50%; pointer-events: none;
+      background: rgba(255,152,0,0.12); filter: blur(30px);
+    }
+    .cta-deco.d1 { width: 500px; height: 500px; top: -200px; left: -100px; }
+    .cta-deco.d2 { width: 400px; height: 400px; bottom: -150px; right: -100px; }
+    .cta-inner { max-width: 600px; margin: 0 auto; position: relative; z-index: 1; }
+    .cta-sec h2 { color: var(--white); margin-bottom: 16px; }
+    .cta-sub { color: rgba(255,255,255,0.65); font-size: 1rem; line-height: 1.7; margin-bottom: 36px; }
+    .btn-whatsapp {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: var(--white);
+      text-decoration: none; font-weight: 800; font-size: 1.05rem;
+      padding: 18px 42px; border-radius: 20px;
+      border: none;
+      box-shadow:
+        12px 14px 28px rgba(29,168,81,0.45),
+        -6px -6px 16px rgba(120,230,160,0.25),
+        inset 4px 4px 9px rgba(120,230,160,0.6),
+        inset -6px -6px 12px rgba(20,120,58,0.5);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-whatsapp:hover {
+      transform: translateY(-3px) scale(1.02);
+      box-shadow:
+        16px 18px 38px rgba(29,168,81,0.5),
+        -6px -6px 16px rgba(120,230,160,0.3),
+        inset 4px 4px 9px rgba(120,230,160,0.65),
+        inset -6px -6px 12px rgba(20,120,58,0.55);
+    }
+    .btn-whatsapp { background: linear-gradient(145deg, #2eea72, #25D366); }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--ink);
+      border-top: 3px solid var(--orange);
+      padding: 36px 48px;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 16px;
+    }
+    footer img { height: 52px; width: auto; }
+    .footer-copy { font-size: 0.8rem; color: rgba(255,255,255,0.3); }
+    .footer-inst { display: flex; gap: 22px; flex-wrap: wrap; align-items: center; }
+    .footer-inst a { font-size: 0.85rem; color: var(--orange); text-decoration: none; font-weight: 600; }
+    .footer-inst a:hover { text-decoration: underline; }
+
+    /* ── FOTO FUNDADORAS ── */
+    .sobre-side { display: flex; flex-direction: column; gap: 24px; }
+    .founders-photo {
+      border-radius: 32px; padding: 12px;
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      box-shadow: var(--clay-card);
+    }
+    .founders-photo img {
+      width: 100%; height: auto; display: block; border-radius: 22px;
+    }
+
+    /* ── CORAÇÃO DECORATIVO (elemento de marca no fundo) ── */
+    .heart-deco {
+      position: absolute; pointer-events: none; z-index: 0;
+      filter: blur(3px); opacity: 0.5;
+    }
+    .heart-deco.blur-lg { filter: blur(7px); }
+    .hero-heart {
+      width: 300px; bottom: -40px; left: -60px; opacity: 0.16;
+      transform: rotate(-12deg); filter: blur(2px);
+    }
+    .cta-heart {
+      width: 460px; top: -90px; right: -110px; opacity: 0.10;
+      transform: rotate(14deg); filter: blur(2px);
+    }
+    .cta-heart2 {
+      width: 300px; bottom: -80px; left: -80px; opacity: 0.08;
+      transform: rotate(-18deg); filter: blur(2px);
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 12px 20px; }
+      .nav-links a:not(.btn-nav) { display: none; }
+      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; text-align: center; }
+      .hero-sub { margin: 0 auto 36px; }
+      .hero-ctas { justify-content: center; }
+      .hero-visual { display: none; }
+      section { padding: 64px 20px; }
+      .stats { gap: 36px; padding: 24px; }
+      .sobre-grid { grid-template-columns: 1fr; gap: 36px; }
+      .valores-grid { grid-template-columns: repeat(2,1fr); }
+      .steps { grid-template-columns: 1fr 1fr; gap: 16px; }
+      .form-row { grid-template-columns: 1fr; }
+      .form-card { padding: 28px 20px; }
+      footer { flex-direction: column; text-align: center; padding: 28px 20px; }
+    }
+    @media (max-width: 480px) {
+      h1 { font-size: 2.1rem; letter-spacing: -1px; }
+      .steps { grid-template-columns: 1fr; }
+      .valores-grid { grid-template-columns: repeat(2,1fr); }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
 </head>
 <body>
-  <p>Redirecionando para <a href="teacompanhe.html">o site do TEAcompanhe</a>...</p>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo"><img src="/images/logo principal.png" alt="TEAcompanhe"/></div>
+  <div class="nav-links">
+    <a href="#sobre">Sobre</a>
+    <a href="#passeios">Passeios</a>
+    <a href="#passados">Galeria</a>
+    <a href="#avisos" class="btn-nav">Quero ser avisado</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-deco d1"></div>
+  <div class="hero-deco d2"></div>
+  <img class="heart-deco hero-heart" src="/images/Icone Coração laranja.png" alt=""/>
+  <div style="position:relative;z-index:1">
+    <div class="hero-eyebrow">✦ Passeios inclusivos em São Paulo</div>
+    <h1>A cidade tem<br>espaço pra<br><em>todo mundo</em><br>explorar</h1>
+    <p class="hero-sub">Passeios mensais com acompanhamento especializado para jovens neurodivergentes. Segurança, alegria e desenvolvimento em cada saída.</p>
+    <div class="hero-ctas">
+      <a href="/proximo-passeio/" class="btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        Próximo passeio
+      </a>
+      <a href="#sobre" class="btn-secondary">Conhecer o projeto ↓</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-logo-wrap">
+      <img src="/images/logo principal.png" alt="TEAcompanhe"/>
+    </div>
+    <div class="hero-float-card c1">🗺️ Roteiro mensal</div>
+    <div class="hero-float-card c2">👥 Até 10 participantes</div>
+    <div class="hero-float-card c3">🧠 Equipe especializada</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">1 ano</div><div class="stat-label">de projeto</div></div>
+  <div class="stat"><div class="stat-num">+10</div><div class="stat-label">passeios realizados</div></div>
+  <div class="stat"><div class="stat-num">até 10</div><div class="stat-label">participantes por grupo</div></div>
+  <div class="stat"><div class="stat-num">5–8</div><div class="stat-label">profissionais por passeio</div></div>
+</div>
+
+<!-- SOBRE -->
+<section class="sobre" id="sobre">
+  <div class="section-inner">
+    <div class="sobre-grid">
+      <div>
+        <span class="eyebrow">Quem somos</span>
+        <h2>Nasceu de quem vive isso todos os dias</h2>
+        <p class="section-lead" style="margin-bottom:16px">Somos a Fernanda, psicopedagoga com 15 anos de experiência, e a Juliana, psicóloga especialista em Análise do Comportamento com 10 anos de atuação com jovens neurodivergentes.</p>
+        <p class="section-lead">Criamos o TEAcompanhe porque percebemos que passeios na comunidade vão muito além do lazer — são oportunidades reais de desenvolvimento, autonomia e pertencimento.</p>
+        <div class="valores-grid">
+          <div class="valor-card"><div class="valor-icon">🛡️</div><div class="valor-name">Segurança</div></div>
+          <div class="valor-card"><div class="valor-icon">🤝</div><div class="valor-name">Acolhimento</div></div>
+          <div class="valor-card"><div class="valor-icon">🌱</div><div class="valor-name">Autonomia</div></div>
+          <div class="valor-card"><div class="valor-icon">🎯</div><div class="valor-name">Propósito</div></div>
+          <div class="valor-card"><div class="valor-icon">🎉</div><div class="valor-name">Diversão</div></div>
+          <div class="valor-card"><div class="valor-icon">👤</div><div class="valor-name">Individualidade</div></div>
+          <div class="valor-card"><div class="valor-icon">🌍</div><div class="valor-name">Inclusão</div></div>
+          <div class="valor-card"><div class="valor-icon">📈</div><div class="valor-name">Desenvolvimento</div></div>
+        </div>
+      </div>
+      <div class="sobre-side">
+        <div class="founders-photo">
+          <img src="/images/fernanda e juliana.png" alt="Fernanda, psicopedagoga, e Juliana, psicóloga — fundadoras do TEAcompanhe"/>
+        </div>
+        <div class="sobre-quote">
+          <p>"Transformamos passeios inclusivos em oportunidades de desenvolvimento, autonomia, cultura, lazer e pertencimento social — de forma leve, natural e agradável."</p>
+          <div class="founders">
+            <span class="founder-chip">Fernanda · Psicopedagoga</span>
+            <span class="founder-chip">Juliana · Psicóloga</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="como">
+  <div class="section-inner">
+    <span class="eyebrow">Como é o dia</span>
+    <h2>Como funciona um passeio</h2>
+    <p class="section-lead como-lead">Uma vez por mês, um grupo de até 10 participantes embarca em um roteiro completo pela cidade — lazer, alimentação e cultura, tudo pensado nos mínimos detalhes. O grupo conta com uma equipe de 5 a 8 profissionais especializados durante todo o dia, além do mesmo motorista de sempre, que já faz parte da turma. 🚐</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num emoji">📅</div>
+        <div class="step-title">Uma vez por mês</div>
+        <p class="step-text">Um passeio completo por mês, com data definida com antecedência para a família se organizar.</p>
+      </div>
+      <div class="step">
+        <div class="step-num emoji">👥</div>
+        <div class="step-title">Grupo de até 10</div>
+        <p class="step-text">Turmas pequenas garantem atenção individual e um ritmo confortável para cada participante.</p>
+      </div>
+      <div class="step">
+        <div class="step-num emoji">🧠</div>
+        <div class="step-title">Equipe de 5 a 8 profissionais</div>
+        <p class="step-text">Psicólogas, psicopedagoga e equipe de apoio acompanham o grupo o dia inteiro.</p>
+      </div>
+      <div class="step">
+        <div class="step-num emoji">🚐</div>
+        <div class="step-title">Sempre o mesmo motorista</div>
+        <p class="step-text">Ele já faz parte da turma. Rostos conhecidos trazem previsibilidade e segurança.</p>
+      </div>
+    </div>
+    <p class="como-note">Tudo pensado para que cada participante viva o dia com segurança, autonomia e alegria. 🧡</p>
+  </div>
+</section>
+
+<!-- ROTEIRO -->
+<section class="roteiro" id="passeios">
+  <div class="section-inner">
+    <div class="tickets-header">
+      <div>
+        <span class="eyebrow">Julho 2026</span>
+        <h2>Próximo passeio</h2>
+      </div>
+      <span class="mes-badge">🗓️ 18 de Julho</span>
+    </div>
+    <p class="section-lead roteiro-intro">Todo mês, um roteiro novo pela cidade — lazer, alimentação e cultura. Veja as paradas do próximo passeio e clique para conhecer todos os detalhes, horários e como confirmar a participação.</p>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-node">🚐</div>
+        <div class="tl-content">
+          <div class="tl-time">12h · Saída</div>
+          <div class="tl-title">Ponto de encontro</div>
+          <div class="tl-desc">O grupo se reúne e embarca para o passeio.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node">🍔</div>
+        <div class="tl-content">
+          <div class="tl-time">1ª parada</div>
+          <div class="tl-title">McDonald's</div>
+          <div class="tl-desc">Almoço em grupo para começar o dia com energia.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node">🚲</div>
+        <div class="tl-content">
+          <div class="tl-time">2ª parada</div>
+          <div class="tl-title">Parque Villa-Lobos</div>
+          <div class="tl-desc">Bike, ar livre e piquenique com vista da cidade.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node">🎭</div>
+        <div class="tl-content">
+          <div class="tl-time">3ª parada</div>
+          <div class="tl-title">Teatro UNICID</div>
+          <div class="tl-desc">Peça teatral para fechar o dia com arte e alegria.</div>
+        </div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-node">🏁</div>
+        <div class="tl-content">
+          <div class="tl-time">17h · Retorno</div>
+          <div class="tl-title">Ponto de encontro</div>
+          <div class="tl-desc">Fim do passeio e reencontro com as famílias.</div>
+        </div>
+      </div>
+    </div>
+    <div class="tl-cta">
+      <a href="/proximo-passeio/" class="btn-primary">Ver detalhes do próximo passeio →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PASSEIOS PASSADOS -->
+<section class="passados" id="passados">
+  <div class="section-inner">
+    <span class="eyebrow">Já aconteceu</span>
+    <h2>Nossos últimos passeios</h2>
+    <p class="section-lead">O relato de cada passeio em vídeo, direto do nosso Instagram — veja como foi o dia por dentro.</p>
+    <div class="passados-grid">
+      <div class="passado-card">
+        <div class="passado-embed ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbCEkd_vok1/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DbCEkd_vok1/" target="_blank" rel="noopener">Ver este passeio no Instagram</a>
+          </blockquote>
+        </div>
+        <div class="passado-info">
+          <span class="passado-tipo tipo-video">🎬 Vídeo</span>
+          <div class="passado-data">18 de Julho · 2026</div>
+          <div class="passado-title">Como foi o passeio de julho</div>
+          <p class="passado-desc">McDonald's, Parque Villa-Lobos e teatro — um dia completo pela cidade, contado em vídeo.</p>
+        </div>
+      </div>
+      <div class="passado-card">
+        <div class="passado-embed">
+          <div class="ph"><div class="ph-icon">🎬</div><span>Cole aqui o embed do <strong>Reel (vídeo)</strong> do próximo relato</span></div>
+        </div>
+        <div class="passado-info">
+          <span class="passado-tipo tipo-video">🎬 Vídeo</span>
+          <div class="passado-data">Em breve</div>
+          <div class="passado-title">Como foi o passeio de agosto</div>
+          <p class="passado-desc">Assim que sair, colocamos aqui o vídeo contando como foi.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOSAICO -->
+<section class="mosaico-sec">
+  <div class="section-inner">
+    <span class="eyebrow">Nossa turma</span>
+    <h2>Momentos que já vivemos</h2>
+    <p class="section-lead">Um mural com um pouquinho de tudo que já rolou nos nossos passeios. Toque para ampliar.</p>
+    <div class="mosaico" id="mosaico"></div>
+  </div>
+</section>
+
+<!-- FORMULÁRIO -->
+<section class="form-sec" id="avisos">
+  <div class="section-inner">
+    <div class="form-inner">
+      <span class="eyebrow">Fique por dentro</span>
+      <h2>Seja avisado do próximo passeio</h2>
+      <p class="section-lead" style="max-width:480px;margin:0 auto">As vagas são limitadas. Cadastre seu WhatsApp e e-mail para receber em primeira mão o roteiro de cada mês.</p>
+      <div class="form-card">
+        <div id="formContent">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label" for="nome">Seu nome</label>
+              <input type="text" id="nome" class="form-input" placeholder="Como posso te chamar?"/>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="whatsapp">WhatsApp</label>
+              <input type="tel" id="whatsapp" class="form-input" placeholder="(11) 99999-9999"/>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="email">E-mail</label>
+            <input type="email" id="email" class="form-input" placeholder="seu@email.com"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="filho">Nome do filho(a) — opcional</label>
+            <input type="text" id="filho" class="form-input" placeholder="Para personalizarmos o contato"/>
+          </div>
+          <button class="btn-form" id="btnSubmit" onclick="enviarFormulario()">Quero ser avisado do próximo passeio 🧡</button>
+          <p class="form-fine">Seus dados são usados apenas para avisos do TEAcompanhe. Sem spam. Ao enviar, você concorda com a nossa <a href="/privacidade/" style="color:var(--orange2);font-weight:700">Política de Privacidade</a>.</p>
+        </div>
+        <div class="form-success" id="formSuccess">
+          <div class="check">🧡</div>
+          <h3>Cadastro realizado!</h3>
+          <p>Você será avisado assim que abrirmos as vagas do próximo passeio. Até lá!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-sec">
+  <div class="cta-deco d1"></div>
+  <div class="cta-deco d2"></div>
+  <img class="heart-deco cta-heart" src="/images/Icone Coração Branco.png" alt=""/>
+  <img class="heart-deco cta-heart2" src="/images/Icone Coração Branco.png" alt=""/>
+  <div class="cta-inner">
+    <span class="eyebrow">Vagas limitadas</span>
+    <h2>Pronto para o próximo passeio?</h2>
+    <p class="cta-sub">Mande uma mensagem agora e garanta a vaga. A equipe do TEAcompanhe responde rapidinho e te conta tudo sobre o roteiro do mês.</p>
+    <a href="https://wa.me/5511962544967?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20TEAcompanhe%20e%20garantir%20uma%20vaga!" target="_blank" class="btn-whatsapp">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+      Falar no WhatsApp agora
+    </a>
+    <p style="margin-top:14px;font-size:0.8rem;color:rgba(255,255,255,0.3)">Respondemos em até 24h · Sem compromisso</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <img src="/images/6.png" alt="TEAcompanhe"/>
+  <div class="footer-copy">© 2026 TEAcompanhe · São Paulo, SP</div>
+  <div class="footer-inst">
+    <a href="/privacidade/">Privacidade &amp; Uso de Imagem</a>
+    <a href="https://instagram.com/tea.companhe" target="_blank">@tea.companhe</a>
+  </div>
+</footer>
+
+<!-- Lightbox do mosaico -->
+<div class="lightbox" id="lightbox">
+  <button class="lightbox-close" id="lightbox-close" aria-label="Fechar">&times;</button>
+  <img id="lightbox-img" src="" alt=""/>
+</div>
+
+<script>
+  if (document.querySelector('.instagram-media')) {
+    const s = document.createElement('script');
+    s.src = '//www.instagram.com/embed.js';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+
+  /* ── MOSAICO DA HOME ──
+     Para adicionar/remover fotos: coloque os arquivos foto-01.jpg, foto-02.jpg... na
+     pasta indicada e ajuste "quantidade". */
+  (function () {
+    const MOSAICO = { pasta: '/images/galeria-mosaico/', prefixo: 'foto-', quantidade: 14, ext: '.jpg' };
+    const el = document.getElementById('mosaico');
+    if (el) {
+      let html = '';
+      for (let k = 1; k <= MOSAICO.quantidade; k++) {
+        const nn = ('0' + k).slice(-2);
+        const src = MOSAICO.pasta + MOSAICO.prefixo + nn + MOSAICO.ext;
+        html += '<button class="m-item" type="button"><img src="' + src + '" alt="Momento de um passeio do TEAcompanhe" loading="lazy"/></button>';
+      }
+      el.innerHTML = html;
+    }
+    const lb = document.getElementById('lightbox'), lbImg = document.getElementById('lightbox-img');
+    if (el && lb && lbImg) {
+      el.addEventListener('click', function (e) {
+        const b = e.target.closest('.m-item'); if (!b) return;
+        const img = b.querySelector('img');
+        lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open');
+      });
+      const close = function () { lb.classList.remove('open'); lbImg.src = ''; };
+      const cb = document.getElementById('lightbox-close');
+      if (cb) cb.addEventListener('click', close);
+      lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
+    }
+  })();
+
+  async function enviarFormulario() {
+    const nome     = document.getElementById('nome').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const email    = document.getElementById('email').value.trim();
+    const filho    = document.getElementById('filho').value.trim();
+
+    if (!nome || !whatsapp || !email) {
+      alert('Por favor, preencha nome, WhatsApp e e-mail.');
+      return;
+    }
+
+    const whatsappLimpo = whatsapp.replace(/\D/g, '');
+
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const WEBHOOK_URL = 'https://hook.us2.make.com/3u4ldj9haa7e1x79vz9sdoi5fl86inwu';
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, whatsapp, whatsappLimpo, email, filho, origem: 'site_teacompanhe', data: new Date().toISOString() })
+      });
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = 'Quero ser avisado do próximo passeio 🧡';
+      alert('Erro ao enviar. Tente novamente ou fale pelo WhatsApp.');
+    }
+  }
+</script>
 </body>
 </html>
