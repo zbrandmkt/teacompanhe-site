@@ -109,6 +109,8 @@
     }
 
     html { scroll-behavior: smooth; }
+    /* a nav é fixa: sem isso o topo da seção fica escondido atrás dela ao usar âncora */
+    #sobre, #passeios, #passados, #avisos { scroll-margin-top: 100px; }
     body {
       font-family: 'Inter', sans-serif;
       background:
@@ -1189,6 +1191,40 @@
       lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
       document.addEventListener('keydown', function (e) { if (e.key === 'Escape') close(); });
     }
+  })();
+
+  /* Corrige a âncora ao abrir a página já com hash (ex.: vindo de /proximo-passeio/#avisos).
+     As fotos do mosaico são lazy e não têm altura reservada: elas vão carregando
+     DEPOIS do salto e empurram o alvo para baixo, fazendo o visitante parar no
+     mosaico em vez do formulário. Mantém o alvo no lugar até a página assentar —
+     e para na hora se o visitante rolar por conta própria. */
+  (function () {
+    if (!location.hash) return;
+    var alvo;
+    try { alvo = document.querySelector(location.hash); } catch (e) { return; }
+    if (!alvo) return;
+
+    var cancelado = false;
+    var limite = 0;
+    var parar = function () { cancelado = true; };
+    ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, parar, { passive: true, once: true });
+    });
+
+    var fixar = function () {
+      if (cancelado || Date.now() > limite) {
+        document.documentElement.style.scrollBehavior = '';
+        return;
+      }
+      alvo.scrollIntoView({ block: 'start' });
+      requestAnimationFrame(fixar);
+    };
+
+    window.addEventListener('load', function () {
+      limite = Date.now() + 2500;
+      document.documentElement.style.scrollBehavior = 'auto';
+      fixar();
+    });
   })();
 
   async function enviarFormulario() {

@@ -295,6 +295,48 @@
       background: var(--orange-lt); padding: 7px 18px; border-radius: 100px;
     }
 
+    /* ── FORMULÁRIO DE CADASTRO (mesmo padrão da home) ── */
+    .form-card {
+      background: linear-gradient(145deg, #ffffff, #f1ecfa);
+      border-radius: 32px; padding: 40px 36px;
+      box-shadow: var(--clay-card);
+      max-width: 620px; margin: 0 auto; text-align: left;
+    }
+    .form-group { margin-bottom: 18px; }
+    .form-label { display: block; font-size: 0.82rem; font-weight: 700; color: var(--ink); margin-bottom: 8px; }
+    .form-input {
+      width: 100%; padding: 15px 18px;
+      background: #f3eff9; border: none; border-radius: 16px; color: var(--ink);
+      font-size: 0.95rem; font-family: 'Inter', sans-serif;
+      outline: none; transition: box-shadow 0.2s;
+      box-shadow: inset 5px 5px 10px rgba(120,110,165,0.20), inset -5px -5px 10px rgba(255,255,255,0.9);
+    }
+    .form-input::placeholder { color: var(--gray); }
+    .form-input:focus {
+      box-shadow: inset 5px 5px 10px rgba(120,110,165,0.20), inset -5px -5px 10px rgba(255,255,255,0.9), 0 0 0 3px rgba(255,152,0,0.35);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .btn-form {
+      width: 100%; padding: 18px;
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      color: var(--white); border: none; border-radius: 18px;
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; font-weight: 800;
+      cursor: pointer; margin-top: 8px;
+      box-shadow: var(--clay-orange);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-form:hover { transform: translateY(-3px) scale(1.01); box-shadow: var(--clay-orange-hover); }
+    .btn-form:active { transform: translateY(0) scale(0.99); box-shadow: var(--clay-inset); }
+    .btn-form:disabled { opacity: 0.6; cursor: not-allowed; transform: none; box-shadow: var(--clay-orange); }
+    .form-fine { font-size: 0.76rem; color: var(--gray); margin-top: 14px; text-align: center; }
+    .form-fine a { color: var(--orange2); font-weight: 700; }
+    .form-success { display: none; text-align: center; padding: 20px 0; }
+    .form-success .check { font-size: 3rem; margin-bottom: 14px; }
+    .form-success h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--ink); margin-bottom: 8px; }
+    .form-success p { color: var(--gray); font-size: 0.9rem; }
+    /* a nav é sticky: sem isso o topo da seção fica atrás dela ao usar âncora */
+    #avisos { scroll-margin-top: 96px; }
+
     footer {
       text-align: center; padding: 40px 24px; color: var(--gray); font-size: 0.82rem;
     }
@@ -418,7 +460,7 @@
   <a href="/" class="logo" aria-label="TEAcompanhe"><img src="/images/logo principal.png" alt="TEAcompanhe"/></a>
   <div class="nav-actions">
     <a href="/" class="btn-ghost">← Voltar ao site</a>
-    <a href="#confirmar" class="btn-orange">Quero uma vaga</a>
+    <a href="#confirmar" class="btn-orange" id="nav-cta">Quero uma vaga</a>
   </div>
 </nav>
 
@@ -532,6 +574,43 @@
     <div class="faq" id="p-faq"></div>
   </section>
 
+  <section class="block" id="avisos">
+    <div class="block-head">
+      <span class="eyebrow">Aviso em primeira mão</span>
+      <h2>Receba o próximo roteiro antes de todo mundo</h2>
+      <p>Quem está cadastrado recebe o roteiro e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — só depois anunciamos nas redes sociais.</p>
+    </div>
+    <div class="form-card">
+      <div id="formContent">
+        <div class="form-row">
+          <div class="form-group">
+            <label class="form-label" for="nome">Seu nome</label>
+            <input type="text" id="nome" class="form-input" placeholder="Como posso te chamar?"/>
+          </div>
+          <div class="form-group">
+            <label class="form-label" for="whatsapp">WhatsApp <span style="color:var(--orange2)">— é por aqui que avisamos</span></label>
+            <input type="tel" id="whatsapp" class="form-input" placeholder="(11) 99999-9999"/>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="email">E-mail</label>
+          <input type="email" id="email" class="form-input" placeholder="seu@email.com"/>
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="filho">Nome do filho(a) — opcional</label>
+          <input type="text" id="filho" class="form-input" placeholder="Para personalizarmos o contato"/>
+        </div>
+        <button class="btn-form" id="btnSubmit" onclick="enviarFormulario()">Quero ser avisado primeiro no WhatsApp 🧡</button>
+        <p class="form-fine">Seus dados são usados apenas para avisos do TEAcompanhe. Sem spam. Ao enviar, você concorda com a nossa <a href="/privacidade/">Política de Privacidade</a>.</p>
+      </div>
+      <div class="form-success" id="formSuccess">
+        <div class="check">🧡</div>
+        <h3>Pronto, você está na lista!</h3>
+        <p>Assim que o próximo roteiro estiver fechado, você recebe no seu WhatsApp — antes da divulgação nas redes. Até lá!</p>
+      </div>
+    </div>
+  </section>
+
 </div>
 
 <section class="cta-final" id="confirmar">
@@ -633,9 +712,9 @@
     { q: "Preciso assinar algum termo?",
       a: "Sim. Antes do passeio, o responsável assina um termo de responsabilidade e de autorização de uso de imagem. Quem não autoriza a imagem participa normalmente, apenas não tem fotos publicadas. Saiba mais na nossa <a href='/privacidade/'>Política de Privacidade</a>." },
     { q: "Como confirmo a participação?",
-      a: "As vagas são limitadas e costumam acabar rápido. Quem está cadastrado no site recebe o roteiro e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — só depois anunciamos nas redes sociais. <a href='/#avisos'>Faça seu cadastro aqui</a>; a confirmação é feita pelo WhatsApp, direto com a nossa equipe." },
+      a: "As vagas são limitadas e costumam acabar rápido. Quem está cadastrado no site recebe o roteiro e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — só depois anunciamos nas redes sociais. <a href='#avisos'>Faça seu cadastro aqui</a>; a confirmação é feita pelo WhatsApp, direto com a nossa equipe." },
     { q: "O passeio deste mês está esgotado. E agora?",
-      a: "Acontece com frequência, porque os grupos são pequenos — até 10 participantes. <a href='/#avisos'>Cadastre-se aqui</a> para ser avisado do próximo passeio em primeira mão, pelo WhatsApp, antes de divulgarmos nas redes." },
+      a: "Acontece com frequência, porque os grupos são pequenos — até 10 participantes. <a href='#avisos'>Cadastre-se aqui</a> para ser avisado do próximo passeio em primeira mão, pelo WhatsApp, antes de divulgarmos nas redes." },
     { q: "Meu filho tem necessidades específicas (alimentação, medicação, apoio individual). Como vocês lidam?",
       a: "Conte pra gente no momento da inscrição. Adaptamos o cuidado ao que cada participante precisa — é justamente por isso que a equipe é especializada e os grupos são pequenos." },
     { q: "Qual o valor e como funciona o pagamento?",
@@ -665,6 +744,73 @@
     fotos: []
   };
 
+
+  /* Mesma correção de âncora da home: a galeria acima do formulário é lazy e
+     empurra o alvo para baixo conforme as fotos entram. */
+  (function () {
+    if (!location.hash) return;
+    var alvo;
+    try { alvo = document.querySelector(location.hash); } catch (e) { return; }
+    if (!alvo) return;
+
+    var cancelado = false;
+    var limite = 0;
+    var parar = function () { cancelado = true; };
+    ['wheel', 'touchstart', 'keydown'].forEach(function (ev) {
+      window.addEventListener(ev, parar, { passive: true, once: true });
+    });
+
+    var fixar = function () {
+      if (cancelado || Date.now() > limite) {
+        document.documentElement.style.scrollBehavior = '';
+        return;
+      }
+      alvo.scrollIntoView({ block: 'start' });
+      requestAnimationFrame(fixar);
+    };
+
+    window.addEventListener('load', function () {
+      limite = Date.now() + 2500;
+      document.documentElement.style.scrollBehavior = 'auto';
+      fixar();
+    });
+  })();
+
+  /* Envio do formulário de cadastro. Mesmo webhook da home; "origem" muda para
+     dar pra saber na planilha por qual página o lead entrou. */
+  async function enviarFormulario() {
+    const nome     = document.getElementById('nome').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const email    = document.getElementById('email').value.trim();
+    const filho    = document.getElementById('filho').value.trim();
+
+    if (!nome || !whatsapp || !email) {
+      alert('Por favor, preencha nome, WhatsApp e e-mail.');
+      return;
+    }
+
+    const whatsappLimpo = whatsapp.replace(/\D/g, '');
+
+    const btn = document.getElementById('btnSubmit');
+    btn.disabled = true;
+    btn.textContent = 'Enviando...';
+
+    const WEBHOOK_URL = 'https://hook.us2.make.com/3u4ldj9haa7e1x79vz9sdoi5fl86inwu';
+
+    try {
+      await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ nome, whatsapp, whatsappLimpo, email, filho, origem: 'site_proximo_passeio', data: new Date().toISOString() })
+      });
+      document.getElementById('formContent').style.display = 'none';
+      document.getElementById('formSuccess').style.display = 'block';
+    } catch(e) {
+      btn.disabled = false;
+      btn.textContent = 'Quero ser avisado primeiro no WhatsApp 🧡';
+      alert('Erro ao enviar. Tente novamente ou fale pelo WhatsApp.');
+    }
+  }
 
   /* ---------- Montagem automática (não precisa editar daqui pra baixo) ---------- */
   (function () {
@@ -776,16 +922,30 @@
         '</span></div>';
 
       const sino = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>';
-      document.querySelectorAll('.js-wpp').forEach(a => {
-        a.className = 'btn-lista';
-        a.href = '/#avisos';
-        a.removeAttribute('target');
-        a.innerHTML = sino + ' Quero ser avisado do próximo →';
-      });
+
+      // Topo: leva ao formulário desta mesma página (sem mandar para a home)
+      const btnHero = document.querySelector('.hero .js-wpp');
+      if (btnHero) {
+        btnHero.className = 'btn-lista';
+        btnHero.href = '#avisos';
+        btnHero.removeAttribute('target');
+        btnHero.innerHTML = sino + ' Quero ser avisado do próximo →';
+      }
+      const btnNav = $('nav-cta');
+      if (btnNav) { btnNav.href = '#avisos'; btnNav.textContent = 'Quero ser avisado'; }
+
+      // Bloco final: o cadastro já está logo acima, então aqui vira canal de dúvidas
+      const btnFinal = document.querySelector('.cta-final .js-wpp');
+      if (btnFinal) {
+        const duvida = encodeURIComponent('Olá! Tenho uma dúvida sobre o TEAcompanhe e os próximos passeios.');
+        btnFinal.href = 'https://wa.me/' + P.whatsapp + '?text=' + duvida;
+        btnFinal.target = '_blank';
+        btnFinal.rel = 'noopener';
+      }
 
       set('p-vagas', 'Vagas esgotadas');
-      set('p-cta-titulo', 'As vagas de ' + P.mes + ' já esgotaram');
-      set('p-cta-texto', 'Quem está cadastrado recebe o roteiro e a abertura das vagas primeiro, pelo WhatsApp — antes de anunciarmos nas redes sociais. Faça seu cadastro e garanta a sua vez no próximo passeio.');
+      set('p-cta-titulo', 'Ficou com alguma dúvida?');
+      set('p-cta-texto', 'As vagas de ' + P.mes + ' já esgotaram, mas estamos por aqui para contar tudo sobre o projeto e sobre os próximos passeios.');
     } else {
       const msg = encodeURIComponent(`Olá! Quero confirmar a participação no passeio de ${P.mes} (${P.data}).`);
       const href = `https://wa.me/${P.whatsapp}?text=${msg}`;
