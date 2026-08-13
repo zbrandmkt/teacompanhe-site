@@ -35,6 +35,9 @@
       --gray:    #6c7b92;
       --white:   #ffffff;
       --bg:      #f1edfa;
+      /* vermelho usado SÓ para o carimbo de esgotado (não faz parte da paleta da marca) */
+      --red:     #c62828;
+      --red-lt:  #ffeceb;
       --clay-card:
         20px 20px 44px rgba(120,110,165,0.26),
         -12px -12px 32px rgba(255,255,255,0.92),
@@ -142,6 +145,47 @@
       transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
     }
     .btn-wpp:hover { transform: translateY(-3px) scale(1.02); }
+
+    /* Botão de cadastro (usado no lugar do WhatsApp quando o passeio está esgotado) */
+    .btn-lista {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+      color: var(--white); text-decoration: none;
+      font-weight: 800; font-size: 1rem;
+      padding: 16px 32px; border-radius: 18px;
+      box-shadow: var(--clay-orange);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-lista:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--clay-orange-hover); }
+    .btn-lista:active { transform: translateY(0) scale(0.98); box-shadow: var(--clay-inset); }
+
+    /* ── CARIMBO DE ESGOTADO ── */
+    .selo-wrap { display: flex; justify-content: center; margin: 4px 0 22px; }
+    .selo-esgotado {
+      display: inline-flex; flex-direction: column; align-items: center;
+      transform: rotate(-5deg);
+      background: var(--red-lt); color: var(--red);
+      border: 3px solid var(--red); border-radius: 16px;
+      padding: 12px 30px 10px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow:
+        9px 10px 22px rgba(198,40,40,0.20),
+        -5px -5px 14px rgba(255,255,255,0.8),
+        inset 0 0 0 2px var(--red-lt),
+        inset 0 0 0 4px rgba(198,40,40,0.35);
+    }
+    .selo-main {
+      font-size: 1.25rem; font-weight: 900; line-height: 1;
+      letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .selo-sub {
+      margin-top: 6px; font-size: 0.66rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8;
+    }
+    @media (max-width: 460px) {
+      .selo-main { font-size: 1.02rem; letter-spacing: 0.12em; }
+      .selo-esgotado { padding: 11px 22px 9px; }
+    }
 
     /* ── CARTÃO DE INFORMAÇÕES ── */
     .info-card {
@@ -384,6 +428,7 @@
   <header class="hero">
     <span class="eyebrow" id="p-eyebrow">Próximo passeio</span>
     <h1 id="p-titulo">Passeio</h1>
+    <div id="p-selo"></div>
     <p class="hero-chamada" id="p-chamada"></p>
     <div class="hero-ctas">
       <a class="btn-wpp js-wpp" href="#">
@@ -491,7 +536,7 @@
 
 <section class="cta-final" id="confirmar">
   <span class="cta-vagas" id="p-vagas"></span>
-  <h2>Garanta a vaga do seu filho</h2>
+  <h2 id="p-cta-titulo">Garanta a vaga do seu filho</h2>
   <p id="p-cta-texto">As vagas são limitadas. Fale com a gente pelo WhatsApp para confirmar a participação no próximo passeio.</p>
   <a class="btn-wpp js-wpp" href="#">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
@@ -523,17 +568,21 @@
 <script>
   const PASSEIO = {
 
-    mes:   "Julho",
+    mes:   "Agosto",
     ano:   "2026",
-    titulo:  "",              // opcional. Se vazio, vira "Passeio de Julho"
-    chamada: "Um dia completo pela cidade — lazer, alimentação e cultura, com acompanhamento especializado do começo ao fim.",
+    titulo:  "",              // opcional. Se vazio, vira "Passeio de Agosto"
+    chamada: "Um dia completo pela cidade — natureza, alimentação e cultura, com acompanhamento especializado do começo ao fim.",
+
+    // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões
+    // pelo convite ao cadastro. No próximo passeio, volte para false.
+    esgotado: true,
 
     // --- Informações principais (aparecem no cartão do topo) ---
-    data:          "18 de Julho de 2026",
-    saida:         "12h",
-    retorno:       "17h",
+    data:          "22 de Agosto de 2026",
+    saida:         "10h",
+    retorno:       "16h",
     pontoEncontro: "Combinado no grupo",
-    confirmarAte:  "10/07",
+    confirmarAte:  "14/08",
     vagas:         "até 10 participantes",
     valor:         "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
 
@@ -542,11 +591,11 @@
 
     // --- Paradas do dia (a linha do tempo) ---
     paradas: [
-      { icon: "🚐", tag: "12h · Saída",  nome: "Ponto de encontro",     desc: "O grupo se reúne, se organiza e embarca com a equipe para começar o dia." },
-      { icon: "🍔", tag: "1ª parada",    nome: "McDonald's",            desc: "Almoço em grupo no nosso lugar preferido, para começar o dia com energia e boa companhia." },
-      { icon: "🚲", tag: "2ª parada",    nome: "Parque Villa-Lobos",    desc: "Bike, caminhada ao ar livre e piquenique com vista da cidade. Movimento e liberdade." },
-      { icon: "🎭", tag: "3ª parada",    nome: "Teatro UNICID",         desc: "Peça 'As Novas Aventuras do Sítio do Pica Pau Amarelo' — arte, fantasia e alegria para fechar o dia." },
-      { icon: "🏁", tag: "17h · Retorno", nome: "Ponto de encontro",    desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
+      { icon: "🚐", tag: "10h · Saída",  nome: "Ponto de encontro",     desc: "O grupo se reúne, se organiza e embarca com a equipe para começar o dia." },
+      { icon: "🌳", tag: "1ª parada",    nome: "Horto Florestal",       desc: "Começamos o dia explorando uma das mais belas áreas verdes de São Paulo. Quem desejar também poderá aproveitar um agradável passeio de pedalinho." },
+      { icon: "🍔", tag: "2ª parada",    nome: "McDonald's",            desc: "Em seguida, uma pausa para o almoço no nosso lugar preferido, proporcionando mais um momento de convivência." },
+      { icon: "🎨", tag: "3ª parada",    nome: "Exposição Cartoon Network", desc: "Para encerrar o passeio, visitaremos a nova exposição interativa do Cartoon Network no Shopping Center Norte, repleta de diversão, nostalgia e experiências envolventes." },
+      { icon: "🏁", tag: "16h · Retorno", nome: "Ponto de encontro",    desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
     ],
 
     // --- O que está incluso ---
@@ -554,7 +603,7 @@
       "Transporte durante todo o passeio, com motorista de confiança",
       "Equipe de 5 a 8 profissionais especializados o dia inteiro",
       "Almoço no roteiro (McDonald's)",
-      "Ingresso do teatro",
+      "Ingresso da exposição do Cartoon Network",
       "Apoio visual com o roteiro do dia para cada participante"
     ],
 
@@ -584,7 +633,9 @@
     { q: "Preciso assinar algum termo?",
       a: "Sim. Antes do passeio, o responsável assina um termo de responsabilidade e de autorização de uso de imagem. Quem não autoriza a imagem participa normalmente, apenas não tem fotos publicadas. Saiba mais na nossa <a href='/privacidade/'>Política de Privacidade</a>." },
     { q: "Como confirmo a participação?",
-      a: "Pelo WhatsApp. As vagas são limitadas, então confirme até a data indicada no topo desta página — é só tocar em “Confirmar no WhatsApp”." },
+      a: "As vagas são limitadas e costumam acabar rápido. Quem está cadastrado no site recebe o roteiro e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — só depois anunciamos nas redes sociais. <a href='/#avisos'>Faça seu cadastro aqui</a>; a confirmação é feita pelo WhatsApp, direto com a nossa equipe." },
+    { q: "O passeio deste mês está esgotado. E agora?",
+      a: "Acontece com frequência, porque os grupos são pequenos — até 10 participantes. <a href='/#avisos'>Cadastre-se aqui</a> para ser avisado do próximo passeio em primeira mão, pelo WhatsApp, antes de divulgarmos nas redes." },
     { q: "Meu filho tem necessidades específicas (alimentação, medicação, apoio individual). Como vocês lidam?",
       a: "Conte pra gente no momento da inscrição. Adaptamos o cuidado ao que cada participante precisa — é justamente por isso que a equipe é especializada e os grupos são pequenos." },
     { q: "Qual o valor e como funciona o pagamento?",
@@ -606,7 +657,7 @@
 
     // MODO FÁCIL: aponte a pasta e diga QUANTAS fotos tem (nomeadas foto-01.jpg, foto-02.jpg, ...).
     // Para atualizar todo mês: troque as fotos na pasta e ajuste "quantidade".
-    pasta: "/images/passeio-18-06/",
+    pasta: "/images/passeio-18-07/",
     quantidade: 15,
 
     // (opcional) OU liste manualmente aqui, se quiser caminhos/legendas específicos.
@@ -621,10 +672,11 @@
     const $ = (id) => document.getElementById(id);
     const set = (id, val) => { const el = $(id); if (el) el.textContent = val; };
 
+    const esgotado = P.esgotado === true;
+
     set('p-titulo', P.titulo && P.titulo.trim() ? P.titulo : 'Passeio de ' + P.mes);
     set('p-eyebrow', 'Próximo passeio · ' + P.mes + ' ' + P.ano);
     set('p-chamada', P.chamada);
-    set('p-vagas', 'Vagas limitadas · ' + P.vagas);
     set('p-ano-footer', P.ano);
 
     // Cartão de informações
@@ -633,7 +685,9 @@
       { emoji: '🕛', label: 'Saída',          value: P.saida },
       { emoji: '🕔', label: 'Retorno',        value: P.retorno },
       { emoji: '📍', label: 'Ponto de encontro', value: P.pontoEncontro },
-      { emoji: '✅', label: 'Confirmar até',  value: P.confirmarAte },
+      esgotado
+        ? { emoji: '🎟️', label: 'Vagas',         value: 'Esgotadas' }
+        : { emoji: '✅', label: 'Confirmar até', value: P.confirmarAte },
       { emoji: '💳', label: 'Investimento',   value: (P.valor && P.valor.trim()) ? P.valor : 'Consulte pelo WhatsApp' }
     ];
     $('p-info').innerHTML = infos.map(i => `
@@ -713,10 +767,31 @@
       const ex = $('p-extras'); if (ex) ex.style.display = 'none';
     }
 
-    // Links do WhatsApp (com mensagem já preenchida)
-    const msg = encodeURIComponent(`Olá! Quero confirmar a participação no passeio de ${P.mes} (${P.data}).`);
-    const href = `https://wa.me/${P.whatsapp}?text=${msg}`;
-    document.querySelectorAll('.js-wpp').forEach(a => { a.href = href; a.target = '_blank'; a.rel = 'noopener'; });
+    // Ação principal: WhatsApp quando há vagas, cadastro quando o passeio esgotou
+    if (esgotado) {
+      $('p-selo').innerHTML =
+        '<div class="selo-wrap"><span class="selo-esgotado">' +
+        '<span class="selo-main">Esgotado</span>' +
+        '<span class="selo-sub">Vagas de ' + P.mes + ' encerradas</span>' +
+        '</span></div>';
+
+      const sino = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>';
+      document.querySelectorAll('.js-wpp').forEach(a => {
+        a.className = 'btn-lista';
+        a.href = '/#avisos';
+        a.removeAttribute('target');
+        a.innerHTML = sino + ' Quero ser avisado do próximo →';
+      });
+
+      set('p-vagas', 'Vagas esgotadas');
+      set('p-cta-titulo', 'As vagas de ' + P.mes + ' já esgotaram');
+      set('p-cta-texto', 'Quem está cadastrado recebe o roteiro e a abertura das vagas primeiro, pelo WhatsApp — antes de anunciarmos nas redes sociais. Faça seu cadastro e garanta a sua vez no próximo passeio.');
+    } else {
+      const msg = encodeURIComponent(`Olá! Quero confirmar a participação no passeio de ${P.mes} (${P.data}).`);
+      const href = `https://wa.me/${P.whatsapp}?text=${msg}`;
+      document.querySelectorAll('.js-wpp').forEach(a => { a.href = href; a.target = '_blank'; a.rel = 'noopener'; });
+      set('p-vagas', 'Vagas limitadas · ' + P.vagas);
+    }
 
     // Dados estruturados (SEO/GEO) — gerados a partir de PASSEIO e FAQ, sempre em dia com a edição mensal
     const ldScripts = [];
@@ -731,7 +806,18 @@
         }))
       });
     }
-    ldScripts.push({
+    // Converte "22 de Agosto de 2026" + "10h" em data ISO, para o schema.org
+    const MESES = { janeiro:1, fevereiro:2, 'março':3, marco:3, abril:4, maio:5, junho:6, julho:7, agosto:8, setembro:9, outubro:10, novembro:11, dezembro:12 };
+    const paraISO = (dataTxt, horaTxt) => {
+      const d = String(dataTxt || '').toLowerCase().match(/(\d{1,2})\s+de\s+([a-zç]+)\s+de\s+(\d{4})/);
+      if (!d || !MESES[d[2]]) return null;
+      const h = String(horaTxt || '').match(/(\d{1,2})h?(\d{2})?/);
+      const hh = h ? String(h[1]).padStart(2, '0') : '00';
+      const mm = (h && h[2]) ? h[2] : '00';
+      return `${d[3]}-${String(MESES[d[2]]).padStart(2,'0')}-${String(d[1]).padStart(2,'0')}T${hh}:${mm}:00-03:00`;
+    };
+
+    const evento = {
       '@context': 'https://schema.org',
       '@type': 'Event',
       name: (P.titulo && P.titulo.trim()) ? P.titulo : ('Passeio de ' + P.mes),
@@ -739,8 +825,18 @@
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       eventStatus: 'https://schema.org/EventScheduled',
       location: { '@type': 'Place', name: 'Ponto de encontro (São Paulo, SP)', address: { '@type': 'PostalAddress', addressLocality: 'São Paulo', addressRegion: 'SP', addressCountry: 'BR' } },
-      organizer: { '@type': 'Organization', name: 'TEAcompanhe', url: 'https://www.teacompanhe.com.br/' }
-    });
+      organizer: { '@type': 'Organization', name: 'TEAcompanhe', url: 'https://www.teacompanhe.com.br/' },
+      offers: {
+        '@type': 'Offer',
+        url: 'https://www.teacompanhe.com.br/proximo-passeio/',
+        availability: esgotado ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock'
+      }
+    };
+    const inicio = paraISO(P.data, P.saida);
+    const fim    = paraISO(P.data, P.retorno);
+    if (inicio) evento.startDate = inicio;
+    if (fim)    evento.endDate   = fim;
+    ldScripts.push(evento);
     ldScripts.forEach(obj => {
       const s = document.createElement('script');
       s.type = 'application/ld+json';
