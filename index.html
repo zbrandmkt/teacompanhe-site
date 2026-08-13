@@ -59,6 +59,9 @@
       --gray2:   #f0f2f5;
       --white:   #ffffff;
       --bg:      #f1edfa;
+      /* vermelho usado SÓ para o carimbo de esgotado (não faz parte da paleta da marca) */
+      --red:     #c62828;
+      --red-lt:  #ffeceb;
 
       /* ── CLAYMORPHISM SHADOW SYSTEM ──
          cada sombra = drop suave externo + brilho externo claro
@@ -469,6 +472,30 @@
         inset 2px 2px 5px rgba(255,206,130,0.85),
         inset -4px -4px 8px rgba(188,102,0,0.45);
     }
+    /* ── CARIMBO DE ESGOTADO ── */
+    .selo-esgotado {
+      display: inline-flex; flex-direction: column; align-items: center;
+      transform: rotate(-5deg);
+      background: var(--red-lt); color: var(--red);
+      border: 3px solid var(--red); border-radius: 16px;
+      padding: 11px 26px 9px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      box-shadow:
+        9px 10px 22px rgba(198,40,40,0.20),
+        -5px -5px 14px rgba(255,255,255,0.8),
+        inset 0 0 0 2px var(--red-lt),
+        inset 0 0 0 4px rgba(198,40,40,0.35);
+    }
+    .selo-main {
+      font-size: 1.12rem; font-weight: 900; line-height: 1;
+      letter-spacing: 0.16em; text-transform: uppercase;
+    }
+    .selo-sub {
+      margin-top: 5px; font-size: 0.64rem; font-weight: 800;
+      letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8;
+    }
+    .tickets-header .header-badges { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
+
     .roteiro-intro { max-width: 780px; margin-bottom: 22px; }
     .roteiro-intro strong { color: var(--navy); font-weight: 800; }
     .roteiro-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 42px; }
@@ -556,7 +583,10 @@
       font-size: 1.15rem; color: var(--ink); margin: 3px 0 4px;
     }
     .tl-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.55; }
-    .tl-cta { text-align: center; margin-top: 40px; }
+    .tl-cta {
+      display: flex; justify-content: center; align-items: center;
+      gap: 16px; flex-wrap: wrap; margin-top: 40px;
+    }
 
     /* ── PASSEIOS PASSADOS ── */
     .passados { background: transparent; }
@@ -952,56 +982,63 @@
   <div class="section-inner">
     <div class="tickets-header">
       <div>
-        <span class="eyebrow">Julho 2026</span>
+        <span class="eyebrow">Agosto 2026</span>
         <h2>Próximo passeio</h2>
       </div>
-      <span class="mes-badge">🗓️ 18 de Julho</span>
+      <div class="header-badges">
+        <span class="mes-badge">🗓️ 22 de Agosto</span>
+        <span class="selo-esgotado">
+          <span class="selo-main">Esgotado</span>
+          <span class="selo-sub">Vagas de agosto encerradas</span>
+        </span>
+      </div>
     </div>
-    <p class="section-lead roteiro-intro">Todo mês, um roteiro novo pela cidade — lazer, alimentação e cultura. Veja as paradas do próximo passeio e clique para conhecer todos os detalhes, horários e como confirmar a participação.</p>
+    <p class="section-lead roteiro-intro">Todo mês, um roteiro novo pela cidade — lazer, alimentação e cultura. <strong>As vagas de agosto já esgotaram.</strong> Quem está cadastrado recebe o roteiro e a abertura das vagas primeiro, pelo WhatsApp — só depois anunciamos nas redes sociais.</p>
     <div class="timeline">
       <div class="tl-item">
         <div class="tl-node">🚐</div>
         <div class="tl-content">
-          <div class="tl-time">12h · Saída</div>
+          <div class="tl-time">10h · Saída</div>
           <div class="tl-title">Ponto de encontro</div>
           <div class="tl-desc">O grupo se reúne e embarca para o passeio.</div>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-node">🍔</div>
+        <div class="tl-node">🌳</div>
         <div class="tl-content">
           <div class="tl-time">1ª parada</div>
-          <div class="tl-title">McDonald's</div>
-          <div class="tl-desc">Almoço em grupo para começar o dia com energia.</div>
+          <div class="tl-title">Horto Florestal</div>
+          <div class="tl-desc">Uma das mais belas áreas verdes de São Paulo — com passeio de pedalinho para quem quiser.</div>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-node">🚲</div>
+        <div class="tl-node">🍔</div>
         <div class="tl-content">
           <div class="tl-time">2ª parada</div>
-          <div class="tl-title">Parque Villa-Lobos</div>
-          <div class="tl-desc">Bike, ar livre e piquenique com vista da cidade.</div>
+          <div class="tl-title">McDonald's</div>
+          <div class="tl-desc">Pausa para o almoço no nosso lugar preferido, mais um momento de convivência.</div>
         </div>
       </div>
       <div class="tl-item">
-        <div class="tl-node">🎭</div>
+        <div class="tl-node">🎨</div>
         <div class="tl-content">
           <div class="tl-time">3ª parada</div>
-          <div class="tl-title">Teatro UNICID</div>
-          <div class="tl-desc">Peça teatral para fechar o dia com arte e alegria.</div>
+          <div class="tl-title">Exposição Cartoon Network</div>
+          <div class="tl-desc">A exposição interativa no Shopping Center Norte, cheia de diversão e nostalgia.</div>
         </div>
       </div>
       <div class="tl-item">
         <div class="tl-node">🏁</div>
         <div class="tl-content">
-          <div class="tl-time">17h · Retorno</div>
+          <div class="tl-time">16h · Retorno</div>
           <div class="tl-title">Ponto de encontro</div>
           <div class="tl-desc">Fim do passeio e reencontro com as famílias.</div>
         </div>
       </div>
     </div>
     <div class="tl-cta">
-      <a href="/proximo-passeio/" class="btn-primary">Ver detalhes do próximo passeio →</a>
+      <a href="#avisos" class="btn-primary">Quero ser avisado do próximo 🧡</a>
+      <a href="/proximo-passeio/" class="btn-secondary">Ver o roteiro completo →</a>
     </div>
   </div>
 </section>
@@ -1046,9 +1083,9 @@
 <section class="form-sec" id="avisos">
   <div class="section-inner">
     <div class="form-inner">
-      <span class="eyebrow">Fique por dentro</span>
-      <h2>Seja avisado do próximo passeio</h2>
-      <p class="section-lead" style="max-width:480px;margin:0 auto">As vagas são limitadas. Cadastre seu WhatsApp e e-mail para receber em primeira mão o roteiro de cada mês.</p>
+      <span class="eyebrow">Aviso em primeira mão</span>
+      <h2>Receba o próximo roteiro antes de todo mundo</h2>
+      <p class="section-lead" style="max-width:520px;margin:0 auto">Quem está cadastrado recebe o roteiro e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — só depois anunciamos nas redes sociais. Como os grupos são pequenos, é assim que as vagas costumam acabar.</p>
       <div class="form-card">
         <div id="formContent">
           <div class="form-row">
@@ -1057,7 +1094,7 @@
               <input type="text" id="nome" class="form-input" placeholder="Como posso te chamar?"/>
             </div>
             <div class="form-group">
-              <label class="form-label" for="whatsapp">WhatsApp</label>
+              <label class="form-label" for="whatsapp">WhatsApp <span style="color:var(--orange2)">— é por aqui que avisamos</span></label>
               <input type="tel" id="whatsapp" class="form-input" placeholder="(11) 99999-9999"/>
             </div>
           </div>
@@ -1069,13 +1106,13 @@
             <label class="form-label" for="filho">Nome do filho(a) — opcional</label>
             <input type="text" id="filho" class="form-input" placeholder="Para personalizarmos o contato"/>
           </div>
-          <button class="btn-form" id="btnSubmit" onclick="enviarFormulario()">Quero ser avisado do próximo passeio 🧡</button>
+          <button class="btn-form" id="btnSubmit" onclick="enviarFormulario()">Quero ser avisado primeiro no WhatsApp 🧡</button>
           <p class="form-fine">Seus dados são usados apenas para avisos do TEAcompanhe. Sem spam. Ao enviar, você concorda com a nossa <a href="/privacidade/" style="color:var(--orange2);font-weight:700">Política de Privacidade</a>.</p>
         </div>
         <div class="form-success" id="formSuccess">
           <div class="check">🧡</div>
-          <h3>Cadastro realizado!</h3>
-          <p>Você será avisado assim que abrirmos as vagas do próximo passeio. Até lá!</p>
+          <h3>Pronto, você está na lista!</h3>
+          <p>Assim que o próximo roteiro estiver fechado, você recebe no seu WhatsApp — antes da divulgação nas redes. Até lá!</p>
         </div>
       </div>
     </div>
@@ -1089,10 +1126,10 @@
   <img class="heart-deco cta-heart" src="/images/Icone Coração Branco.png" alt=""/>
   <img class="heart-deco cta-heart2" src="/images/Icone Coração Branco.png" alt=""/>
   <div class="cta-inner">
-    <span class="eyebrow">Vagas limitadas</span>
-    <h2>Pronto para o próximo passeio?</h2>
-    <p class="cta-sub">Mande uma mensagem agora e garanta a vaga. A equipe do TEAcompanhe responde rapidinho e te conta tudo sobre o roteiro do mês.</p>
-    <a href="https://wa.me/5511962544967?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20TEAcompanhe%20e%20garantir%20uma%20vaga!" target="_blank" class="btn-whatsapp">
+    <span class="eyebrow">Ficou com alguma dúvida?</span>
+    <h2>Fale direto com a gente</h2>
+    <p class="cta-sub">As vagas de agosto já esgotaram, mas estamos por aqui para contar tudo sobre o projeto e sobre os próximos passeios. A equipe do TEAcompanhe responde rapidinho.</p>
+    <a href="https://wa.me/5511962544967?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20o%20TEAcompanhe%20e%20os%20pr%C3%B3ximos%20passeios." target="_blank" class="btn-whatsapp">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
       Falar no WhatsApp agora
     </a>
