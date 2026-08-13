@@ -444,10 +444,14 @@
       .founders-block { grid-template-columns: 1fr; gap: 28px; }
       .team-highlight { flex-direction: column; text-align: center; }
       .galeria-grid { grid-template-columns: repeat(2, 1fr); }
+      /* um campo por linha: lado a lado eles ficam estreitos demais para ler */
+      .form-row { grid-template-columns: 1fr; gap: 0; }
+      .form-card { padding: 32px 24px; }
     }
     @media (max-width: 460px) {
       .info-grid { grid-template-columns: 1fr; }
       nav .logo img { height: 40px; }
+      .form-card { padding: 26px 18px; }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; }

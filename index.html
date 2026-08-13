@@ -849,7 +849,8 @@
       .sobre-grid { grid-template-columns: 1fr; gap: 36px; }
       .valores-grid { grid-template-columns: repeat(2,1fr); }
       .steps { grid-template-columns: 1fr 1fr; gap: 16px; }
-      .form-row { grid-template-columns: 1fr; }
+      /* um campo por linha; o espaçamento fica só no margin-bottom do .form-group */
+      .form-row { grid-template-columns: 1fr; gap: 0; }
       .form-card { padding: 28px 20px; }
       footer { flex-direction: column; text-align: center; padding: 28px 20px; }
     }
