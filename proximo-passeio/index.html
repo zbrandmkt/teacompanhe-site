@@ -651,21 +651,21 @@
 <script>
   const PASSEIO = {
 
-    mes:   "Agosto",
+    mes:   "Setembro",
     ano:   "2026",
-    titulo:  "",              // opcional. Se vazio, vira "Passeio de Agosto"
-    chamada: "Um dia completo pela cidade — natureza, alimentação e cultura, com acompanhamento especializado do começo ao fim.",
+    titulo:  "",              // opcional. Se vazio, vira "Passeio de Setembro"
+    chamada: "Um dia completo pela cidade — diversão, alimentação e espetáculo, com acompanhamento especializado do começo ao fim.",
 
     // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões
     // pelo convite ao cadastro. No próximo passeio, volte para false.
-    esgotado: true,
+    esgotado: false,
 
     // --- Informações principais (aparecem no cartão do topo) ---
-    data:          "22 de Agosto de 2026",
-    saida:         "10h",
-    retorno:       "16h",
+    data:          "12 de Setembro de 2026",
+    saida:         "09h",
+    retorno:       "17h",
     pontoEncontro: "Combinado no grupo",
-    confirmarAte:  "14/08",
+    confirmarAte:  "05/09",
     vagas:         "até 10 participantes",
     valor:         "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
 
@@ -674,19 +674,20 @@
 
     // --- Paradas do dia (a linha do tempo) ---
     paradas: [
-      { icon: "🚐", tag: "10h · Saída",  nome: "Ponto de encontro",     desc: "O grupo se reúne, se organiza e embarca com a equipe para começar o dia." },
-      { icon: "🌳", tag: "1ª parada",    nome: "Horto Florestal",       desc: "Começamos o dia explorando uma das mais belas áreas verdes de São Paulo. Quem desejar também poderá aproveitar um agradável passeio de pedalinho." },
+      { icon: "🚐", tag: "09h · Saída",  nome: "Ponto de encontro",     desc: "O grupo se reúne, se organiza e embarca com a equipe para começar o dia." },
+      { icon: "🤸", tag: "1ª parada",    nome: "Pophaus Tatuapé",       desc: "Começamos o dia num espaço indoor feito para se movimentar, se divertir e gastar muita energia em várias atrações." },
       { icon: "🍔", tag: "2ª parada",    nome: "McDonald's",            desc: "Em seguida, uma pausa para o almoço no nosso lugar preferido, proporcionando mais um momento de convivência." },
-      { icon: "🎨", tag: "3ª parada",    nome: "Exposição Cartoon Network", desc: "Para encerrar o passeio, visitaremos a nova exposição interativa do Cartoon Network no Shopping Center Norte, repleta de diversão, nostalgia e experiências envolventes." },
-      { icon: "🏁", tag: "16h · Retorno", nome: "Ponto de encontro",    desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
+      { icon: "🎪", tag: "3ª parada",    nome: "Patati Patatá Circo Show", desc: "Para encerrar o dia com chave de ouro, vamos ao Patati Patatá Circo Show — um espetáculo que encanta todas as idades." },
+      { icon: "🏁", tag: "17h · Retorno", nome: "Ponto de encontro",    desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
     ],
 
     // --- O que está incluso ---
     incluso: [
       "Transporte durante todo o passeio, com motorista de confiança",
       "Equipe de 5 a 8 profissionais especializados o dia inteiro",
+      "Entrada no Pophaus Tatuapé",
       "Almoço no roteiro (McDonald's)",
-      "Ingresso da exposição do Cartoon Network",
+      "Ingresso do Patati Patatá Circo Show",
       "Apoio visual com o roteiro do dia para cada participante"
     ],
 
