@@ -402,27 +402,48 @@
     .team-highlight h4 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.12rem; color: var(--ink); margin-bottom: 6px; }
     .team-highlight p { color: #4a4360; font-size: 0.95rem; line-height: 1.6; }
 
-    /* ── GALERIA (último passeio) ── */
-    .galeria-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; max-width: 820px; margin: 0 auto; }
-    .gal-item {
-      border: none; padding: 0; background: none;
-      border-radius: 18px; box-shadow: var(--clay-photo); cursor: pointer;
-      aspect-ratio: 1 / 1; overflow: hidden;
+    /* ── NOSSOS ÚLTIMOS PASSEIOS (vídeos do Instagram) — mesmo padrão da home ── */
+    .passados-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px,1fr)); gap: 24px; }
+    .passado-card {
+      background: linear-gradient(145deg, #ffffff, #f2edfb);
+      border-radius: 26px; overflow: hidden; box-shadow: var(--clay-card);
       transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
     }
-    .gal-item:hover { transform: translateY(-4px); box-shadow: var(--clay-photo-hover); }
-    .gal-item img { width: 100%; height: 100%; object-fit: cover; border-radius: 18px; display: block; }
-    .gal-placeholder {
-      aspect-ratio: 1 / 1; border-radius: 22px;
-      background: linear-gradient(145deg, #ffffff, #f1ecfa); box-shadow: var(--clay-card);
-      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px;
-      color: var(--gray); font-size: 0.8rem; text-align: center; padding: 16px;
+    .passado-card:hover { transform: translateY(-6px); box-shadow: var(--clay-card-hover); }
+    .passado-embed { position: relative; padding-bottom: 110%; background: #ece7f7; overflow: hidden; }
+    .passado-embed.ig {
+      position: static; padding-bottom: 0; background: transparent;
+      overflow: visible; display: flex; justify-content: center;
     }
-    .gal-ph-icon {
-      width: 52px; height: 52px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
-      background: linear-gradient(145deg, #fff5e8, #ffe1bd);
-      box-shadow: inset 2px 2px 4px rgba(255,255,255,0.8), inset -2px -2px 4px rgba(230,137,0,0.15);
+    .passado-embed.ig .instagram-media { margin: 0 !important; min-width: 0 !important; width: 100% !important; }
+    .passado-info { padding: 16px 18px; }
+    .passado-data {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--orange); margin-bottom: 4px;
     }
+    .passado-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.98rem; font-weight: 800; color: var(--ink); margin-bottom: 4px;
+    }
+    .passado-desc { font-size: 0.82rem; color: var(--gray); line-height: 1.5; }
+    .passado-tipo {
+      display: inline-block; font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.04em; padding: 4px 12px; border-radius: 100px; margin-bottom: 8px;
+      box-shadow: inset 2px 2px 4px rgba(255,255,255,0.7), 4px 4px 10px rgba(120,110,165,0.14);
+    }
+    .tipo-video { background: linear-gradient(145deg, #fff2e2, #ffe0bf); color: var(--orange2); }
+
+    /* ── MOMENTOS QUE JÁ VIVEMOS (mosaico de fotos) — mesmo padrão da home ── */
+    .mosaico { column-count: 3; column-gap: 14px; }
+    .m-item {
+      display: block; width: 100%; margin: 0 0 14px; padding: 0; border: none; background: none;
+      border-radius: 18px; overflow: hidden; cursor: pointer; break-inside: avoid;
+      box-shadow: var(--clay-photo);
+      transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    }
+    .m-item:hover { transform: translateY(-4px); box-shadow: var(--clay-photo-hover); }
+    .m-item img { width: 100%; height: auto; display: block; border-radius: 18px; }
+    @media (max-width: 720px) { .mosaico { column-count: 2; column-gap: 12px; } .m-item { margin-bottom: 12px; } }
 
     /* ── LIGHTBOX ── */
     .lightbox {
@@ -443,7 +464,6 @@
       .two-col { grid-template-columns: 1fr; }
       .founders-block { grid-template-columns: 1fr; gap: 28px; }
       .team-highlight { flex-direction: column; text-align: center; }
-      .galeria-grid { grid-template-columns: repeat(2, 1fr); }
       /* um campo por linha: lado a lado eles ficam estreitos demais para ler */
       .form-row { grid-template-columns: 1fr; gap: 0; }
       .form-card { padding: 32px 24px; }
@@ -526,13 +546,64 @@
     </div>
   </section>
 
-  <section class="block" id="p-galeria-sec">
+  <section class="block" id="p-passados-sec">
     <div class="block-head">
-      <span class="eyebrow">Como foi</span>
-      <h2 id="gal-titulo">Como foi o último passeio</h2>
-      <p id="gal-legenda"></p>
+      <span class="eyebrow">Já aconteceu</span>
+      <h2>Nossos últimos passeios</h2>
+      <p>O relato de cada passeio em vídeo, direto do nosso Instagram — veja como foi o dia por dentro.</p>
     </div>
-    <div class="galeria-grid" id="p-galeria"></div>
+    <!-- Para adicionar um novo relato: duplique o bloco .passado-card abaixo com o embed real do
+         Instagram (nunca deixar placeholder/"em breve" no ar — só publicar quando o vídeo existir). -->
+    <div class="passados-grid">
+      <div class="passado-card">
+        <div class="passado-embed ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdT-jdjxkmR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DdT-jdjxkmR/" target="_blank" rel="noopener">Ver este passeio no Instagram</a>
+          </blockquote>
+        </div>
+        <div class="passado-info">
+          <span class="passado-tipo tipo-video">🎬 Vídeo</span>
+          <div class="passado-data">12 de Setembro · 2026</div>
+          <div class="passado-title">Como foi o passeio de setembro</div>
+          <p class="passado-desc">Pophaus Tatuapé, McDonald's e o Patati Patatá Circo Show — um dia completo pela cidade, contado em vídeo.</p>
+        </div>
+      </div>
+      <div class="passado-card">
+        <div class="passado-embed ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DcehrRJvK4C/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DcehrRJvK4C/" target="_blank" rel="noopener">Ver este passeio no Instagram</a>
+          </blockquote>
+        </div>
+        <div class="passado-info">
+          <span class="passado-tipo tipo-video">🎬 Vídeo</span>
+          <div class="passado-data">22 de Agosto · 2026</div>
+          <div class="passado-title">Como foi o passeio de agosto</div>
+          <p class="passado-desc">Horto Florestal, McDonald's e a exposição do Cartoon Network — um dia completo pela cidade, contado em vídeo.</p>
+        </div>
+      </div>
+      <div class="passado-card">
+        <div class="passado-embed ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DbCEkd_vok1/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DbCEkd_vok1/" target="_blank" rel="noopener">Ver este passeio no Instagram</a>
+          </blockquote>
+        </div>
+        <div class="passado-info">
+          <span class="passado-tipo tipo-video">🎬 Vídeo</span>
+          <div class="passado-data">18 de Julho · 2026</div>
+          <div class="passado-title">Como foi o passeio de julho</div>
+          <p class="passado-desc">McDonald's, Parque Villa-Lobos e teatro — um dia completo pela cidade, contado em vídeo.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="p-mosaico-sec">
+    <div class="block-head">
+      <span class="eyebrow">Nossa turma</span>
+      <h2>Momentos que já vivemos</h2>
+      <p>Um mural com um pouquinho de tudo que já rolou nos nossos passeios. Toque para ampliar.</p>
+    </div>
+    <div class="mosaico" id="p-mosaico"></div>
   </section>
 
   <section class="block">
@@ -649,23 +720,30 @@
      de "paradas" (mantendo a vírgula entre eles).
 ========================================================================== -->
 <script>
+  if (document.querySelector('.instagram-media')) {
+    const s = document.createElement('script');
+    s.src = '//www.instagram.com/embed.js';
+    s.async = true;
+    document.body.appendChild(s);
+  }
+
   const PASSEIO = {
 
-    mes:   "Setembro",
+    mes:   "Outubro",
     ano:   "2026",
-    titulo:  "",              // opcional. Se vazio, vira "Passeio de Setembro"
-    chamada: "Um dia completo pela cidade — diversão, alimentação e espetáculo, com acompanhamento especializado do começo ao fim.",
+    titulo:  "",              // opcional. Se vazio, vira "Passeio de Outubro"
+    chamada: "Um dia completo de aventura no campo — caiaque, tirolesa, cavalgada e muita diversão, com acompanhamento especializado do começo ao fim.",
 
     // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões
     // pelo convite ao cadastro. No próximo passeio, volte para false.
     esgotado: false,
 
     // --- Informações principais (aparecem no cartão do topo) ---
-    data:          "12 de Setembro de 2026",
-    saida:         "09h",
-    retorno:       "17h",
+    data:          "17 de Outubro de 2026",
+    saida:         "08h",
+    retorno:       "16h",
     pontoEncontro: "Combinado no grupo",
-    confirmarAte:  "05/09",
+    confirmarAte:  "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
     vagas:         "até 10 participantes",
     valor:         "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
 
@@ -674,28 +752,30 @@
 
     // --- Paradas do dia (a linha do tempo) ---
     paradas: [
-      { icon: "🚐", tag: "09h · Saída",  nome: "Ponto de encontro",     desc: "O grupo se reúne, se organiza e embarca com a equipe para começar o dia." },
-      { icon: "🤸", tag: "1ª parada",    nome: "Pophaus Tatuapé",       desc: "Começamos o dia num espaço indoor feito para se movimentar, se divertir e gastar muita energia em várias atrações." },
-      { icon: "🍔", tag: "2ª parada",    nome: "McDonald's",            desc: "Em seguida, uma pausa para o almoço no nosso lugar preferido, proporcionando mais um momento de convivência." },
-      { icon: "🎪", tag: "3ª parada",    nome: "Patati Patatá Circo Show", desc: "Para encerrar o dia com chave de ouro, vamos ao Patati Patatá Circo Show — um espetáculo que encanta todas as idades." },
-      { icon: "🏁", tag: "17h · Retorno", nome: "Ponto de encontro",    desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
+      { icon: "🥐", tag: "08h · Saída",   nome: "Café da manhã e partida", desc: "O grupo se reúne para um café da manhã antes de embarcar rumo à aventura do dia." },
+      { icon: "🚌", tag: "Chegada",       nome: "Chegada ao local",        desc: "Chegada por volta das 10h, já animados para o dia cheio de atividades." },
+      { icon: "🛶", tag: "Atividades",    nome: "Caiaque, Falsa Baiana, Boia Maluca e Tirolesa", desc: "Manhã de aventura e diversão na água, com apoio da equipe em cada atividade." },
+      { icon: "🎂", tag: "Almoço",        nome: "Almoço com parabéns",     desc: "Pausa para o almoço, com uma comemoração especial de aniversário em grupo." },
+      { icon: "🐴", tag: "Tarde",         nome: "Cavalo, balanço radical e lanche", desc: "Passeio a cavalo, balanço radical e um lanche animado para fechar a tarde com energia." },
+      { icon: "🏁", tag: "16h · Retorno", nome: "Hora de ir embora",       desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
     ],
 
     // --- O que está incluso ---
     incluso: [
       "Transporte durante todo o passeio, com motorista de confiança",
       "Equipe de 5 a 8 profissionais especializados o dia inteiro",
-      "Entrada no Pophaus Tatuapé",
-      "Almoço no roteiro (McDonald's)",
-      "Ingresso do Patati Patatá Circo Show",
+      "Café da manhã e almoço, com comemoração de aniversário",
+      "Atividades: caiaque, falsa baiana, boia maluca, tirolesa, passeio a cavalo e balanço radical",
+      "Lanche da tarde",
       "Apoio visual com o roteiro do dia para cada participante"
     ],
 
     // --- O que levar ---
     levar: [
       "Documento do participante",
-      "Garrafa de água e um lanche extra, se desejar",
-      "Roupa e calçado confortáveis",
+      "Roupa e calçado confortáveis, e uma troca de roupa (o dia inclui atividades na água)",
+      "Protetor solar e boné ou chapéu",
+      "Garrafa de água",
       "Itens de apoio/conforto que o participante costume usar",
       "Medicação de uso contínuo, se houver (avisar a equipe)"
     ]
@@ -730,24 +810,12 @@
 
 
   /* --------------------------------------------------------------------------
-     GALERIA DO ÚLTIMO PASSEIO — adicione as fotos aqui.
-     1) Coloque os arquivos das fotos na pasta "images/" (raiz do site).
-     2) Liste cada foto em "fotos" como { src: "/images/nome-do-arquivo.jpg", alt: "descrição" }.
-     Enquanto a lista estiver vazia, a seção mostra molduras de exemplo.
+     MOMENTOS QUE JÁ VIVEMOS — mesmo mosaico da home, mesma pasta de fotos.
+     Para adicionar/remover fotos: coloque os arquivos foto-01.jpg, foto-02.jpg...
+     em images/galeria-mosaico/ e ajuste "quantidade" aqui (e também no MOSAICO
+     do index.html da home, que usa a mesma pasta).
   -------------------------------------------------------------------------- */
-  const GALERIA = {
-    titulo:  "Como foi o último passeio",
-    legenda: "Um pouquinho da alegria do último dia que vivemos juntos — venha viver o próximo com a gente.",
-
-    // MODO FÁCIL: aponte a pasta e diga QUANTAS fotos tem (nomeadas foto-01.jpg, foto-02.jpg, ...).
-    // Para atualizar todo mês: troque as fotos na pasta e ajuste "quantidade".
-    pasta: "/images/passeio-18-07/",
-    quantidade: 15,
-
-    // (opcional) OU liste manualmente aqui, se quiser caminhos/legendas específicos.
-    // Se "fotos" tiver itens, ele tem prioridade sobre pasta/quantidade.
-    fotos: []
-  };
+  const MOSAICO = { pasta: "/images/galeria-mosaico/", prefixo: "foto-", quantidade: 26, ext: ".jpg" };
 
 
   /* Mesma correção de âncora da home: a galeria acima do formulário é lazy e
@@ -838,7 +906,7 @@
       { emoji: '📍', label: 'Ponto de encontro', value: P.pontoEncontro },
       esgotado
         ? { emoji: '🎟️', label: 'Vagas',         value: 'Esgotadas' }
-        : { emoji: '✅', label: 'Confirmar até', value: P.confirmarAte },
+        : { emoji: '✅', label: 'Confirmar até', value: (P.confirmarAte && P.confirmarAte.trim()) ? P.confirmarAte : 'Consulte pelo WhatsApp' },
       { emoji: '💳', label: 'Investimento',   value: (P.valor && P.valor.trim()) ? P.valor : 'Consulte pelo WhatsApp' }
     ];
     $('p-info').innerHTML = infos.map(i => `
@@ -874,36 +942,23 @@
         </details>`).join('');
     }
 
-    // Galeria do último passeio
-    const G = (typeof GALERIA !== 'undefined') ? GALERIA : { fotos: [] };
-    if (G.titulo)  set('gal-titulo', G.titulo);
-    if (G.legenda) set('gal-legenda', G.legenda);
-    const galEl = $('p-galeria');
-    if (galEl) {
-      let fotos = (G.fotos && G.fotos.length) ? G.fotos.slice() : [];
-      // Modo fácil: gera a lista a partir de pasta + quantidade (foto-01.jpg, foto-02.jpg, ...)
-      if (!fotos.length && G.pasta && G.quantidade) {
-        for (let k = 1; k <= G.quantidade; k++) {
-          const nn = String(k).padStart(2, '0');
-          fotos.push({ src: G.pasta + 'foto-' + nn + '.jpg', alt: 'Foto do último passeio do TEAcompanhe' });
-        }
+    // Momentos que já vivemos (mosaico de fotos — mesma pasta da home)
+    const mosaicoEl = $('p-mosaico');
+    if (mosaicoEl) {
+      let html = '';
+      for (let k = 1; k <= MOSAICO.quantidade; k++) {
+        const nn = ('0' + k).slice(-2);
+        const src = MOSAICO.pasta + MOSAICO.prefixo + nn + MOSAICO.ext;
+        html += '<button class="m-item" type="button"><img src="' + src + '" alt="Momento de um passeio do TEAcompanhe" loading="lazy"/></button>';
       }
-      if (fotos.length) {
-        galEl.innerHTML = fotos.map((f, i) => `
-          <button class="gal-item" data-i="${i}">
-            <img src="${f.src}" alt="${f.alt || 'Foto do passeio'}" loading="lazy"/>
-          </button>`).join('');
-      } else {
-        galEl.innerHTML = Array.from({ length: 6 }).map(() => `
-          <div class="gal-placeholder"><span class="gal-ph-icon">📷</span><span>Foto do passeio</span></div>`).join('');
-      }
+      mosaicoEl.innerHTML = html;
     }
 
     // Lightbox
     const lb = $('lightbox'), lbImg = $('lightbox-img');
-    if (galEl && lb && lbImg) {
-      galEl.addEventListener('click', (e) => {
-        const btn = e.target.closest('.gal-item'); if (!btn) return;
+    if (mosaicoEl && lb && lbImg) {
+      mosaicoEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('.m-item'); if (!btn) return;
         const img = btn.querySelector('img');
         lbImg.src = img.src; lbImg.alt = img.alt; lb.classList.add('open');
       });
