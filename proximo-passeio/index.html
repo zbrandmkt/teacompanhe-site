@@ -38,6 +38,9 @@
       /* vermelho usado SÓ para o carimbo de esgotado (não faz parte da paleta da marca) */
       --red:     #c62828;
       --red-lt:  #ffeceb;
+      /* dourado usado SÓ na edição de aniversário (não faz parte da paleta da marca) */
+      --gold:    #a86b00;
+      --gold-lt: #fff6dd;
       --clay-card:
         20px 20px 44px rgba(120,110,165,0.26),
         -12px -12px 32px rgba(255,255,255,0.92),
@@ -185,6 +188,26 @@
     @media (max-width: 460px) {
       .selo-main { font-size: 1.02rem; letter-spacing: 0.12em; }
       .selo-esgotado { padding: 11px 22px 9px; }
+    }
+
+    /* ── SELO DE ANIVERSÁRIO (edição especial) — festivo, não é carimbo ── */
+    .pill-aniversario {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: linear-gradient(145deg, #fff0c2, var(--gold-lt));
+      color: var(--gold);
+      border: 2px solid var(--gold); border-radius: 100px;
+      padding: 10px 22px; margin: 2px 0 22px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.82rem; font-weight: 800;
+      letter-spacing: 0.04em; text-transform: uppercase;
+      box-shadow:
+        7px 8px 18px rgba(168,107,0,0.22),
+        -5px -5px 14px rgba(255,255,255,0.85),
+        inset 0 0 0 2px rgba(255,255,255,0.6);
+    }
+    .pill-wrap { display: flex; justify-content: center; }
+    @media (max-width: 460px) {
+      .pill-aniversario { font-size: 0.72rem; padding: 9px 16px; }
     }
 
     /* ── CARTÃO DE INFORMAÇÕES ── */
@@ -479,6 +502,158 @@
   </style>
 </head>
 <body>
+<!-- ══════════════════ POPUP DE ANIVERSÁRIO (2 anos do TEAcompanhe) ══════════════════
+     Aparece 1x por dia, na primeira das 3 páginas (home, próximo-passeio, bio) que o
+     visitante abrir, controlado por uma chave única no localStorage, compartilhada
+     entre elas (mesmo domínio). Para desligar depois de outubro de 2026: apague este
+     bloco inteiro (a div, o bloco de estilo e o bloco de script logo abaixo) nas
+     3 páginas. ═══════════════════════════════════════════════════════════════════ -->
+<div class="aniversario-overlay" id="aniversario-overlay">
+  <canvas id="aniversario-confete"></canvas>
+  <div class="aniversario-modal">
+    <button class="aniversario-close" id="aniversario-close" aria-label="Fechar">&times;</button>
+    <div class="aniversario-emoji">🎉</div>
+    <p class="aniversario-eyebrow">Edição especial de aniversário</p>
+    <h3 class="aniversario-titulo">TEAcompanhe está de aniversário!</h3>
+    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias. Para comemorar, outubro é edição especial: <strong>17/10, no Parque Della Vittoria</strong>.</p>
+    <a href="/proximo-passeio/#confirmar" class="aniversario-cta" id="aniversario-cta">Ver o passeio de aniversário →</a>
+  </div>
+</div>
+<style>
+  .aniversario-overlay {
+    position: fixed; inset: 0; z-index: 2000; display: none;
+    align-items: center; justify-content: center; padding: 20px;
+    background: rgba(26,18,37,0.6); backdrop-filter: blur(6px);
+  }
+  .aniversario-overlay.open { display: flex; }
+  #aniversario-confete { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  .aniversario-modal {
+    position: relative; z-index: 1;
+    max-width: 420px; width: 100%; text-align: center;
+    background: linear-gradient(145deg, #ffffff, #fff8ea);
+    border: 2px solid var(--gold);
+    border-radius: 32px; padding: 38px 32px 32px;
+    box-shadow:
+      20px 20px 44px rgba(26,18,37,0.30),
+      -10px -10px 28px rgba(255,255,255,0.5),
+      inset 0 0 0 2px rgba(255,255,255,0.6);
+  }
+  .aniversario-close {
+    position: absolute; top: 14px; right: 14px; width: 34px; height: 34px;
+    border-radius: 50%; border: none; cursor: pointer;
+    background: rgba(120,110,165,0.12); color: var(--ink);
+    font-size: 1.3rem; line-height: 1;
+  }
+  .aniversario-close:hover { background: rgba(120,110,165,0.22); }
+  .aniversario-emoji { font-size: 2.6rem; margin-bottom: 4px; }
+  .aniversario-eyebrow {
+    font-size: 0.72rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .aniversario-titulo {
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900;
+    font-size: 1.4rem; color: var(--ink); margin-bottom: 12px; line-height: 1.2;
+  }
+  .aniversario-texto { font-size: 0.94rem; color: var(--gray); line-height: 1.6; margin-bottom: 22px; }
+  .aniversario-texto strong { color: var(--ink); }
+  .aniversario-cta {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(145deg, var(--orange-lt), var(--orange));
+    color: #fff; text-decoration: none; font-weight: 800; font-size: 0.95rem;
+    padding: 15px 28px; border-radius: 16px;
+    box-shadow: var(--clay-orange);
+    transition: transform 0.2s cubic-bezier(.34,1.56,.64,1);
+  }
+  .aniversario-cta:hover { transform: translateY(-2px) scale(1.02); }
+  @media (max-width: 460px) {
+    .aniversario-modal { padding: 32px 22px 26px; }
+    .aniversario-titulo { font-size: 1.2rem; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .aniversario-cta { transition: none; }
+  }
+</style>
+<script>
+  (function () {
+    var LS_KEY = 'teacompanhe_popup_aniversario';
+    var hoje = new Date().toISOString().slice(0, 10);
+    var visto = null;
+    try { visto = localStorage.getItem(LS_KEY); } catch (e) {}
+    if (visto === hoje) return;
+
+    var overlay = document.getElementById('aniversario-overlay');
+    if (!overlay) return;
+
+    function marcarVisto() {
+      try { localStorage.setItem(LS_KEY, hoje); } catch (e) {}
+    }
+
+    function fechar() { overlay.classList.remove('open'); }
+
+    document.getElementById('aniversario-close').addEventListener('click', fechar);
+    document.getElementById('aniversario-cta').addEventListener('click', fechar);
+    overlay.addEventListener('click', function (e) { if (e.target === overlay) fechar(); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') fechar(); });
+
+    function confete() {
+      var canvas = document.getElementById('aniversario-confete');
+      var ctx = canvas.getContext('2d');
+      var cores = ['#ff9800', '#211774', '#a86b00', '#ffb84d', '#4a3fb8'];
+
+      function redimensionar() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+      redimensionar();
+      window.addEventListener('resize', redimensionar);
+
+      var particulas = [];
+      for (var i = 0; i < 120; i++) {
+        particulas.push({
+          x: Math.random() * canvas.width,
+          y: -20 - Math.random() * canvas.height * 0.6,
+          w: 6 + Math.random() * 6,
+          h: 8 + Math.random() * 8,
+          cor: cores[Math.floor(Math.random() * cores.length)],
+          velY: 2 + Math.random() * 3,
+          velX: (Math.random() - 0.5) * 2,
+          rot: Math.random() * 360,
+          velRot: (Math.random() - 0.5) * 10
+        });
+      }
+
+      var inicio = Date.now();
+      var duracao = 3500;
+
+      function passo() {
+        var t = Date.now() - inicio;
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particulas.forEach(function (p) {
+          p.x += p.velX;
+          p.y += p.velY;
+          p.rot += p.velRot;
+          ctx.save();
+          ctx.translate(p.x, p.y);
+          ctx.rotate(p.rot * Math.PI / 180);
+          ctx.fillStyle = p.cor;
+          ctx.fillRect(-p.w / 2, -p.h / 2, p.w, p.h);
+          ctx.restore();
+        });
+        if (t < duracao) {
+          requestAnimationFrame(passo);
+        } else {
+          ctx.clearRect(0, 0, canvas.width, canvas.height);
+          window.removeEventListener('resize', redimensionar);
+        }
+      }
+      requestAnimationFrame(passo);
+    }
+
+    setTimeout(function () {
+      overlay.classList.add('open');
+      marcarVisto();
+      if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) confete();
+    }, 500);
+  })();
+</script>
+
 
 <nav>
   <a href="/" class="logo" aria-label="TEAcompanhe"><img src="/images/logo principal.png" alt="TEAcompanhe"/></a>
@@ -732,18 +907,23 @@
     mes:   "Outubro",
     ano:   "2026",
     titulo:  "",              // opcional. Se vazio, vira "Passeio de Outubro"
-    chamada: "Um dia completo de aventura no campo — caiaque, tirolesa, cavalgada e muita diversão, com acompanhamento especializado do começo ao fim.",
+    chamada: "Um dia MUITO especial: comemoramos 2 anos de TEAcompanhe com uma edição de aniversário no Parque Della Vittoria — natureza, aventura e muita festa, com acompanhamento especializado do começo ao fim.",
 
     // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões
     // pelo convite ao cadastro. No próximo passeio, volte para false.
     esgotado: false,
+
+    // Edição de aniversário? true = mostra o selo dourado "2 anos" no lugar
+    // do carimbo de esgotado (só um dos dois aparece por vez). Volte para
+    // false depois de outubro/2026, a não ser que outubro vire tradição.
+    aniversario: true,
 
     // --- Informações principais (aparecem no cartão do topo) ---
     data:          "17 de Outubro de 2026",
     saida:         "08h",
     retorno:       "16h",
     pontoEncontro: "Combinado no grupo",
-    confirmarAte:  "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
+    confirmarAte:  "12/10",
     vagas:         "até 10 participantes",
     valor:         "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
 
@@ -753,9 +933,9 @@
     // --- Paradas do dia (a linha do tempo) ---
     paradas: [
       { icon: "🥐", tag: "08h · Saída",   nome: "Café da manhã e partida", desc: "O grupo se reúne para um café da manhã antes de embarcar rumo à aventura do dia." },
-      { icon: "🚌", tag: "Chegada",       nome: "Chegada ao local",        desc: "Chegada por volta das 10h, já animados para o dia cheio de atividades." },
+      { icon: "🚌", tag: "Chegada",       nome: "Parque Della Vittoria",   desc: "Chegada por volta das 10h a um espaço de 300 mil m² de natureza entre Cotia e Itapevi, já animados para o dia cheio de atividades." },
       { icon: "🛶", tag: "Atividades",    nome: "Caiaque, Falsa Baiana, Boia Maluca e Tirolesa", desc: "Manhã de aventura e diversão na água, com apoio da equipe em cada atividade." },
-      { icon: "🎂", tag: "Almoço",        nome: "Almoço com parabéns",     desc: "Pausa para o almoço, com uma comemoração especial de aniversário em grupo." },
+      { icon: "🎂", tag: "Almoço",        nome: "Almoço com parabéns",     desc: "Pausa para o almoço com uma festa e tanto: são 2 anos de TEAcompanhe pra comemorar em grupo!" },
       { icon: "🐴", tag: "Tarde",         nome: "Cavalo, balanço radical e lanche", desc: "Passeio a cavalo, balanço radical e um lanche animado para fechar a tarde com energia." },
       { icon: "🏁", tag: "16h · Retorno", nome: "Hora de ir embora",       desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
     ],
@@ -1011,6 +1191,11 @@
       const href = `https://wa.me/${P.whatsapp}?text=${msg}`;
       document.querySelectorAll('.js-wpp').forEach(a => { a.href = href; a.target = '_blank'; a.rel = 'noopener'; });
       set('p-vagas', 'Vagas limitadas · ' + P.vagas);
+
+      // Edição de aniversário: selo dourado no lugar do carimbo de esgotado
+      if (P.aniversario === true) {
+        $('p-selo').innerHTML = '<div class="pill-wrap"><span class="pill-aniversario">🎉 Edição especial · 2 anos do TEAcompanhe</span></div>';
+      }
     }
 
     // Dados estruturados (SEO/GEO) — gerados a partir de PASSEIO e FAQ, sempre em dia com a edição mensal
