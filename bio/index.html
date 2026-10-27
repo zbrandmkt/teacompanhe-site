@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="/images/Icone%20Cora%C3%A7%C3%A3o%20laranja.png"/>
   <title>TEAcompanhe — Links</title>
-  <meta name="description" content="TEAcompanhe — passeios inclusivos em São Paulo. Confira o próximo passeio, fale no WhatsApp e siga a gente no Instagram."/>
+  <meta name="description" content="TEAcompanhe — Passeios inclusivos em São Paulo para jovens e crianças. Confira os próximos passeios, fale no WhatsApp e siga a gente no Instagram."/>
   <link rel="canonical" href="https://www.teacompanhe.com.br/bio/"/>
   <meta name="robots" content="noindex, follow"/>
 
@@ -13,12 +13,12 @@
   <meta property="og:site_name" content="TEAcompanhe"/>
   <meta property="og:url" content="https://www.teacompanhe.com.br/bio/"/>
   <meta property="og:title" content="TEAcompanhe — Links"/>
-  <meta property="og:description" content="Passeios inclusivos em São Paulo. Confira o próximo passeio, fale no WhatsApp e siga a gente no Instagram."/>
+  <meta property="og:description" content="Passeios inclusivos em São Paulo para jovens e crianças. Confira os próximos passeios, fale no WhatsApp e siga a gente no Instagram."/>
   <meta property="og:image" content="https://www.teacompanhe.com.br/images/logo%20principal.png"/>
   <meta property="og:locale" content="pt_BR"/>
   <meta name="twitter:card" content="summary"/>
   <meta name="twitter:title" content="TEAcompanhe — Links"/>
-  <meta name="twitter:description" content="Passeios inclusivos em São Paulo. Confira o próximo passeio, fale no WhatsApp e siga a gente no Instagram."/>
+  <meta name="twitter:description" content="Passeios inclusivos em São Paulo para jovens e crianças. Confira os próximos passeios, fale no WhatsApp e siga a gente no Instagram."/>
   <meta name="twitter:image" content="https://www.teacompanhe.com.br/images/logo%20principal.png"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -39,6 +39,10 @@
       /* dourado usado SÓ na edição de aniversário (não faz parte da paleta da marca) */
       --gold:    #a86b00;
       --gold-lt: #fff6dd;
+      /* azul-céu do público infantil */
+      --sky:     #4fa8ee;
+      --sky-dk:  #1f6fb8;
+      --sky-lt:  #e3f1fe;
       --white:   #ffffff;
       --bg:      #f1edfa;
       --clay-card:
@@ -139,46 +143,34 @@
     .bp-title { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900; font-size: 1.5rem; line-height: 1.15; }
     .bp-desc { font-size: 0.86rem; opacity: 0.92; margin-top: 8px; line-height: 1.5; }
 
-    /* Carimbo de esgotado — redondo, sobreposto no canto do cartão (não ocupa
-       espaço no fluxo). Fundo branco para contrastar com o topo laranja. */
-    .selo-esgotado {
+    /* Selo circular sobreposto na quina do cartão (não ocupa espaço no fluxo),
+       com fundo branco para contrastar com o topo colorido. A cor vem do tipo:
+       esgotado (vermelho), realizado (navy), aniversário (dourado), novidade (azul).
+       Só um selo por cartão — o JS decide qual. */
+    .selo-esgotado, .selo-realizado, .selo-aniversario, .selo-novidade {
       position: absolute; top: -24px; right: -14px; z-index: 3;
       width: 94px; height: 94px; border-radius: 50%;
       display: flex; flex-direction: column;
       align-items: center; justify-content: center; text-align: center;
-      transform: rotate(-14deg);
-      background: rgba(255,255,255,0.96); color: var(--red);
-      border: 3px solid var(--red);
+      background: rgba(255,255,255,0.96);
+      border: 3px solid currentColor;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      box-shadow:
-        0 7px 18px rgba(120,30,20,0.28),
-        inset 0 0 0 2px rgba(198,40,40,0.25);
       pointer-events: none;  /* não bloqueia o clique no cartão */
     }
+    .selo-esgotado    { color: var(--red);     transform: rotate(-14deg); box-shadow: 0 7px 18px rgba(120,30,20,0.28),  inset 0 0 0 2px rgba(198,40,40,0.25); }
+    .selo-realizado   { color: var(--navy);    transform: rotate(-10deg); box-shadow: 0 7px 18px rgba(33,23,116,0.26),  inset 0 0 0 2px rgba(33,23,116,0.18); }
+    .selo-aniversario { color: var(--gold);    transform: rotate(10deg);  box-shadow: 0 7px 18px rgba(168,107,0,0.28),  inset 0 0 0 2px rgba(168,107,0,0.2); }
+    .selo-novidade    { color: var(--sky-dk);  transform: rotate(-8deg);  box-shadow: 0 7px 18px rgba(31,111,184,0.30), inset 0 0 0 2px rgba(31,111,184,0.2); }
     .selo-main { font-size: 0.78rem; font-weight: 900; line-height: 1; letter-spacing: 0.04em; text-transform: uppercase; }
     .selo-sub { margin-top: 4px; font-size: 0.56rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.85; }
-    /* Reserva só a parte do carimbo que entra no cartão. Como ele fica na
+    /* Reserva só a parte do selo que entra no cartão. Como ele fica na
        quina, a descrição já começa abaixo dele e mantém a largura total. */
     .bp-top.tem-selo .bp-eyebrow,
     .bp-top.tem-selo .bp-title { padding-right: 76px; }
 
-    /* Selo de aniversário (edição especial) — mesmo formato/posição do
-       carimbo de esgotado, cor dourada em vez de vermelha. Só um dos dois
-       aparece por vez (o JS decide qual). */
-    .selo-aniversario {
-      position: absolute; top: -24px; right: -14px; z-index: 3;
-      width: 94px; height: 94px; border-radius: 50%;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center; text-align: center;
-      transform: rotate(10deg);
-      background: rgba(255,255,255,0.96); color: var(--gold);
-      border: 3px solid var(--gold);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      box-shadow:
-        0 7px 18px rgba(168,107,0,0.28),
-        inset 0 0 0 2px rgba(168,107,0,0.2);
-      pointer-events: none;
-    }
+    /* cartão do público infantil: topo azul-céu em vez de laranja */
+    .boarding-pass.criancas .bp-top { background: linear-gradient(145deg, #6bb9f5, var(--sky-dk)); }
+    .boarding-pass.criancas .bp-cta { color: var(--sky-dk); }
 
     /* ── CTA DE CADASTRO (ação principal) ── */
     .btn-lista-bio {
@@ -259,8 +251,7 @@
       .bio-wrap { padding: 40px 16px 48px; }
       .bp-title { font-size: 1.3rem; }
       /* menos sobra para fora, senão o carimbo encosta na borda da tela */
-      .selo-esgotado,
-      .selo-aniversario { width: 84px; height: 84px; top: -22px; right: -8px; }
+      .selo-esgotado, .selo-realizado, .selo-aniversario, .selo-novidade { width: 84px; height: 84px; top: -22px; right: -8px; }
       .bp-top.tem-selo .bp-eyebrow,
       .bp-top.tem-selo .bp-title { padding-right: 72px; }
     }
@@ -281,10 +272,10 @@
   <div class="aniversario-modal">
     <button class="aniversario-close" id="aniversario-close" aria-label="Fechar">&times;</button>
     <div class="aniversario-emoji">🎉</div>
-    <p class="aniversario-eyebrow">Edição especial de aniversário</p>
+    <p class="aniversario-eyebrow">2 anos de TEAcompanhe</p>
     <h3 class="aniversario-titulo">TEAcompanhe está de aniversário!</h3>
-    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias. Para comemorar, outubro é edição especial: <strong>17/10, no Parque Della Vittoria</strong>.</p>
-    <a href="/proximo-passeio/#confirmar" class="aniversario-cta" id="aniversario-cta">Ver o passeio de aniversário →</a>
+    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, a partir de <strong>31/10</strong>!</p>
+    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer o passeio infantil →</a>
   </div>
 </div>
 <style>
@@ -433,26 +424,46 @@
       <img src="/images/logo principal.png" alt="TEAcompanhe"/>
       <span class="verified-badge">✓</span>
     </div>
-    <p class="bio-tagline">Passeios inclusivos em São Paulo para jovens neurodivergentes 🧡</p>
+    <p class="bio-tagline">Passeios inclusivos em São Paulo para jovens e crianças 🧡</p>
     <div class="bio-stats">
-      <span class="bio-stat-pill">👥 Grupos de até 10</span>
-      <span class="bio-stat-pill">🧠 Equipe especializada</span>
+      <span class="bio-stat-pill">🎉 2 anos de passeios</span>
+      <span class="bio-stat-pill">🧑🧒 Jovens e crianças</span>
     </div>
   </header>
 
-  <!-- CARTÃO "PRÓXIMO PASSEIO" (estilo passagem de embarque) -->
-  <a class="boarding-pass" id="bio-boarding" href="/proximo-passeio/">
+  <!-- CARTÕES DE EMBARQUE: um por público (o primeiro é o que tem passeio aberto) -->
+  <a class="boarding-pass criancas" id="bio-c" href="/passeio-infantil/">
     <div class="bp-top">
-      <div class="bp-eyebrow">🗓️ <span id="bio-eyebrow">Próximo passeio</span></div>
-      <div class="bp-title" id="bio-titulo">Passeio</div>
-      <div id="bio-selo"></div>
-      <div class="bp-desc" id="bio-teaser"></div>
+      <div class="bp-eyebrow">🧒 Passeio para crianças · até 12 anos</div>
+      <div class="bp-title" id="bio-c-titulo">Passeio infantil</div>
+      <div id="bio-c-selo"></div>
+      <div class="bp-desc" id="bio-c-teaser"></div>
     </div>
     <div class="bp-seam"><div class="bp-perf"></div></div>
     <div class="bp-bottom">
       <div>
-        <div class="bp-label">Data</div>
-        <div class="bp-value" id="bio-data">—</div>
+        <div class="bp-label" id="bio-c-rotulo">Próximo passeio</div>
+        <div class="bp-value" id="bio-c-data">—</div>
+      </div>
+      <span class="bp-cta">
+        Ver detalhes
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <a class="boarding-pass jovens" id="bio-j" href="/proximo-passeio/">
+    <div class="bp-top">
+      <div class="bp-eyebrow">🧑 Passeio para jovens</div>
+      <div class="bp-title" id="bio-j-titulo">Passeio</div>
+      <div id="bio-j-selo"></div>
+      <div class="bp-desc" id="bio-j-teaser"></div>
+    </div>
+    <div class="bp-seam"><div class="bp-perf"></div></div>
+    <div class="bp-bottom">
+      <div>
+        <div class="bp-label" id="bio-j-rotulo">Próximo passeio</div>
+        <div class="bp-value" id="bio-j-data">—</div>
       </div>
       <span class="bp-cta">
         Ver detalhes
@@ -510,51 +521,62 @@
 </div>
 
 <!-- ==========================================================================
-     ⬇️ EDITE AQUI TODO MÊS: dados do card "Próximo passeio" e do WhatsApp ⬇️
+     ⬇️ EDITE AQUI A CADA PASSEIO: um cartão por público (crianças e jovens) ⬇️
+     selo: "" (nenhum) | "novidade" | "esgotado" | "realizado" | "aniversario"
+     O que a divulgação não informou (valor, ponto de encontro) NÃO entra aqui.
 ========================================================================== -->
 <script>
   const BIO = {
-    mes:    "Outubro",
-    data:   "17 de Outubro",
-    teaser: "Edição de aniversário — 2 anos de TEAcompanhe! Caiaque, tirolesa e cavalgada no Parque Della Vittoria.",
-    link:   "/proximo-passeio/",
     whatsapp: "5511947701169",
 
-    // Vagas esgotadas? true = mostra o carimbo vermelho no cartão.
-    // No próximo passeio, volte para false.
-    esgotado: false,
+    criancas: {
+      mes:    "Outubro",
+      titulo: "Primeiro passeio infantil",
+      rotulo: "Próximo passeio",
+      data:   "31 de Outubro · 13h às 18h",
+      teaser: "PopHaus Tatuapé e Horto Florestal, com piquenique, pedalinho e bike.",
+      selo:   "novidade"
+    },
 
-    // Edição de aniversário? true = mostra o selo dourado "2 anos" no
-    // cartão (só um dos dois selos aparece por vez).
-    aniversario: true
+    jovens: {
+      mes:    "Outubro",
+      titulo: "Passeio de Outubro",
+      rotulo: "Último passeio",
+      data:   "17 de Outubro",
+      teaser: "Edição de 2 anos de TEAcompanhe, no Parque Della Vittoria.",
+      selo:   "realizado"
+    }
+  };
+
+  const SELOS = {
+    novidade:    { classe: "selo-novidade",    principal: "Novo",      sub: "Infantil" },
+    esgotado:    { classe: "selo-esgotado",    principal: "Esgotado",  sub: null },
+    realizado:   { classe: "selo-realizado",   principal: "Realizado", sub: null },
+    aniversario: { classe: "selo-aniversario", principal: "2 anos",    sub: "TEAcompanhe" }
   };
 
   (function () {
     const $ = (id) => document.getElementById(id);
-    $('bio-titulo').textContent = 'Passeio de ' + BIO.mes;
-    $('bio-teaser').textContent = BIO.teaser;
-    $('bio-data').textContent = BIO.data;
-    $('bio-boarding').href = BIO.link;
-    $('bio-ano').textContent = new Date().getFullYear();
 
-    if (BIO.esgotado === true) {
-      document.querySelector('.bp-top').classList.add('tem-selo');
-      $('bio-selo').innerHTML =
-        '<span class="selo-esgotado">' +
-        '<span class="selo-main">Esgotado</span>' +
-        '<span class="selo-sub">' + BIO.mes + '</span>' +
-        '</span>';
-      $('bio-nota').innerHTML =
-        'As vagas de ' + BIO.mes + ' esgotaram. Quem é cadastrado recebe o roteiro no WhatsApp antes da divulgação aqui. 🧡';
-    } else if (BIO.aniversario === true) {
-      document.querySelector('.bp-top').classList.add('tem-selo');
-      $('bio-selo').innerHTML =
-        '<span class="selo-aniversario">' +
-        '<span class="selo-main">2 anos</span>' +
-        '<span class="selo-sub">TEAcompanhe</span>' +
-        '</span>';
+    function montar(prefixo, d) {
+      $(prefixo + '-titulo').textContent = d.titulo;
+      $(prefixo + '-teaser').textContent = d.teaser;
+      $(prefixo + '-rotulo').textContent = d.rotulo;
+      $(prefixo + '-data').textContent = d.data;
+      const selo = SELOS[d.selo];
+      if (selo) {
+        $(prefixo).querySelector('.bp-top').classList.add('tem-selo');
+        $(prefixo + '-selo').innerHTML =
+          '<span class="' + selo.classe + '">' +
+          '<span class="selo-main">' + selo.principal + '</span>' +
+          '<span class="selo-sub">' + (selo.sub || d.mes) + '</span>' +
+          '</span>';
+      }
     }
+    montar('bio-c', BIO.criancas);
+    montar('bio-j', BIO.jovens);
 
+    $('bio-ano').textContent = new Date().getFullYear();
     const msg = encodeURIComponent('Olá! Vim pelo Instagram e quero saber mais sobre o TEAcompanhe!');
     $('bio-wpp').href = 'https://wa.me/' + BIO.whatsapp + '?text=' + msg;
   })();

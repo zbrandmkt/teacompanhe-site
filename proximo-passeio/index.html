@@ -4,19 +4,19 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="/images/Icone%20Cora%C3%A7%C3%A3o%20laranja.png"/>
-  <title>Próximo Passeio — TEAcompanhe</title>
-  <meta name="description" content="Detalhes completos do próximo passeio inclusivo do TEAcompanhe: roteiro, horários, ponto de encontro e como confirmar a participação."/>
+  <title>Próximo Passeio para Jovens — TEAcompanhe</title>
+  <meta name="description" content="Detalhes do próximo passeio inclusivo do TEAcompanhe para jovens neurodivergentes: roteiro, horários, ponto de encontro e como confirmar a participação."/>
   <link rel="canonical" href="https://www.teacompanhe.com.br/proximo-passeio/"/>
 
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="TEAcompanhe"/>
   <meta property="og:url" content="https://www.teacompanhe.com.br/proximo-passeio/"/>
-  <meta property="og:title" content="Próximo Passeio — TEAcompanhe"/>
-  <meta property="og:description" content="Detalhes completos do próximo passeio inclusivo do TEAcompanhe: roteiro, horários, ponto de encontro e como confirmar a participação."/>
+  <meta property="og:title" content="Próximo Passeio para Jovens — TEAcompanhe"/>
+  <meta property="og:description" content="Detalhes do próximo passeio inclusivo do TEAcompanhe para jovens neurodivergentes: roteiro, horários, ponto de encontro e como confirmar a participação."/>
   <meta property="og:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
   <meta property="og:locale" content="pt_BR"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="Próximo Passeio — TEAcompanhe"/>
+  <meta name="twitter:title" content="Próximo Passeio para Jovens — TEAcompanhe"/>
   <meta name="twitter:description" content="Roteiro, horários e como confirmar participação no próximo passeio inclusivo do TEAcompanhe."/>
   <meta name="twitter:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
 
@@ -41,6 +41,10 @@
       /* dourado usado SÓ na edição de aniversário (não faz parte da paleta da marca) */
       --gold:    #a86b00;
       --gold-lt: #fff6dd;
+      /* azul-céu do público infantil (separa visualmente jovens × crianças) */
+      --sky:     #4fa8ee;
+      --sky-dk:  #1f6fb8;
+      --sky-lt:  #e3f1fe;
       --clay-card:
         20px 20px 44px rgba(120,110,165,0.26),
         -12px -12px 32px rgba(255,255,255,0.92),
@@ -161,6 +165,10 @@
     }
     .btn-lista:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--clay-orange-hover); }
     .btn-lista:active { transform: translateY(0) scale(0.98); box-shadow: var(--clay-inset); }
+    @media (max-width: 460px) {
+      /* texto longo do botão não deve deixar a seta sozinha na linha de baixo */
+      .btn-lista, .btn-wpp { padding: 15px 18px; font-size: 0.94rem; gap: 8px; text-align: center; justify-content: center; }
+    }
 
     /* ── CARIMBO DE ESGOTADO ── */
     .selo-wrap { display: flex; justify-content: center; margin: 4px 0 22px; }
@@ -208,6 +216,33 @@
     .pill-wrap { display: flex; justify-content: center; }
     @media (max-width: 460px) {
       .pill-aniversario { font-size: 0.72rem; padding: 9px 16px; }
+    }
+
+    /* ── SELETOR DE PÚBLICO (jovens × crianças) ── */
+    .pub-switch {
+      display: flex; width: fit-content; gap: 6px; padding: 6px; margin: 0 auto 26px;
+      background: linear-gradient(145deg, #ffffff, #f1ecfa); border-radius: 100px;
+      box-shadow: 8px 8px 20px rgba(120,110,165,0.18), -5px -5px 14px rgba(255,255,255,0.9), inset 2px 2px 4px rgba(255,255,255,0.8);
+    }
+    .pub-switch a {
+      display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+      font-size: 0.86rem; font-weight: 800; color: var(--gray);
+      padding: 11px 22px; border-radius: 100px; transition: color 0.2s, background 0.2s;
+    }
+    .pub-switch a:hover { color: var(--navy); }
+    .pub-switch a.on.jovens   { color: #fff; background: linear-gradient(145deg, var(--orange-lt), var(--orange)); box-shadow: var(--clay-orange); }
+    .pub-switch a.on.criancas { color: #fff; background: linear-gradient(145deg, #6bb9f5, var(--sky-dk)); box-shadow: 8px 10px 22px rgba(31,111,184,0.38), inset 3px 3px 7px rgba(170,215,250,0.8), inset -5px -5px 10px rgba(20,80,150,0.4); }
+    .novo-tag {
+      background: var(--sky-lt); color: var(--sky-dk);
+      font-size: 0.6rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 100px;
+    }
+    @media (max-width: 460px) { .pub-switch a { padding: 10px 16px; font-size: 0.8rem; } }
+
+    /* selo neutro (navy) para passeio já realizado — o vermelho fica só para "esgotado" */
+    .selo-realizado {
+      background: #eceafb; color: var(--navy); border-color: var(--navy);
+      box-shadow: 9px 10px 22px rgba(33,23,116,0.16), -5px -5px 14px rgba(255,255,255,0.8), inset 0 0 0 2px #eceafb, inset 0 0 0 4px rgba(33,23,116,0.3);
     }
 
     /* ── CARTÃO DE INFORMAÇÕES ── */
@@ -513,10 +548,10 @@
   <div class="aniversario-modal">
     <button class="aniversario-close" id="aniversario-close" aria-label="Fechar">&times;</button>
     <div class="aniversario-emoji">🎉</div>
-    <p class="aniversario-eyebrow">Edição especial de aniversário</p>
+    <p class="aniversario-eyebrow">2 anos de TEAcompanhe</p>
     <h3 class="aniversario-titulo">TEAcompanhe está de aniversário!</h3>
-    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias. Para comemorar, outubro é edição especial: <strong>17/10, no Parque Della Vittoria</strong>.</p>
-    <a href="/proximo-passeio/#confirmar" class="aniversario-cta" id="aniversario-cta">Ver o passeio de aniversário →</a>
+    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, a partir de <strong>31/10</strong>!</p>
+    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer o passeio infantil →</a>
   </div>
 </div>
 <style>
@@ -667,6 +702,10 @@
 <div class="wrap">
 
   <header class="hero">
+    <div class="pub-switch" role="navigation" aria-label="Escolha o público do passeio">
+      <a href="/proximo-passeio/" class="on jovens" aria-current="page">🧑 Jovens</a>
+      <a href="/passeio-infantil/" class="criancas">🧒 Crianças <span class="novo-tag">Novo</span></a>
+    </div>
     <span class="eyebrow" id="p-eyebrow">Próximo passeio</span>
     <h1 id="p-titulo">Passeio</h1>
     <div id="p-selo"></div>
@@ -876,6 +915,7 @@
 <footer>
   © <span id="p-ano-footer">2026</span> TEAcompanhe · São Paulo, SP ·
   <a href="/">Voltar ao site</a> ·
+  <a href="/passeio-infantil/">Passeios para crianças</a> ·
   <a href="/privacidade/">Privacidade</a> ·
   <a href="https://instagram.com/teacompanhe" target="_blank">@teacompanhe</a> ·
   Desenvolvido por <a href="https://instagram.com/zbrand.mkt" target="_blank">Zbrand Marketing</a>
@@ -912,6 +952,11 @@
     // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões
     // pelo convite ao cadastro. No próximo passeio, volte para false.
     esgotado: false,
+
+    // Passeio já aconteceu e o próximo ainda não foi divulgado? true = mostra o
+    // selo "Realizado", troca os botões pelo convite ao cadastro e passa a
+    // chamar de "Último passeio". Volte para false ao publicar o próximo.
+    realizado: true,
 
     // Edição de aniversário? true = mostra o selo dourado "2 anos" no lugar
     // do carimbo de esgotado (só um dos dois aparece por vez). Volte para
@@ -972,6 +1017,8 @@
   const FAQ = [
     { q: "Para quem são os passeios?",
       a: "Para jovens neurodivergentes de forma ampla — não apenas autistas. Na dúvida se é adequado para o seu filho, <a href='#confirmar'>fale com a gente</a>: avaliamos juntos." },
+    { q: "Vocês têm passeios para crianças?",
+      a: "Sim! A partir de 31/10 o TEAcompanhe também tem passeios para o público infantil, até os 12 anos — cada público tem a sua própria página e o seu roteiro. <a href='/passeio-infantil/'>Conheça o passeio infantil</a>." },
     { q: "Como é a segurança durante o dia?",
       a: "O grupo tem até 10 participantes e é acompanhado por uma equipe de 5 a 8 profissionais especializados o dia inteiro, além do mesmo motorista de confiança de sempre. O roteiro é planejado nos mínimos detalhes." },
     { q: "Preciso assinar algum termo?",
@@ -1072,9 +1119,11 @@
     const set = (id, val) => { const el = $(id); if (el) el.textContent = val; };
 
     const esgotado = P.esgotado === true;
+    const realizado = !esgotado && P.realizado === true;
+    const encerrado = esgotado || realizado;
 
     set('p-titulo', P.titulo && P.titulo.trim() ? P.titulo : 'Passeio de ' + P.mes);
-    set('p-eyebrow', 'Próximo passeio · ' + P.mes + ' ' + P.ano);
+    set('p-eyebrow', (realizado ? 'Último passeio · ' : 'Próximo passeio · ') + P.mes + ' ' + P.ano);
     set('p-chamada', P.chamada);
     set('p-ano-footer', P.ano);
 
@@ -1086,6 +1135,8 @@
       { emoji: '📍', label: 'Ponto de encontro', value: P.pontoEncontro },
       esgotado
         ? { emoji: '🎟️', label: 'Vagas',         value: 'Esgotadas' }
+        : realizado
+        ? { emoji: '✅', label: 'Status',        value: 'Passeio realizado' }
         : { emoji: '✅', label: 'Confirmar até', value: (P.confirmarAte && P.confirmarAte.trim()) ? P.confirmarAte : 'Consulte pelo WhatsApp' },
       { emoji: '💳', label: 'Investimento',   value: (P.valor && P.valor.trim()) ? P.valor : 'Consulte pelo WhatsApp' }
     ];
@@ -1154,12 +1205,16 @@
     }
 
     // Ação principal: WhatsApp quando há vagas, cadastro quando o passeio esgotou
-    if (esgotado) {
-      $('p-selo').innerHTML =
-        '<div class="selo-wrap"><span class="selo-esgotado">' +
-        '<span class="selo-main">Esgotado</span>' +
-        '<span class="selo-sub">Vagas de ' + P.mes + ' encerradas</span>' +
-        '</span></div>';
+    if (encerrado) {
+      $('p-selo').innerHTML = esgotado
+        ? '<div class="selo-wrap"><span class="selo-esgotado">' +
+          '<span class="selo-main">Esgotado</span>' +
+          '<span class="selo-sub">Vagas de ' + P.mes + ' encerradas</span>' +
+          '</span></div>'
+        : '<div class="selo-wrap"><span class="selo-esgotado selo-realizado">' +
+          '<span class="selo-main">Realizado</span>' +
+          '<span class="selo-sub">Passeio de ' + P.mes + '</span>' +
+          '</span></div>';
 
       const sino = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg>';
 
@@ -1183,9 +1238,11 @@
         btnFinal.rel = 'noopener';
       }
 
-      set('p-vagas', 'Vagas esgotadas');
+      set('p-vagas', esgotado ? 'Vagas esgotadas' : 'Passeio realizado');
       set('p-cta-titulo', 'Ficou com alguma dúvida?');
-      set('p-cta-texto', 'As vagas de ' + P.mes + ' já esgotaram, mas estamos por aqui para contar tudo sobre o projeto e sobre os próximos passeios.');
+      set('p-cta-texto', esgotado
+        ? 'As vagas de ' + P.mes + ' já esgotaram, mas estamos por aqui para contar tudo sobre o projeto e sobre os próximos passeios.'
+        : 'O passeio de ' + P.mes + ' já aconteceu. Cadastre-se acima para receber o próximo roteiro primeiro, pelo WhatsApp — e, se tiver qualquer dúvida, é só chamar a gente.');
     } else {
       const msg = encodeURIComponent(`Olá! Quero confirmar a participação no passeio de ${P.mes} (${P.data}).`);
       const href = `https://wa.me/${P.whatsapp}?text=${msg}`;
@@ -1231,12 +1288,15 @@
       eventStatus: 'https://schema.org/EventScheduled',
       location: { '@type': 'Place', name: 'Ponto de encontro (São Paulo, SP)', address: { '@type': 'PostalAddress', addressLocality: 'São Paulo', addressRegion: 'SP', addressCountry: 'BR' } },
       organizer: { '@type': 'Organization', name: 'TEAcompanhe', url: 'https://www.teacompanhe.com.br/' },
-      offers: {
+      audience: { '@type': 'PeopleAudience', audienceType: 'Jovens neurodivergentes' }
+    };
+    if (!realizado) {
+      evento.offers = {
         '@type': 'Offer',
         url: 'https://www.teacompanhe.com.br/proximo-passeio/',
         availability: esgotado ? 'https://schema.org/SoldOut' : 'https://schema.org/InStock'
-      }
-    };
+      };
+    }
     const inicio = paraISO(P.data, P.saida);
     const fim    = paraISO(P.data, P.retorno);
     if (inicio) evento.startDate = inicio;

@@ -4,20 +4,20 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="/images/Icone%20Cora%C3%A7%C3%A3o%20laranja.png"/>
-  <title>TEAcompanhe — Passeios Inclusivos em São Paulo para Jovens Neurodivergentes</title>
-  <meta name="description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim. Grupos pequenos, equipe técnica dedicada e roteiro pensado nos mínimos detalhes."/>
+  <title>TEAcompanhe — Passeios Inclusivos em São Paulo para Jovens e Crianças</title>
+  <meta name="description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim, e agora também para crianças até 12 anos. Roteiros pensados nos mínimos detalhes."/>
   <link rel="canonical" href="https://www.teacompanhe.com.br/"/>
 
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="TEAcompanhe"/>
   <meta property="og:url" content="https://www.teacompanhe.com.br/"/>
-  <meta property="og:title" content="TEAcompanhe — Passeios Inclusivos em São Paulo para Jovens Neurodivergentes"/>
-  <meta property="og:description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim. Grupos pequenos, equipe técnica dedicada e roteiro pensado nos mínimos detalhes."/>
+  <meta property="og:title" content="TEAcompanhe — Passeios Inclusivos em São Paulo para Jovens e Crianças"/>
+  <meta property="og:description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim, e agora também para crianças até 12 anos. Roteiros pensados nos mínimos detalhes."/>
   <meta property="og:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
   <meta property="og:locale" content="pt_BR"/>
   <meta name="twitter:card" content="summary_large_image"/>
-  <meta name="twitter:title" content="TEAcompanhe — Passeios Inclusivos em São Paulo"/>
-  <meta name="twitter:description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado do início ao fim."/>
+  <meta name="twitter:title" content="TEAcompanhe — Passeios Inclusivos para Jovens e Crianças"/>
+  <meta name="twitter:description" content="Passeios mensais inclusivos em São Paulo para jovens neurodivergentes e, agora, também para crianças até 12 anos."/>
   <meta name="twitter:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
 
   <script type="application/ld+json">
@@ -27,8 +27,8 @@
     "name": "TEAcompanhe",
     "url": "https://www.teacompanhe.com.br/",
     "logo": "https://www.teacompanhe.com.br/images/logo%20principal.png",
-    "image": "https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png",
-    "description": "Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado de psicóloga e psicopedagoga.",
+    "image": "https://www.teacompanhe.com.br/images/hero-mapa-van.webp",
+    "description": "Passeios mensais inclusivos em São Paulo para jovens neurodivergentes, com acompanhamento especializado de psicóloga e psicopedagoga, e passeios para crianças até 12 anos.",
     "areaServed": { "@type": "City", "name": "São Paulo" },
     "address": { "@type": "PostalAddress", "addressLocality": "São Paulo", "addressRegion": "SP", "addressCountry": "BR" },
     "contactPoint": {
@@ -42,6 +42,7 @@
   }
   </script>
 
+  <link rel="preload" as="image" href="/images/hero-mapa-van.webp" type="image/webp" fetchpriority="high"/>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -65,6 +66,20 @@
       /* dourado usado SÓ na edição de aniversário (não faz parte da paleta da marca) */
       --gold:    #a86b00;
       --gold-lt: #fff6dd;
+      /* azul-céu do público infantil (vem da arte do flyer; separa visualmente jovens × crianças) */
+      --sky:     #4fa8ee;
+      --sky-dk:  #1f6fb8;
+      --sky-lt:  #e3f1fe;
+      --clay-sky:
+        12px 14px 28px rgba(31,111,184,0.38),
+        -7px -7px 18px rgba(170,215,250,0.35),
+        inset 4px 4px 9px rgba(170,215,250,0.85),
+        inset -7px -7px 14px rgba(20,80,150,0.42);
+      --clay-sky-hover:
+        16px 18px 38px rgba(31,111,184,0.46),
+        -7px -7px 18px rgba(170,215,250,0.42),
+        inset 4px 4px 9px rgba(170,215,250,0.92),
+        inset -7px -7px 14px rgba(20,80,150,0.5);
 
       /* ── CLAYMORPHISM SHADOW SYSTEM ──
          cada sombra = drop suave externo + brilho externo claro
@@ -168,9 +183,9 @@
       min-height: 100vh;
       background: transparent;
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.88fr 1.12fr;
       align-items: center;
-      padding: 140px 64px 80px;
+      padding: 130px 56px 70px;
       gap: 48px;
       position: relative;
       overflow: hidden;
@@ -252,20 +267,16 @@
     }
     .btn-secondary:active { transform: translateY(0) scale(0.98); box-shadow: var(--clay-inset); }
 
-    /* Hero visual side */
+    /* Hero visual side — ilustração (mapa + van) com chips flutuantes */
     .hero-visual {
       display: flex; justify-content: center; align-items: center;
       position: relative; z-index: 1;
     }
-    .hero-logo-wrap {
-      background: linear-gradient(145deg, #ffffff, #f3eeff);
-      border: none;
-      border-radius: 40px;
-      padding: 52px;
-      box-shadow: var(--clay-card);
-      animation: floaty 6s ease-in-out infinite;
+    .hero-art { position: relative; width: 100%; max-width: 700px; animation: floaty 7s ease-in-out infinite; }
+    .hero-art img {
+      width: 100%; height: auto; display: block;
+      filter: drop-shadow(0 26px 30px rgba(120,110,165,0.28));
     }
-    .hero-logo-wrap img { width: 300px; height: auto; display: block; }
 
     @keyframes floaty {
       0%,100% { transform: translateY(0); }
@@ -277,12 +288,12 @@
       background: linear-gradient(145deg, #ffffff, #f4f0fc);
       border-radius: 20px;
       padding: 13px 18px;
-      font-size: 0.82rem; font-weight: 700;
+      font-size: 0.82rem; font-weight: 700; line-height: 1.25;
       display: flex; align-items: center; gap: 8px;
       border: none;
     }
     .hero-float-card.c1 {
-      top: 6px; left: -20px; color: var(--orange2);
+      top: -1%; left: -4%; color: var(--orange2);
       box-shadow:
         10px 10px 22px rgba(230,137,0,0.18),
         -6px -6px 16px rgba(255,255,255,0.9),
@@ -290,21 +301,45 @@
       animation: floaty 5s ease-in-out infinite;
     }
     .hero-float-card.c2 {
-      bottom: 14px; right: -10px; color: var(--navy);
+      bottom: -2%; right: -2%; color: var(--sky-dk);
       box-shadow:
-        10px 10px 22px rgba(33,23,116,0.16),
+        10px 10px 22px rgba(31,111,184,0.18),
         -6px -6px 16px rgba(255,255,255,0.9),
         inset 2px 2px 4px rgba(255,255,255,0.8);
       animation: floaty 6.5s ease-in-out infinite;
     }
     .hero-float-card.c3 {
-      bottom: 100px; left: -30px; color: #4a5568;
+      bottom: 5%; left: -5%; color: var(--navy);
       box-shadow:
-        10px 10px 22px rgba(74,85,104,0.16),
+        10px 10px 22px rgba(33,23,116,0.16),
         -6px -6px 16px rgba(255,255,255,0.9),
         inset 2px 2px 4px rgba(255,255,255,0.8);
       animation: floaty 5.8s ease-in-out infinite;
     }
+
+    .btn-sky {
+      display: inline-flex; align-items: center; gap: 9px;
+      background: linear-gradient(145deg, #6bb9f5, var(--sky-dk));
+      color: var(--white);
+      text-decoration: none; font-weight: 800; font-size: 1rem;
+      padding: 17px 30px; border-radius: 20px;
+      border: none;
+      box-shadow: var(--clay-sky);
+      transition: transform 0.2s cubic-bezier(.34,1.56,.64,1), box-shadow 0.2s;
+    }
+    .btn-sky:hover { transform: translateY(-3px) scale(1.02); box-shadow: var(--clay-sky-hover); }
+    .btn-sky:active { transform: translateY(0) scale(0.98); box-shadow: var(--clay-inset); }
+    .novo-tag {
+      background: #fff; color: var(--sky-dk);
+      font-size: 0.62rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 3px 8px; border-radius: 100px;
+    }
+    .hero-ctas > a { min-width: 262px; justify-content: center; }
+    .hero-more {
+      display: inline-block; margin-top: 22px; color: var(--gray);
+      font-size: 0.9rem; font-weight: 700; text-decoration: none;
+    }
+    .hero-more:hover { color: var(--navy); }
 
     /* ── STATS ── */
     .stats {
@@ -459,159 +494,51 @@
       font-size: 1.02rem; font-weight: 700; color: var(--navy);
     }
 
-    /* ── TICKETS ── */
-    .roteiro { background: transparent; }
-    .tickets-header {
-      display: flex; justify-content: space-between; align-items: flex-end;
-      margin-bottom: 40px; flex-wrap: wrap; gap: 16px;
-    }
-    .mes-badge {
-      background: linear-gradient(145deg, var(--orange-lt), var(--orange));
-      color: var(--white);
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.85rem; font-weight: 800;
-      padding: 10px 24px; border-radius: 100px;
-      border: none;
-      box-shadow:
-        8px 8px 18px rgba(230,137,0,0.4),
-        inset 2px 2px 5px rgba(255,206,130,0.85),
-        inset -4px -4px 8px rgba(188,102,0,0.45);
-    }
-    /* ── CARIMBO DE ESGOTADO ── */
-    .selo-esgotado {
-      display: inline-flex; flex-direction: column; align-items: center;
-      transform: rotate(-5deg);
-      background: var(--red-lt); color: var(--red);
-      border: 3px solid var(--red); border-radius: 16px;
-      padding: 11px 26px 9px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      box-shadow:
-        9px 10px 22px rgba(198,40,40,0.20),
-        -5px -5px 14px rgba(255,255,255,0.8),
-        inset 0 0 0 2px var(--red-lt),
-        inset 0 0 0 4px rgba(198,40,40,0.35);
-    }
-    .selo-main {
-      font-size: 1.12rem; font-weight: 900; line-height: 1;
-      letter-spacing: 0.16em; text-transform: uppercase;
-    }
-    .selo-sub {
-      margin-top: 5px; font-size: 0.64rem; font-weight: 800;
-      letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8;
-    }
-    .tickets-header .header-badges { display: flex; align-items: center; gap: 18px; flex-wrap: wrap; }
-
-    /* ── SELO DE ANIVERSÁRIO (edição especial) — festivo, não é carimbo ── */
-    .pill-aniversario {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: linear-gradient(145deg, #fff0c2, var(--gold-lt));
-      color: var(--gold);
-      border: 2px solid var(--gold); border-radius: 100px;
-      padding: 10px 22px;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.82rem; font-weight: 800;
-      letter-spacing: 0.04em; text-transform: uppercase;
-      box-shadow:
-        7px 8px 18px rgba(168,107,0,0.22),
-        -5px -5px 14px rgba(255,255,255,0.85),
-        inset 0 0 0 2px rgba(255,255,255,0.6);
-    }
-    .pill-wrap { display: flex; justify-content: center; }
-    @media (max-width: 480px) {
-      .pill-aniversario { font-size: 0.72rem; padding: 9px 16px; }
-    }
-
-    .roteiro-intro { max-width: 780px; margin-bottom: 22px; }
-    .roteiro-intro strong { color: var(--navy); font-weight: 800; }
-    .roteiro-chips { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 42px; }
-    .rchip {
-      display: inline-flex; align-items: center; gap: 7px;
-      background: linear-gradient(145deg, #ffffff, #f1ecfa);
-      color: var(--navy); font-size: 0.85rem; font-weight: 800;
-      padding: 11px 20px; border-radius: 100px;
-      box-shadow:
-        7px 7px 16px rgba(120,110,165,0.18),
-        -5px -5px 14px rgba(255,255,255,0.9),
-        inset 2px 2px 4px rgba(255,255,255,0.8),
-        inset -3px -3px 7px rgba(120,110,165,0.10);
-    }
-    .tickets-grid {
-      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
-      gap: 28px;
-    }
-    .ticket {
+    /* ── PASSEIOS POR PÚBLICO (jovens × crianças) ── */
+    .tracks { background: transparent; }
+    .tracks-head { max-width: 720px; margin: 0 auto 48px; text-align: center; }
+    .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; align-items: stretch; }
+    .track-card {
+      position: relative; display: flex; flex-direction: column;
       background: linear-gradient(145deg, #ffffff, #f2edfb);
-      border-radius: 28px; overflow: hidden;
-      border: none;
-      box-shadow: var(--clay-card);
+      border-radius: 36px; overflow: hidden; box-shadow: var(--clay-card);
       transition: transform 0.25s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+      scroll-margin-top: 110px;
     }
-    .ticket:hover { transform: translateY(-6px); box-shadow: var(--clay-card-hover); }
-
-    .ticket-head {
-      padding: 12px 22px; font-size: 0.7rem; font-weight: 800;
-      letter-spacing: 0.1em; text-transform: uppercase; color: var(--white);
-      box-shadow: inset 0 -6px 12px rgba(0,0,0,0.10);
+    .track-card:hover { transform: translateY(-6px); box-shadow: var(--clay-card-hover); }
+    .track-top { position: relative; padding: 30px 32px 28px; color: #fff; }
+    .track-card.jovens   .track-top { background: linear-gradient(145deg, var(--orange-lt), var(--orange)); }
+    .track-card.criancas .track-top { background: linear-gradient(145deg, #6bb9f5, var(--sky-dk)); }
+    .track-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(255,255,255,0.24); padding: 7px 14px; border-radius: 100px; margin-bottom: 14px;
     }
-    .ticket.t-orange .ticket-head { background: linear-gradient(145deg, var(--orange-lt), var(--orange)); }
-    .ticket.t-navy   .ticket-head { background: linear-gradient(145deg, var(--navy-lt), var(--navy)); }
-    .ticket.t-gray   .ticket-head { background: linear-gradient(145deg, #8593a8, #6c7b92); }
-    .ticket-body { padding: 20px 20px 0; }
-    .ticket-name {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.25rem; font-weight: 900; color: var(--ink); margin-bottom: 8px;
+    .track-top h3 {
+      font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.55rem; font-weight: 900;
+      line-height: 1.15; letter-spacing: -0.5px; text-wrap: balance; max-width: 22ch;
     }
-    .ticket-desc { font-size: 0.875rem; line-height: 1.6; color: var(--gray); }
-    .ticket-divider {
-      display: flex; align-items: center; padding: 12px 8px; margin-top: 14px;
+    .track-new {
+      position: absolute; top: 22px; right: 22px; transform: rotate(4deg);
+      background: #fff; color: var(--sky-dk);
+      font-size: 0.7rem; font-weight: 900; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 6px 13px; border-radius: 100px; box-shadow: 0 6px 14px rgba(20,60,120,0.25);
     }
-    .ticket-divider::before, .ticket-divider::after {
-      content: ''; width: 20px; height: 20px; border-radius: 50%;
-      background: var(--bg); border: none; flex-shrink: 0;
-      box-shadow: inset 3px 3px 6px rgba(120,110,165,0.28), inset -2px -2px 4px rgba(255,255,255,0.9);
+    .track-body { flex: 1; padding: 26px 32px 6px; }
+    .track-status { display: flex; flex-direction: column; gap: 3px; margin-bottom: 16px; }
+    .track-label { font-size: 0.7rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray); }
+    .track-when { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1.3rem; font-weight: 900; color: var(--ink); line-height: 1.2; }
+    .track-where { font-size: 0.9rem; color: var(--gray); line-height: 1.5; }
+    .track-chips { list-style: none; display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+    .track-chips li {
+      font-size: 0.8rem; font-weight: 700; padding: 8px 14px; border-radius: 100px;
+      background: linear-gradient(145deg, #ffffff, #f1ecfa); color: var(--navy);
+      box-shadow: 5px 5px 12px rgba(120,110,165,0.14), -4px -4px 10px rgba(255,255,255,0.9);
     }
-    .ticket-perf { flex: 1; border-top: 2px dashed #d9d2ec; }
-    .ticket-foot {
-      padding: 0 20px 20px; display: flex; gap: 20px; flex-wrap: wrap;
-    }
-    .ti-label {
-      font-size: 0.68rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.08em; color: var(--gray); margin-bottom: 2px;
-    }
-    .ti-val { font-size: 0.88rem; font-weight: 800; color: var(--ink); }
-
-    /* ── LINHA DO TEMPO (próximo passeio) ── */
-    .timeline { position: relative; max-width: 680px; margin: 12px auto 0; }
-    .timeline::before {
-      content: ''; position: absolute; left: 31px; top: 26px; bottom: 26px;
-      width: 5px; border-radius: 5px;
-      background: linear-gradient(var(--orange), var(--navy)); opacity: 0.35;
-    }
-    .tl-item { position: relative; display: flex; gap: 22px; align-items: flex-start; padding: 12px 0; }
-    .tl-node {
-      width: 64px; height: 64px; flex-shrink: 0; border-radius: 20px;
-      display: flex; align-items: center; justify-content: center; font-size: 1.7rem;
-      background: linear-gradient(145deg, #ffffff, #f1ecfa);
-      box-shadow: var(--clay-card);
-      position: relative; z-index: 1;
-    }
-    .tl-item:first-child .tl-node { background: linear-gradient(145deg, #fff6ea, #ffe6c9); }
-    .tl-item:last-child  .tl-node { background: linear-gradient(145deg, #eae6fb, #ded7f6); }
-    .tl-content { padding-top: 7px; }
-    .tl-time {
-      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 900;
-      font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--orange2);
-    }
-    .tl-title {
-      font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
-      font-size: 1.15rem; color: var(--ink); margin: 3px 0 4px;
-    }
-    .tl-desc { font-size: 0.9rem; color: var(--gray); line-height: 1.55; }
-    .tl-cta {
-      display: flex; justify-content: center; align-items: center;
-      gap: 16px; flex-wrap: wrap; margin-top: 40px;
-    }
+    .track-note { font-size: 0.88rem; color: var(--gray); line-height: 1.6; }
+    .track-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; padding: 20px 32px 32px; }
+    .track-link { color: var(--navy); font-size: 0.9rem; font-weight: 700; text-decoration: none; }
+    .track-link:hover { color: var(--orange2); }
 
     /* ── PASSEIOS PASSADOS ── */
     .passados { background: transparent; }
@@ -863,10 +790,16 @@
     @media (max-width: 900px) {
       nav { padding: 12px 20px; }
       .nav-links a:not(.btn-nav) { display: none; }
-      .hero { grid-template-columns: 1fr; padding: 100px 24px 60px; text-align: center; }
+      .hero { grid-template-columns: 1fr; min-height: auto; padding: 100px 24px 60px; gap: 28px; text-align: center; }
       .hero-sub { margin: 0 auto 36px; }
       .hero-ctas { justify-content: center; }
-      .hero-visual { display: none; }
+      /* no celular a ilustração aparece abaixo do texto e os chips viram uma fileira */
+      .hero-visual { flex-wrap: wrap; gap: 10px; justify-content: center; }
+      .hero-art { flex-basis: 100%; max-width: 480px; }
+      .hero-float-card, .hero-float-card.c1, .hero-float-card.c2, .hero-float-card.c3 {
+        position: static; animation: none; padding: 11px 16px; font-size: 0.78rem;
+      }
+      .track-grid { grid-template-columns: 1fr; }
       section { padding: 64px 20px; }
       .stats { gap: 36px; padding: 24px; }
       .sobre-grid { grid-template-columns: 1fr; gap: 36px; }
@@ -879,11 +812,15 @@
     }
     @media (max-width: 480px) {
       h1 { font-size: 2.1rem; letter-spacing: -1px; }
+      .track-top, .track-body, .track-actions { padding-left: 22px; padding-right: 22px; }
+      .track-top h3 { font-size: 1.35rem; }
+      .hero-ctas > a { width: 100%; justify-content: center; }
       .steps { grid-template-columns: 1fr; }
       .valores-grid { grid-template-columns: repeat(2,1fr); }
     }
     @media (prefers-reduced-motion: reduce) {
       *, *::before, *::after { transition: none !important; }
+      .hero-art, .hero-float-card { animation: none !important; }
     }
   </style>
 </head>
@@ -899,10 +836,10 @@
   <div class="aniversario-modal">
     <button class="aniversario-close" id="aniversario-close" aria-label="Fechar">&times;</button>
     <div class="aniversario-emoji">🎉</div>
-    <p class="aniversario-eyebrow">Edição especial de aniversário</p>
+    <p class="aniversario-eyebrow">2 anos de TEAcompanhe</p>
     <h3 class="aniversario-titulo">TEAcompanhe está de aniversário!</h3>
-    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias. Para comemorar, outubro é edição especial: <strong>17/10, no Parque Della Vittoria</strong>.</p>
-    <a href="/proximo-passeio/#confirmar" class="aniversario-cta" id="aniversario-cta">Ver o passeio de aniversário →</a>
+    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, a partir de <strong>31/10</strong>!</p>
+    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer o passeio infantil →</a>
   </div>
 </div>
 <style>
@@ -1046,7 +983,8 @@
   <div class="nav-logo"><img src="/images/logo principal.png" alt="TEAcompanhe"/></div>
   <div class="nav-links">
     <a href="#sobre">Sobre</a>
-    <a href="#passeios">Passeios</a>
+    <a href="#jovens">Jovens</a>
+    <a href="#criancas">Crianças</a>
     <a href="#passados">Galeria</a>
     <a href="#avisos" class="btn-nav">Quero ser avisado</a>
   </div>
@@ -1060,31 +998,35 @@
   <div style="position:relative;z-index:1">
     <div class="hero-eyebrow">✦ Passeios inclusivos em São Paulo</div>
     <h1>A cidade tem<br>espaço pra<br><em>todo mundo</em><br>explorar</h1>
-    <p class="hero-sub">Passeios mensais com acompanhamento especializado para jovens neurodivergentes. Segurança, alegria e desenvolvimento em cada saída.</p>
+    <p class="hero-sub">Passeios mensais com acompanhamento especializado para jovens neurodivergentes — e agora também para crianças. Segurança, alegria e desenvolvimento em cada saída.</p>
     <div class="hero-ctas">
       <a href="/proximo-passeio/" class="btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.5-7-11a7 7 0 0 1 14 0c0 4.5-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
-        Próximo passeio
+        Passeios para jovens
       </a>
-      <a href="#sobre" class="btn-secondary">Conhecer o projeto ↓</a>
+      <a href="/passeio-infantil/" class="btn-sky">
+        Passeios para crianças <span class="novo-tag">Novo</span>
+      </a>
     </div>
+    <a href="#sobre" class="hero-more">Conhecer o projeto ↓</a>
   </div>
   <div class="hero-visual">
-    <div class="hero-logo-wrap">
-      <img src="/images/logo principal.png" alt="TEAcompanhe"/>
+    <div class="hero-art">
+      <img src="/images/hero-mapa-van.webp" width="1115" height="658" fetchpriority="high"
+           alt="Van laranja do TEAcompanhe sobre um mapa colorido do estado de São Paulo, com a Fernanda e a Juliana acenando pelas janelas"/>
     </div>
     <div class="hero-float-card c1">🗺️ Roteiro mensal</div>
-    <div class="hero-float-card c2">👥 Até 10 participantes</div>
-    <div class="hero-float-card c3">🧠 Equipe especializada</div>
+    <div class="hero-float-card c2">🧒 Passeios para Jovens e Crianças</div>
+    <div class="hero-float-card c3">🎉 2 anos de passeios inclusivos</div>
   </div>
 </section>
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stat"><div class="stat-num">1 ano</div><div class="stat-label">de projeto</div></div>
+  <div class="stat"><div class="stat-num">2 anos</div><div class="stat-label">de projeto</div></div>
   <div class="stat"><div class="stat-num">+10</div><div class="stat-label">passeios realizados</div></div>
-  <div class="stat"><div class="stat-num">até 10</div><div class="stat-label">participantes por grupo</div></div>
-  <div class="stat"><div class="stat-num">5–8</div><div class="stat-label">profissionais por passeio</div></div>
+  <div class="stat"><div class="stat-num">até 10</div><div class="stat-label">participantes por grupo (jovens)</div></div>
+  <div class="stat"><div class="stat-num">5–8</div><div class="stat-label">profissionais por passeio (jovens)</div></div>
 </div>
 
 <!-- SOBRE -->
@@ -1126,8 +1068,8 @@
 <!-- COMO FUNCIONA -->
 <section class="como">
   <div class="section-inner">
-    <span class="eyebrow">Como é o dia</span>
-    <h2>Como funciona um passeio</h2>
+    <span class="eyebrow">Como é o dia · jovens</span>
+    <h2>Como funciona um passeio para jovens</h2>
     <p class="section-lead como-lead">Uma vez por mês, um grupo de até 10 participantes embarca em um roteiro completo pela cidade — lazer, alimentação e cultura, tudo pensado nos mínimos detalhes. O grupo conta com uma equipe de 5 a 8 profissionais especializados durante todo o dia, além do mesmo motorista de sempre, que já faz parte da turma. 🚐</p>
     <div class="steps">
       <div class="step">
@@ -1155,64 +1097,61 @@
   </div>
 </section>
 
-<!-- ROTEIRO -->
-<section class="roteiro" id="passeios">
+<!-- PASSEIOS: jovens × crianças -->
+<section class="tracks" id="passeios">
   <div class="section-inner">
-    <div class="tickets-header">
-      <div>
-        <span class="eyebrow">Outubro 2026</span>
-        <h2>Próximo passeio</h2>
-      </div>
-      <span class="mes-badge">🗓️ 17 de Outubro</span>
+    <div class="tracks-head">
+      <span class="eyebrow">Passeios</span>
+      <h2>Escolha o passeio</h2>
+      <p class="section-lead">O TEAcompanhe tem passeios para jovens neurodivergentes e, agora, também para crianças. Cada público tem o seu roteiro, a sua data e a sua própria página.</p>
     </div>
-    <div class="pill-wrap" style="justify-content:flex-start;margin-bottom:14px">
-      <span class="pill-aniversario">🎉 Edição especial · 2 anos do TEAcompanhe</span>
-    </div>
-    <p class="section-lead roteiro-intro">Este mês é diferente: comemoramos 2 anos de TEAcompanhe com uma edição de aniversário no Parque Della Vittoria — natureza, aventura e muita festa. Veja as paradas do próximo passeio e clique para conhecer todos os detalhes, horários e como confirmar a participação.</p>
-    <div class="timeline">
-      <div class="tl-item">
-        <div class="tl-node">🥐</div>
-        <div class="tl-content">
-          <div class="tl-time">08h · Saída</div>
-          <div class="tl-title">Café da manhã e partida</div>
-          <div class="tl-desc">O grupo se reúne para um café da manhã antes de embarcar rumo à aventura do dia.</div>
+    <div class="track-grid">
+
+      <article class="track-card jovens" id="jovens">
+        <div class="track-top">
+          <span class="track-badge">🧑 Para jovens</span>
+          <h3>Passeios para jovens neurodivergentes</h3>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node">🛶</div>
-        <div class="tl-content">
-          <div class="tl-time">Manhã</div>
-          <div class="tl-title">Caiaque, Falsa Baiana, Boia Maluca e Tirolesa</div>
-          <div class="tl-desc">Chegada ao Parque Della Vittoria — 300 mil m² de natureza entre Cotia e Itapevi — e manhã de aventura na água, com apoio da equipe em cada atividade.</div>
+        <div class="track-body">
+          <div class="track-status">
+            <span class="track-label">Último passeio</span>
+            <span class="track-when">17 de Outubro</span>
+            <span class="track-where">Edição de 2 anos no Parque Della Vittoria</span>
+          </div>
+          <ul class="track-chips">
+            <li>🛶 Caiaque</li><li>🎢 Tirolesa</li><li>🐴 Cavalgada</li><li>🎂 Almoço com parabéns</li>
+          </ul>
+          <p class="track-note">Grupos de até 10 participantes, com equipe de 5 a 8 profissionais. O próximo roteiro é divulgado primeiro, pelo WhatsApp, para quem está cadastrado.</p>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node">🎂</div>
-        <div class="tl-content">
-          <div class="tl-time">Almoço</div>
-          <div class="tl-title">Almoço com parabéns</div>
-          <div class="tl-desc">Pausa para o almoço com uma festa e tanto: são 2 anos de TEAcompanhe pra comemorar em grupo!</div>
+        <div class="track-actions">
+          <a href="/proximo-passeio/" class="btn-primary">Ver passeios para jovens →</a>
+          <a href="#avisos" class="track-link">Quero ser avisado</a>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node">🐴</div>
-        <div class="tl-content">
-          <div class="tl-time">Tarde</div>
-          <div class="tl-title">Cavalo, balanço radical e lanche</div>
-          <div class="tl-desc">Passeio a cavalo, balanço radical e um lanche animado para fechar a tarde com energia.</div>
+      </article>
+
+      <article class="track-card criancas" id="criancas">
+        <div class="track-top">
+          <span class="track-badge">🧒 Para crianças · até 12 anos</span>
+          <span class="track-new">Novidade</span>
+          <h3>Primeiro passeio infantil do TEAcompanhe</h3>
         </div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-node">🏁</div>
-        <div class="tl-content">
-          <div class="tl-time">16h · Retorno</div>
-          <div class="tl-title">Hora de ir embora</div>
-          <div class="tl-desc">Fim do passeio e reencontro com as famílias.</div>
+        <div class="track-body">
+          <div class="track-status">
+            <span class="track-label">Próximo passeio</span>
+            <span class="track-when">31 de Outubro · 13h às 18h</span>
+            <span class="track-where">PopHaus Tatuapé e, em seguida, Horto Florestal</span>
+          </div>
+          <ul class="track-chips">
+            <li>🤸 PopHaus Tatuapé</li><li>🧺 Piquenique</li><li>🦢 Pedalinho</li><li>🚲 Bike</li>
+          </ul>
+          <p class="track-note">Passeio pensado para o público infantil, até os 12 anos. Valores, ponto de encontro e demais detalhes pelo WhatsApp.</p>
         </div>
-      </div>
-    </div>
-    <div class="tl-cta">
-      <a href="/proximo-passeio/" class="btn-primary">Ver detalhes do próximo passeio →</a>
+        <div class="track-actions">
+          <a href="/passeio-infantil/" class="btn-sky">Ver o passeio infantil →</a>
+          <a href="#avisos" class="track-link">Quero ser avisado</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
