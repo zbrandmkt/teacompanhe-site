@@ -274,8 +274,8 @@
     <div class="aniversario-emoji">🎉</div>
     <p class="aniversario-eyebrow">2 anos de TEAcompanhe</p>
     <h3 class="aniversario-titulo">TEAcompanhe está de aniversário!</h3>
-    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, a partir de <strong>31/10</strong>!</p>
-    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer o passeio infantil →</a>
+    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, <strong>em breve</strong>!</p>
+    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer os passeios infantis →</a>
   </div>
 </div>
 <style>
@@ -431,27 +431,7 @@
     </div>
   </header>
 
-  <!-- CARTÕES DE EMBARQUE: um por público (o primeiro é o que tem passeio aberto) -->
-  <a class="boarding-pass criancas" id="bio-c" href="/passeio-infantil/">
-    <div class="bp-top">
-      <div class="bp-eyebrow">🧒 Passeio para crianças · até 12 anos</div>
-      <div class="bp-title" id="bio-c-titulo">Passeio infantil</div>
-      <div id="bio-c-selo"></div>
-      <div class="bp-desc" id="bio-c-teaser"></div>
-    </div>
-    <div class="bp-seam"><div class="bp-perf"></div></div>
-    <div class="bp-bottom">
-      <div>
-        <div class="bp-label" id="bio-c-rotulo">Próximo passeio</div>
-        <div class="bp-value" id="bio-c-data">—</div>
-      </div>
-      <span class="bp-cta">
-        Ver detalhes
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
-      </span>
-    </div>
-  </a>
-
+  <!-- CARTÕES DE EMBARQUE: um por público (o primeiro é o que tem data definida) -->
   <a class="boarding-pass jovens" id="bio-j" href="/proximo-passeio/">
     <div class="bp-top">
       <div class="bp-eyebrow">🧑 Passeio para jovens</div>
@@ -464,6 +444,26 @@
       <div>
         <div class="bp-label" id="bio-j-rotulo">Próximo passeio</div>
         <div class="bp-value" id="bio-j-data">—</div>
+      </div>
+      <span class="bp-cta">
+        Ver detalhes
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </span>
+    </div>
+  </a>
+
+  <a class="boarding-pass criancas" id="bio-c" href="/passeio-infantil/">
+    <div class="bp-top">
+      <div class="bp-eyebrow">🧒 Passeio para crianças · até 12 anos</div>
+      <div class="bp-title" id="bio-c-titulo">Passeio infantil</div>
+      <div id="bio-c-selo"></div>
+      <div class="bp-desc" id="bio-c-teaser"></div>
+    </div>
+    <div class="bp-seam"><div class="bp-perf"></div></div>
+    <div class="bp-bottom">
+      <div>
+        <div class="bp-label" id="bio-c-rotulo">Próximo passeio</div>
+        <div class="bp-value" id="bio-c-data">—</div>
       </div>
       <span class="bp-cta">
         Ver detalhes
@@ -522,7 +522,7 @@
 
 <!-- ==========================================================================
      ⬇️ EDITE AQUI A CADA PASSEIO: um cartão por público (crianças e jovens) ⬇️
-     selo: "" (nenhum) | "novidade" | "esgotado" | "realizado" | "aniversario"
+     selo: "" (nenhum) | "novidade" | "embreve" | "esgotado" | "realizado" | "aniversario"
      O que a divulgação não informou (valor, ponto de encontro) NÃO entra aqui.
 ========================================================================== -->
 <script>
@@ -530,26 +530,27 @@
     whatsapp: "5511947701169",
 
     criancas: {
-      mes:    "Outubro",
-      titulo: "Primeiro passeio infantil",
-      rotulo: "Próximo passeio",
-      data:   "31 de Outubro · 13h às 18h",
-      teaser: "PopHaus Tatuapé e Horto Florestal, com piquenique, pedalinho e bike.",
-      selo:   "novidade"
+      mes:    "Em breve",
+      titulo: "Passeios para crianças",
+      rotulo: "Primeiro passeio",
+      data:   "Data a divulgar",
+      teaser: "Passeios para o público infantil, até 12 anos. Cadastre-se para ser avisado primeiro.",
+      selo:   "embreve"
     },
 
     jovens: {
-      mes:    "Outubro",
-      titulo: "Passeio de Outubro",
-      rotulo: "Último passeio",
-      data:   "17 de Outubro",
-      teaser: "Edição de 2 anos de TEAcompanhe, no Parque Della Vittoria.",
-      selo:   "realizado"
+      mes:    "Novembro",
+      titulo: "Passeio de Novembro",
+      rotulo: "Próximo passeio",
+      data:   "07 de Novembro · 09h às 16h",
+      teaser: "Thermas da Mata, em Cotia: águas quentes, toboáguas e muita diversão.",
+      selo:   ""
     }
   };
 
   const SELOS = {
     novidade:    { classe: "selo-novidade",    principal: "Novo",      sub: "Infantil" },
+    embreve:     { classe: "selo-novidade",    principal: "Em breve",  sub: "Infantil" },
     esgotado:    { classe: "selo-esgotado",    principal: "Esgotado",  sub: null },
     realizado:   { classe: "selo-realizado",   principal: "Realizado", sub: null },
     aniversario: { classe: "selo-aniversario", principal: "2 anos",    sub: "TEAcompanhe" }

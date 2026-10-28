@@ -5,19 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="/images/Icone%20Cora%C3%A7%C3%A3o%20laranja.png"/>
   <title>Passeios para Crianças até 12 anos — TEAcompanhe</title>
-  <meta name="description" content="Passeios do TEAcompanhe para o público infantil, até os 12 anos: roteiro, horários e como participar do próximo passeio infantil."/>
+  <meta name="description" content="Em breve: passeios do TEAcompanhe para o público infantil, até os 12 anos. Cadastre-se e seja avisado primeiro, pelo WhatsApp, da data do primeiro passeio."/>
   <link rel="canonical" href="https://www.teacompanhe.com.br/passeio-infantil/"/>
 
   <meta property="og:type" content="website"/>
   <meta property="og:site_name" content="TEAcompanhe"/>
   <meta property="og:url" content="https://www.teacompanhe.com.br/passeio-infantil/"/>
   <meta property="og:title" content="Passeios para Crianças até 12 anos — TEAcompanhe"/>
-  <meta property="og:description" content="Passeios do TEAcompanhe para o público infantil, até os 12 anos: roteiro, horários e como participar do próximo passeio infantil."/>
+  <meta property="og:description" content="Em breve: passeios do TEAcompanhe para o público infantil, até os 12 anos. Cadastre-se e seja avisado primeiro, pelo WhatsApp, da data do primeiro passeio."/>
   <meta property="og:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
   <meta property="og:locale" content="pt_BR"/>
   <meta name="twitter:card" content="summary_large_image"/>
   <meta name="twitter:title" content="Passeios para Crianças até 12 anos — TEAcompanhe"/>
-  <meta name="twitter:description" content="Roteiro, horários e como participar do passeio infantil do TEAcompanhe, até 12 anos."/>
+  <meta name="twitter:description" content="Em breve: passeios do TEAcompanhe para crianças até 12 anos. Cadastre-se para ser avisado primeiro."/>
   <meta name="twitter:image" content="https://www.teacompanhe.com.br/images/fernanda%20e%20juliana.png"/>
 
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
@@ -497,7 +497,7 @@
       <h2>Um passeio pensado para as crianças</h2>
     </div>
     <div class="sobre-card">
-      <p>O <strong>TEAcompanhe</strong> realiza passeios inclusivos por São Paulo há 2 anos e agora chega ao público infantil. O primeiro passeio para crianças até os 12 anos combina diversão em um espaço indoor com natureza e brincadeiras ao ar livre.</p>
+      <p>O <strong>TEAcompanhe</strong> realiza passeios inclusivos por São Paulo há 2 anos e está preparando os primeiros passeios para o público infantil, até os 12 anos, com a mesma atenção a cada detalhe do dia.</p>
       <p>São dois anos de experiência em passeios mensais para jovens neurodivergentes, agora também para os pequenos — com o mesmo cuidado na hora de planejar cada detalhe do dia.</p>
       <div class="sobre-pills">
         <span class="sobre-pill">🧒 Crianças até 12 anos</span>
@@ -636,10 +636,15 @@
 <script>
   const PASSEIO = {
 
-    mes:   "Outubro",
+    // Passeio infantil ADIADO, sem nova data: a página mostra "Em breve", esconde roteiro,
+    // horários e "o que levar" e convida ao cadastro. Para anunciar o passeio, volte para
+    // false, preencha mes/data/inicio/termino/paradas/incluso/levar e ligue "novidade".
+    embreve: true,
+
+    mes:   "Em breve",
     ano:   "2026",
-    titulo:  "Primeiro passeio infantil",
-    chamada: "Novidade no TEAcompanhe: o primeiro passeio para o público infantil, até os 12 anos! Um dia de diversão no PopHaus Tatuapé e de natureza no Horto Florestal.",
+    titulo:  "Passeios para crianças",
+    chamada: "Estamos preparando os passeios do TEAcompanhe para o público infantil, até os 12 anos. A data do primeiro passeio será divulgada em breve — cadastre-se abaixo e receba tudo primeiro, pelo WhatsApp.",
 
     // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões pelo convite ao cadastro.
     esgotado: false,
@@ -648,10 +653,10 @@
     realizado: false,
 
     // Destaque de novidade (selo azul no topo). Desligue depois do primeiro passeio.
-    novidade: true,
+    novidade: false,
 
     // --- Informações principais (aparecem no cartão do topo) ---
-    data:          "31 de Outubro de 2026",
+    data:          "Data a divulgar",
     inicio:        "13h",
     termino:       "18h",
     publico:       "Até 12 anos",
@@ -697,10 +702,10 @@
   const FAQ = [
     { q: "Para quem é o passeio infantil?",
       a: "Para o público infantil, até os 12 anos. Na dúvida se o passeio é adequado para o seu filho, <a href='#confirmar'>fale com a gente</a>: avaliamos juntos." },
-    { q: "É o primeiro passeio infantil do TEAcompanhe?",
-      a: "Sim! O passeio de 31 de outubro é o primeiro voltado ao público infantil. Há 2 anos o TEAcompanhe realiza passeios mensais para jovens neurodivergentes — <a href='/proximo-passeio/'>conheça os passeios para jovens</a>." },
-    { q: "Como confirmo a participação?",
-      a: "Pelo WhatsApp: é só tocar em “Confirmar no WhatsApp” e confirmamos a participação, o valor e os detalhes do dia. Quem está cadastrado no site recebe os próximos roteiros e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — <a href='#avisos'>faça seu cadastro aqui</a>." },
+    { q: "Quando será o primeiro passeio infantil?",
+      a: "Ainda não temos a data. Será o primeiro passeio do TEAcompanhe voltado ao público infantil, e quem está cadastrado no site recebe a data e o roteiro <strong>primeiro, pelo WhatsApp</strong> — <a href='#avisos'>faça seu cadastro aqui</a>. Há 2 anos o TEAcompanhe realiza passeios mensais para jovens neurodivergentes: <a href='/proximo-passeio/'>conheça os passeios para jovens</a>." },
+    { q: "Como faço para participar?",
+      a: "Assim que o primeiro passeio for divulgado, a confirmação é feita pelo WhatsApp, direto com a nossa equipe, que passa também o valor e os detalhes do dia. Quem está cadastrado no site recebe o roteiro e a abertura das vagas <strong>primeiro, pelo WhatsApp</strong> — <a href='#avisos'>faça seu cadastro aqui</a>." },
     { q: "Qual o valor e como funciona o pagamento?",
       a: "Fale com a gente pelo WhatsApp para saber o valor e as formas de pagamento do passeio." },
     { q: "Onde é o ponto de encontro?",
@@ -759,16 +764,21 @@
 
     const esgotado = P.esgotado === true;
     const realizado = !esgotado && P.realizado === true;
-    const encerrado = esgotado || realizado;
+    const embreve = !esgotado && !realizado && P.embreve === true;
+    const encerrado = esgotado || realizado || embreve;
     const vazio = (v) => !(v && String(v).trim());
 
     set('p-titulo', vazio(P.titulo) ? 'Passeio infantil de ' + P.mes : P.titulo);
-    set('p-eyebrow', (realizado ? 'Último passeio infantil · ' : 'Passeio infantil · ') + P.mes + ' ' + P.ano);
+    set('p-eyebrow', embreve ? 'Em breve · Passeios infantis' : (realizado ? 'Último passeio infantil · ' : 'Passeio infantil · ') + P.mes + ' ' + P.ano);
     set('p-chamada', P.chamada);
     set('p-ano-footer', P.ano);
 
     // Cartão de informações
-    const infos = [
+    const infos = embreve ? [
+      { emoji: '🗓️', label: 'Data',    value: P.data },
+      { emoji: '🧒', label: 'Público', value: P.publico },
+      { emoji: '⏳', label: 'Status',  value: 'Em breve' }
+    ] : [
       { emoji: '🗓️', label: 'Data',    value: P.data },
       { emoji: '🕐', label: 'Início',  value: P.inicio },
       { emoji: '🕔', label: 'Término', value: P.termino },
@@ -787,6 +797,11 @@
         <div class="info-value">${i.value}</div>
       </div>`).join('');
 
+    // Em breve: sem roteiro nem horários definidos, a seção do roteiro fica oculta
+    if (embreve) {
+      const tl = $('p-timeline').closest('section'); if (tl) tl.hidden = true;
+    }
+
     // Linha do tempo
     $('p-timeline').innerHTML = (P.paradas || []).map(p => `
       <div class="tl-item">
@@ -802,7 +817,7 @@
     const fillList = (id, arr) => { const el = $(id); if (el) el.innerHTML = (arr || []).map(t => `<li>${t}</li>`).join(''); };
     fillList('p-incluso', P.incluso);
     fillList('p-levar', P.levar);
-    if ((!P.incluso || !P.incluso.length) && (!P.levar || !P.levar.length)) {
+    if (embreve || ((!P.incluso || !P.incluso.length) && (!P.levar || !P.levar.length))) {
       const ex = $('p-extras'); if (ex) ex.style.display = 'none';
     }
 
@@ -815,7 +830,9 @@
 
     // Ação principal: WhatsApp quando está aberto, cadastro quando esgotou/já aconteceu
     if (encerrado) {
-      $('p-selo').innerHTML = esgotado
+      $('p-selo').innerHTML = embreve
+        ? '<div class="pill-wrap"><span class="pill-novidade">⏳ Em breve · passeios para crianças</span></div>'
+        : esgotado
         ? '<div class="selo-wrap"><span class="selo-esgotado">' +
           '<span class="selo-main">Esgotado</span>' +
           '<span class="selo-sub">Vagas de ' + P.mes + ' encerradas</span>' +
@@ -844,9 +861,11 @@
         btnFinal.rel = 'noopener';
       }
 
-      set('p-vagas', esgotado ? 'Vagas esgotadas' : 'Passeio realizado');
+      set('p-vagas', embreve ? 'Em breve' : (esgotado ? 'Vagas esgotadas' : 'Passeio realizado'));
       set('p-cta-titulo', 'Ficou com alguma dúvida?');
-      set('p-cta-texto', esgotado
+      set('p-cta-texto', embreve
+        ? 'Os passeios infantis estão a caminho. Cadastre-se acima para receber a data e o roteiro primeiro, pelo WhatsApp — e, se tiver qualquer dúvida, é só chamar a gente.'
+        : esgotado
         ? 'As vagas de ' + P.mes + ' já esgotaram, mas estamos por aqui para contar tudo sobre os passeios infantis.'
         : 'O passeio infantil de ' + P.mes + ' já aconteceu. Cadastre-se acima para receber o próximo roteiro primeiro, pelo WhatsApp.');
     } else {
@@ -902,7 +921,8 @@
     const fim    = paraISO(P.data, P.termino);
     if (inicio) evento.startDate = inicio;
     if (fim)    evento.endDate   = fim;
-    ldScripts.push(evento);
+    // Sem data definida (em breve) não há evento para o Google: só o FAQ vai para os dados estruturados
+    if (!embreve) ldScripts.push(evento);
     ldScripts.forEach(obj => {
       const s = document.createElement('script');
       s.type = 'application/ld+json';

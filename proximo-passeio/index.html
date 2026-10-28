@@ -274,6 +274,31 @@
       font-size: 1.02rem; color: var(--ink);
     }
 
+    /* ── AVISO (tempo / imprevistos) ── */
+    .aviso {
+      display: flex; gap: 14px; align-items: flex-start; text-align: left;
+      max-width: 760px; margin: 18px auto 0; padding: 18px 22px; border-radius: 24px;
+      background: linear-gradient(145deg, #fffaf0, #fff1d9);
+      box-shadow: 8px 9px 20px rgba(230,137,0,0.16), -5px -5px 14px rgba(255,255,255,0.85), inset 0 0 0 2px rgba(255,184,77,0.55);
+    }
+    .aviso-emoji { font-size: 1.6rem; line-height: 1; flex-shrink: 0; margin-top: 2px; }
+    .aviso-titulo { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1rem; color: var(--ink); margin-bottom: 3px; }
+    .aviso-texto { font-size: 0.94rem; color: #5a4a2e; line-height: 1.55; }
+
+    /* ── CONHEÇA O LOCAL ── */
+    .local-intro { max-width: 680px; margin: 0 auto 26px; text-align: center; color: var(--gray); font-size: 1rem; line-height: 1.65; }
+    .local-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 18px; max-width: 780px; margin: 0 auto; }
+    .local-item {
+      background: linear-gradient(145deg, #ffffff, #f4f0fc);
+      border-radius: 24px; padding: 22px 22px 20px; box-shadow: var(--clay-card);
+    }
+    .local-item .li-emoji { font-size: 1.6rem; display: block; margin-bottom: 8px; }
+    .local-item h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800; font-size: 1.02rem; color: var(--ink); margin-bottom: 5px; }
+    .local-item p { font-size: 0.9rem; color: var(--gray); line-height: 1.55; }
+    .local-foot { text-align: center; margin-top: 22px; font-size: 0.88rem; color: var(--gray); }
+    .local-foot a { color: var(--orange2); font-weight: 700; text-decoration: none; }
+    .local-foot a:hover { text-decoration: underline; }
+
     /* ── SEÇÕES ── */
     section.block { padding: 56px 0 10px; }
     .block-head { text-align: center; margin-bottom: 34px; }
@@ -550,8 +575,8 @@
     <div class="aniversario-emoji">🎉</div>
     <p class="aniversario-eyebrow">2 anos de TEAcompanhe</p>
     <h3 class="aniversario-titulo">TEAcompanhe está de aniversário!</h3>
-    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, a partir de <strong>31/10</strong>!</p>
-    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer o passeio infantil →</a>
+    <p class="aniversario-texto">São <strong>2 anos</strong> de muitos passeios, risadas e memórias — e a comemoração vem com novidade: <strong>passeios para crianças</strong>, <strong>em breve</strong>!</p>
+    <a href="/passeio-infantil/" class="aniversario-cta" id="aniversario-cta">Conhecer os passeios infantis →</a>
   </div>
 </div>
 <style>
@@ -704,7 +729,7 @@
   <header class="hero">
     <div class="pub-switch" role="navigation" aria-label="Escolha o público do passeio">
       <a href="/proximo-passeio/" class="on jovens" aria-current="page">🧑 Jovens</a>
-      <a href="/passeio-infantil/" class="criancas">🧒 Crianças <span class="novo-tag">Novo</span></a>
+      <a href="/passeio-infantil/" class="criancas">🧒 Crianças <span class="novo-tag">Em breve</span></a>
     </div>
     <span class="eyebrow" id="p-eyebrow">Próximo passeio</span>
     <h1 id="p-titulo">Passeio</h1>
@@ -720,6 +745,7 @@
     <div class="info-card">
       <div class="info-grid" id="p-info"></div>
     </div>
+    <div class="aviso" id="p-aviso" hidden></div>
   </header>
 
   <section class="block">
@@ -747,6 +773,16 @@
     <div class="timeline" id="p-timeline"></div>
   </section>
 
+  <section class="block" id="p-local-sec" hidden>
+    <div class="block-head">
+      <span class="eyebrow">Conheça o local</span>
+      <h2 id="p-local-nome"></h2>
+    </div>
+    <p class="local-intro" id="p-local-intro"></p>
+    <div class="local-grid" id="p-local-grid"></div>
+    <p class="local-foot" id="p-local-foot"></p>
+  </section>
+
   <section class="block" id="p-extras">
     <div class="two-col">
       <div class="list-card incluso">
@@ -769,6 +805,19 @@
     <!-- Para adicionar um novo relato: duplique o bloco .passado-card abaixo com o embed real do
          Instagram (nunca deixar placeholder/"em breve" no ar — só publicar quando o vídeo existir). -->
     <div class="passados-grid">
+      <div class="passado-card">
+        <div class="passado-embed ig">
+          <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DexG-rOJ8oU/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
+            <a href="https://www.instagram.com/p/DexG-rOJ8oU/" target="_blank" rel="noopener">Ver este passeio no Instagram</a>
+          </blockquote>
+        </div>
+        <div class="passado-info">
+          <span class="passado-tipo tipo-video">🎬 Vídeo</span>
+          <div class="passado-data">17 de Outubro · 2026</div>
+          <div class="passado-title">Como foi o passeio de outubro</div>
+          <p class="passado-desc">Edição de 2 anos do TEAcompanhe no Parque Della Vittoria — um dia de natureza e aventura, contado em vídeo.</p>
+        </div>
+      </div>
       <div class="passado-card">
         <div class="passado-embed ig">
           <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/DdT-jdjxkmR/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14">
@@ -944,10 +993,10 @@
 
   const PASSEIO = {
 
-    mes:   "Outubro",
+    mes:   "Novembro",
     ano:   "2026",
-    titulo:  "",              // opcional. Se vazio, vira "Passeio de Outubro"
-    chamada: "Um dia MUITO especial: comemoramos 2 anos de TEAcompanhe com uma edição de aniversário no Parque Della Vittoria — natureza, aventura e muita festa, com acompanhamento especializado do começo ao fim.",
+    titulo:  "Passeio de Novembro no Thermas da Mata",   // opcional. Se vazio, vira "Passeio de Novembro"
+    chamada: "Um dia de águas quentes, toboáguas e muita diversão no Thermas da Mata, parque aquático em Cotia, a cerca de 30 minutos de São Paulo — com acompanhamento especializado do começo ao fim.",
 
     // Vagas esgotadas? true = mostra o carimbo vermelho e troca os botões
     // pelo convite ao cadastro. No próximo passeio, volte para false.
@@ -956,51 +1005,68 @@
     // Passeio já aconteceu e o próximo ainda não foi divulgado? true = mostra o
     // selo "Realizado", troca os botões pelo convite ao cadastro e passa a
     // chamar de "Último passeio". Volte para false ao publicar o próximo.
-    realizado: true,
+    realizado: false,
 
     // Edição de aniversário? true = mostra o selo dourado "2 anos" no lugar
-    // do carimbo de esgotado (só um dos dois aparece por vez). Volte para
-    // false depois de outubro/2026, a não ser que outubro vire tradição.
-    aniversario: true,
+    // do carimbo de esgotado (só um dos dois aparece por vez). Foi a edição de
+    // outubro/2026; só volte para true se outubro virar tradição.
+    aniversario: false,
 
     // --- Informações principais (aparecem no cartão do topo) ---
-    data:          "17 de Outubro de 2026",
-    saida:         "08h",
+    data:          "07 de Novembro de 2026",
+    saida:         "09h",
     retorno:       "16h",
-    pontoEncontro: "Combinado no grupo",
-    confirmarAte:  "12/10",
+    pontoEncontro: "Combinado pelo WhatsApp",
+    confirmarAte:  "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
     vagas:         "até 10 participantes",
     valor:         "",        // opcional. Se vazio, mostra "Consulte pelo WhatsApp"
+
+    // --- Aviso em destaque logo abaixo do cartão (opcional; apague o bloco para esconder) ---
+    aviso: {
+      icone:  "🌦️",
+      titulo: "De olho no tempo",
+      texto:  "Se o dia estiver muito frio, podemos ajustar o roteiro e levar o grupo para outro lugar. Qualquer mudança é avisada às famílias com antecedência, pelo WhatsApp."
+    },
+
+    // --- Sobre o local do passeio (opcional; apague o bloco para esconder a seção) ---
+    local: {
+      nome:  "Thermas da Mata",
+      cidade: "Cotia",
+      endereco: "Estrada Morro Grande, 3000 — Jardim Isis, Cotia, SP",
+      site:  "https://www.thermasdamata.com.br",
+      intro: "Um parque aquático a cerca de 30 minutos de São Paulo, em Cotia (saída pelo km 36 da Rodovia Raposo Tavares), com piscinas de águas quentes, toboáguas, rio lento, praia artificial e uma área indoor.",
+      destaques: [
+        { icon: "♨️", titulo: "Águas quentes", texto: "Piscina de águas quentes com cascata de três quedas e ofurôs de até 36 °C, na Hot Island e no Vale das Águas." },
+        { icon: "🏠", titulo: "Aqualume, área indoor", texto: "Playground aquático de dois andares com toboáguas, rio lento, restaurante e área de descanso — e show de cores e músicas nos fins de semana." },
+        { icon: "🎢", titulo: "Toboáguas e escorregadores", texto: "De toboáguas radicais, como o Brabus, a escorregadores para os mais tranquilos, como os da Vila da Mata." },
+        { icon: "🌊", titulo: "Rio lento e praia", texto: "O Caminho das Correntes, um rio lento de cerca de 130 metros, e a Praia da Mata, uma praia artificial com areia." }
+      ],
+      nota: "O parque não permite a entrada com comida e bebida de fora."
+    },
 
     // --- WhatsApp (só números, com DDI 55) ---
     whatsapp: "5511947701169",
 
     // --- Paradas do dia (a linha do tempo) ---
     paradas: [
-      { icon: "🥐", tag: "08h · Saída",   nome: "Café da manhã e partida", desc: "O grupo se reúne para um café da manhã antes de embarcar rumo à aventura do dia." },
-      { icon: "🚌", tag: "Chegada",       nome: "Parque Della Vittoria",   desc: "Chegada por volta das 10h a um espaço de 300 mil m² de natureza entre Cotia e Itapevi, já animados para o dia cheio de atividades." },
-      { icon: "🛶", tag: "Atividades",    nome: "Caiaque, Falsa Baiana, Boia Maluca e Tirolesa", desc: "Manhã de aventura e diversão na água, com apoio da equipe em cada atividade." },
-      { icon: "🎂", tag: "Almoço",        nome: "Almoço com parabéns",     desc: "Pausa para o almoço com uma festa e tanto: são 2 anos de TEAcompanhe pra comemorar em grupo!" },
-      { icon: "🐴", tag: "Tarde",         nome: "Cavalo, balanço radical e lanche", desc: "Passeio a cavalo, balanço radical e um lanche animado para fechar a tarde com energia." },
-      { icon: "🏁", tag: "16h · Retorno", nome: "Hora de ir embora",       desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e realizado." }
+      { icon: "🚐", tag: "09h · Saída",   nome: "Ponto de encontro",       desc: "O grupo se reúne e embarca, com o nosso motorista de confiança, rumo a Cotia." },
+      { icon: "♨️", tag: "Passeio",       nome: "Thermas da Mata",         desc: "Um dia de parque aquático: águas quentes, toboáguas, rio lento e muita brincadeira, cada participante no seu ritmo e com a equipe por perto." },
+      { icon: "🏁", tag: "16h · Retorno", nome: "Hora de ir embora",       desc: "Fim do passeio e reencontro com as famílias, com o grupo feliz e cansado de tanta diversão." }
     ],
 
     // --- O que está incluso ---
     incluso: [
       "Transporte durante todo o passeio, com motorista de confiança",
       "Equipe de 5 a 8 profissionais especializados o dia inteiro",
-      "Café da manhã e almoço, com comemoração de aniversário",
-      "Atividades: caiaque, falsa baiana, boia maluca, tirolesa, passeio a cavalo e balanço radical",
-      "Lanche da tarde",
       "Apoio visual com o roteiro do dia para cada participante"
     ],
 
     // --- O que levar ---
     levar: [
       "Documento do participante",
-      "Roupa e calçado confortáveis, e uma troca de roupa (o dia inclui atividades na água)",
-      "Protetor solar e boné ou chapéu",
-      "Garrafa de água",
+      "Roupa de banho, toalha e chinelo",
+      "Uma troca de roupa completa e um agasalho para a saída da água",
+      "Protetor solar",
       "Itens de apoio/conforto que o participante costume usar",
       "Medicação de uso contínuo, se houver (avisar a equipe)"
     ]
@@ -1018,7 +1084,7 @@
     { q: "Para quem são os passeios?",
       a: "Para jovens neurodivergentes de forma ampla — não apenas autistas. Na dúvida se é adequado para o seu filho, <a href='#confirmar'>fale com a gente</a>: avaliamos juntos." },
     { q: "Vocês têm passeios para crianças?",
-      a: "Sim! A partir de 31/10 o TEAcompanhe também tem passeios para o público infantil, até os 12 anos — cada público tem a sua própria página e o seu roteiro. <a href='/passeio-infantil/'>Conheça o passeio infantil</a>." },
+      a: "Em breve! Estamos preparando os passeios para o público infantil, até os 12 anos — cada público terá a sua própria página e o seu roteiro. A data do primeiro passeio será divulgada primeiro para quem está cadastrado. <a href='/passeio-infantil/'>Saiba mais</a>." },
     { q: "Como é a segurança durante o dia?",
       a: "O grupo tem até 10 participantes e é acompanhado por uma equipe de 5 a 8 profissionais especializados o dia inteiro, além do mesmo motorista de confiança de sempre. O roteiro é planejado nos mínimos detalhes." },
     { q: "Preciso assinar algum termo?",
@@ -1032,7 +1098,9 @@
     { q: "Qual o valor e como funciona o pagamento?",
       a: "Fale com a gente pelo WhatsApp para saber o valor e as formas de pagamento do passeio do mês." },
     { q: "E se o passeio for alterado por causa do tempo ou de imprevistos?",
-      a: "Se houver qualquer mudança de data ou de roteiro, avisamos as famílias com antecedência pelo WhatsApp." }
+      a: "Se houver qualquer mudança de data ou de roteiro, avisamos as famílias com antecedência pelo WhatsApp. Nos passeios em ambientes de água, como o de novembro, se o dia estiver muito frio podemos ajustar o roteiro e levar o grupo para outro lugar." },
+    { q: "Posso levar lanche de casa para o passeio de novembro?",
+      a: "O Thermas da Mata não permite a entrada com comida e bebida de fora. Para qualquer dúvida sobre a alimentação do dia, <a href='#confirmar'>fale com a gente pelo WhatsApp</a>." }
   ];
 
 
@@ -1146,6 +1214,32 @@
         <div class="info-label">${i.label}</div>
         <div class="info-value">${i.value}</div>
       </div>`).join('');
+
+    // Aviso em destaque (ex.: tempo)
+    if (P.aviso && P.aviso.texto) {
+      const av = $('p-aviso');
+      av.innerHTML = `<span class="aviso-emoji" aria-hidden="true">${P.aviso.icone || 'ℹ️'}</span>
+        <div><div class="aviso-titulo">${P.aviso.titulo || 'Aviso'}</div><div class="aviso-texto">${P.aviso.texto}</div></div>`;
+      av.hidden = false;
+    }
+
+    // Sobre o local do passeio
+    if (P.local && P.local.nome) {
+      const L = P.local;
+      set('p-local-nome', L.nome + (L.cidade ? ', em ' + L.cidade : ''));
+      set('p-local-intro', L.intro || '');
+      $('p-local-grid').innerHTML = (L.destaques || []).map(d => `
+        <div class="local-item">
+          <span class="li-emoji" aria-hidden="true">${d.icon || ''}</span>
+          <h3>${d.titulo || ''}</h3>
+          <p>${d.texto || ''}</p>
+        </div>`).join('');
+      const foot = [];
+      if (L.nota) foot.push(L.nota);
+      if (L.site) foot.push(`<a href="${L.site}" target="_blank" rel="noopener">Conhecer o site do ${L.nome} ↗</a>`);
+      $('p-local-foot').innerHTML = foot.join(' · ');
+      $('p-local-sec').hidden = false;
+    }
 
     // Linha do tempo
     $('p-timeline').innerHTML = (P.paradas || []).map(p => `
@@ -1286,7 +1380,9 @@
       description: P.chamada,
       eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
       eventStatus: 'https://schema.org/EventScheduled',
-      location: { '@type': 'Place', name: 'Ponto de encontro (São Paulo, SP)', address: { '@type': 'PostalAddress', addressLocality: 'São Paulo', addressRegion: 'SP', addressCountry: 'BR' } },
+      location: (P.local && P.local.nome)
+        ? { '@type': 'Place', name: P.local.nome, address: { '@type': 'PostalAddress', streetAddress: (P.local.endereco || '').split(' — ')[0], addressLocality: P.local.cidade || 'São Paulo', addressRegion: 'SP', addressCountry: 'BR' } }
+        : { '@type': 'Place', name: 'Ponto de encontro (São Paulo, SP)', address: { '@type': 'PostalAddress', addressLocality: 'São Paulo', addressRegion: 'SP', addressCountry: 'BR' } },
       organizer: { '@type': 'Organization', name: 'TEAcompanhe', url: 'https://www.teacompanhe.com.br/' },
       audience: { '@type': 'PeopleAudience', audienceType: 'Jovens neurodivergentes' }
     };
